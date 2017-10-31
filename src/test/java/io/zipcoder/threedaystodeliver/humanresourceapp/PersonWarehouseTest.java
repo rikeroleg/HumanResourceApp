@@ -1,4 +1,4 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
-public class HumanWarehouseTest {
+public class PersonWarehouseTest {
 }
