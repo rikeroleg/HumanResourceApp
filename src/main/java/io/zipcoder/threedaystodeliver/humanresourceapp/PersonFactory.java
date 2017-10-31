@@ -1,11 +1,11 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
-public class HumanFactory {
+public class PersonFactory {
 
     //only makes Humans
     //constructor method
 
-    public static Human createHuman(HrContactInfo hrContactInfo){
+    public static Person createPerson(HrContactInfo hrContactInfo){
         return null;
     }
 

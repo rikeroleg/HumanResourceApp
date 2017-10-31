@@ -1,22 +1,12 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
-public class HumanHandler {
+public class PersonHandler {
+    
 
-    public static Contractor createContactor(Human human){
+    public static Person hire(Person person){
         return null;
     }
 
-    public static Prospect createProspect(Human human){
-        return null;
-    }
-
-    public static Employee hire(Prospect prospect){
-        return null;
-    }
-
-    public static FormerEmployee fire(Employee employee){
-        return null;
-    }
 
 
 }

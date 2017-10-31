@@ -2,7 +2,7 @@ package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 import java.util.Date;
 
-public class Employee extends Prospect {
+public class Person {
 
     //current
     private Compensation compensation;

@@ -2,31 +2,31 @@ package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 import java.util.ArrayList;
 
-public class HumanWarehouse extends Human {
+public class PersonWarehouse {
 
-    ArrayList<Human> humans = new ArrayList<>();
+    ArrayList<Person> person = new ArrayList<>();
 
-    public ArrayList<Human> getHumansByName(String name){
+    public ArrayList<Person> getPersonByName(String name){
         return null;
     }
 
-    public ArrayList<Human> getHumansByTypeAndName(Class type, String name){
+    public Person getPersonById(String id){
         return null;
     }
 
-    public Human getHumansById(String id){
+    public ArrayList<Person> getAllPersons() {
         return null;
     }
 
-    public ArrayList<Prospect> getAllProspects() {
+    public ArrayList<Person> getAllProspects() {
         return null;
     }
 
-    public ArrayList<Employee> getAllEmployees() {
+    public ArrayList<Person> getAllEmployees() {
         return null;
     }
 
-    public ArrayList<FormerEmployee> getAllFormerEmployees() {
+    public ArrayList<Person> getAllFormerEmployees() {
         return null;
     }
 
