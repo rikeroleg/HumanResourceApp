@@ -20,4 +20,19 @@ public class HrContactInfoTest {
         hrContactInfo.setStreetAddress(streetAddress);
         Assert.assertEquals(streetAddress, hrContactInfo.getStreetAddress());
     }
+
+    @Test
+    public void setPhone(){
+        HrContactInfo hrContactInfo = new HrContactInfo();
+        hrContactInfo.setPhone("830973246");
+        Assert.assertEquals("830973246", hrContactInfo.getPhone());
+
+    }
+
+    @Test
+    public void setEmail(){
+        HrContactInfo hrContactInfo = new HrContactInfo();
+        hrContactInfo.setEmail("kajshlfaskj@kjbs.com");
+        Assert.assertEquals("kajshlfaskj@kjbs.com", hrContactInfo.getEmail());
+    }
 }

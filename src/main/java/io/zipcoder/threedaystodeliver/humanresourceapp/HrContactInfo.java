@@ -37,17 +37,19 @@ class HrContactInfo {
     }
 
     public void setPhone(String phone){
-
+        this.phone = phone;
     }
 
   public String getPhone(){
-    return null;
+    return phone;
   }
   
-  public void setEmail(String email){}
+  public void setEmail(String email){
+      this.email = email;
+  }
 
   public String getEmail(){
-    return null;
+    return email;
   }
   
 }
