@@ -37,7 +37,7 @@ class HrContactInfo {
     }
 
     public void setPhone(String phone){
-      
+
     }
 
   public String getPhone(){
