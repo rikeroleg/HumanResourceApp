@@ -1,0 +1,10 @@
+Create a prospect -> new person with type prospect is created, and added to the person warehouse
+Hire employee from prospect -> populate employee fields
+Terminate employee -> populate former employee fields, remove from current employee lists
+Promote employee -> update job title, compensation
+Hire employee from new -> new person with type employee is created, and added to the person warehouse
+Display current employee record -> display compensation, hire date
+Employee record object - arraylist of [all employee fields], date stamp on each one,
+                every time a field is updated, a new entry is added to arraylist
+Update contact info -> contact info updates
+

@@ -7,8 +7,12 @@ class HrContactInfo {
   String phone;
   String email;
 
+  public HrContactInfo() {
+
+  }
+
   public HrContactInfo(String name,
-                       StreetAddress streetAaddress,
+                       StreetAddress streetAddress,
                        String phone,
                        String email){
     this.name=name;
@@ -17,12 +21,24 @@ class HrContactInfo {
     this.email=email;
   }
   
-  public void setName(String name){}
-  public String getName(){
-    return null;
+  public void setName(String name){
+      this.name = name;
   }
-  
-  public void setPhone(String phone){}
+  public String getName(){
+    return name;
+  }
+
+  public void setStreetAddress(StreetAddress streetAddress) {
+      this.streetAddress = streetAddress;
+  }
+
+    public StreetAddress getStreetAddress() {
+        return streetAddress;
+    }
+
+    public void setPhone(String phone){
+      
+    }
 
   public String getPhone(){
     return null;
