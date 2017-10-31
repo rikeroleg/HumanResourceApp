@@ -4,6 +4,9 @@ import java.util.Date;
 
 public class Person {
 
+    // name and contact stuff
+    private HrContactInfo contactInfo;
+
     //current
     private Compensation compensation;
     private Date hiredDate;
