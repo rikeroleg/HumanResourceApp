@@ -4,16 +4,17 @@ public class Human {
 
     //fields
     String name;
-    String phoneNumber;
-    String emailAddress;
-
+  ContactInfo contact;
+ 
 
 
     //constructors
 
-    Human(String name){
-
-    }
+ 
+  public Human(){}
+  
+  public Human(??);
+  
 
 
     //methods
