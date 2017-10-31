@@ -1,20 +1,13 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
-public class Human {
+public abstract class Human {
 
     //fields
     String name;
-  ContactInfo contact;
- 
+    HrContactInfo hrContactInfo;
 
 
     //constructors
-
- 
-  public Human(){}
-  
-  public Human(??);
-  
 
 
     //methods

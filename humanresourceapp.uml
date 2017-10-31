@@ -3,15 +3,109 @@
   <ID>JAVA</ID>
   <OriginalElement>io.zipcoder.threedaystodeliver.humanresourceapp</OriginalElement>
   <nodes>
-    <node x="0.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.HumanWarehouse</node>
-    <node x="0.0" y="74.0">io.zipcoder.threedaystodeliver.humanresourceapp.HumanFactory</node>
-    <node x="0.0" y="148.0">io.zipcoder.threedaystodeliver.humanresourceapp.Human</node>
+    <node x="500.0" y="85.5">io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress</node>
+    <node x="-30.5" y="821.5">io.zipcoder.threedaystodeliver.humanresourceapp.FormerEmployee</node>
+    <node x="361.0" y="1157.5">io.zipcoder.threedaystodeliver.humanresourceapp.Compensation</node>
+    <node x="1083.5" y="63.5">io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo</node>
+    <node x="813.5" y="1021.5">io.zipcoder.threedaystodeliver.humanresourceapp.HumanHandler</node>
+    <node x="334.0" y="588.0">io.zipcoder.threedaystodeliver.humanresourceapp.HumanWarehouse</node>
+    <node x="436.0" y="843.5">io.zipcoder.threedaystodeliver.humanresourceapp.Employee</node>
+    <node x="1532.0" y="174.5">io.zipcoder.threedaystodeliver.humanresourceapp.HumanFactory</node>
+    <node x="1157.0" y="403.5">io.zipcoder.threedaystodeliver.humanresourceapp.Human</node>
+    <node x="868.5" y="832.5">io.zipcoder.threedaystodeliver.humanresourceapp.Prospect</node>
   </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="128.0" y="125.5" />
-  <SelectedNodes />
-  <Categories />
+  <edges>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HumanWarehouse" target="io.zipcoder.threedaystodeliver.humanresourceapp.Employee">
+      <point x="0.0" y="92.0" />
+      <point x="0.0" y="-36.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HumanWarehouse" target="io.zipcoder.threedaystodeliver.humanresourceapp.Human">
+      <point x="0.0" y="-92.0" />
+      <point x="560.0" y="440.0" />
+      <point x="-123.0" y="0.0" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HumanWarehouse" target="io.zipcoder.threedaystodeliver.humanresourceapp.Prospect">
+      <point x="226.0" y="0.0" />
+      <point x="960.0" y="680.0" />
+      <point x="0.0" y="-47.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.Human" target="io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo">
+      <point x="0.0" y="-36.5" />
+      <point x="0.0" y="136.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo" target="io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress">
+      <point x="0.0" y="-136.5" />
+      <point x="1280.0" y="0.0" />
+      <point x="760.0" y="0.0" />
+      <point x="0.0" y="-114.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.Employee" target="io.zipcoder.threedaystodeliver.humanresourceapp.Compensation">
+      <point x="0.0" y="36.5" />
+      <point x="0.0" y="-202.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HumanWarehouse" target="io.zipcoder.threedaystodeliver.humanresourceapp.FormerEmployee">
+      <point x="-226.0" y="0.0" />
+      <point x="120.0" y="680.0" />
+      <point x="0.0" y="-58.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HumanHandler" target="io.zipcoder.threedaystodeliver.humanresourceapp.Human">
+      <point x="146.5" y="0.0" />
+      <point x="1280.0" y="1080.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.FormerEmployee" target="io.zipcoder.threedaystodeliver.humanresourceapp.Compensation">
+      <point x="40.0" y="58.5" />
+      <point x="160.0" y="1360.0" />
+      <point x="-199.0" y="0.0" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.Prospect" target="io.zipcoder.threedaystodeliver.humanresourceapp.Human">
+      <point x="91.5" y="0.0" />
+      <point x="1260.0" y="880.0" />
+      <point x="-20.0" y="36.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HumanFactory" target="io.zipcoder.threedaystodeliver.humanresourceapp.Human">
+      <point x="0.0" y="25.5" />
+      <point x="1680.0" y="440.0" />
+      <point x="123.0" y="0.0" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HumanHandler" target="io.zipcoder.threedaystodeliver.humanresourceapp.Prospect">
+      <point x="0.0" y="-58.5" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.FormerEmployee" target="io.zipcoder.threedaystodeliver.humanresourceapp.Employee">
+      <point x="150.5" y="0.0" />
+      <point x="-124.0" y="0.0" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HumanHandler" target="io.zipcoder.threedaystodeliver.humanresourceapp.FormerEmployee">
+      <point x="0.0" y="58.5" />
+      <point x="960.0" y="1640.0" />
+      <point x="120.0" y="1640.0" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HumanHandler" target="io.zipcoder.threedaystodeliver.humanresourceapp.Employee">
+      <point x="-146.5" y="0.0" />
+      <point x="600.0" y="1080.0" />
+      <point x="40.0" y="36.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.Employee" target="io.zipcoder.threedaystodeliver.humanresourceapp.Prospect">
+      <point x="124.0" y="0.0" />
+      <point x="-91.5" y="0.0" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HumanFactory" target="io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo">
+      <point x="-148.0" y="0.0" />
+      <point x="196.5" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.49337349397590363" x="898.5" y="820.0" />
+  <SelectedNodes>
+    <node>io.zipcoder.threedaystodeliver.humanresourceapp.HumanWarehouse</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+  </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
 </Diagram>

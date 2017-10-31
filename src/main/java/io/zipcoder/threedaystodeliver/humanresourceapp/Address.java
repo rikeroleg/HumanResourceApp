@@ -1,4 +1,6 @@
-class Address{
+package io.zipcoder.threedaystodeliver.humanresourceapp;
+
+class StreetAddress{
 
   String addressLine1;
   String addressLine2;
@@ -6,14 +8,14 @@ class Address{
   String state;
   String zip;//String to account for possible non-numerical postal codes
   
-  public Address(){
+  public StreetAddress(){
   }
   
-  public Address(  String addressLine1,
-                   String addressLine2,
-                   String city,
-                   String state,
-                   String zip){
+  public StreetAddress(String addressLine1,
+                       String addressLine2,
+                       String city,
+                       String state,
+                       String zip){
     this.addressLine1=addressLine1;
     this.addressLine2=addressLine2;
     this.city=city;
@@ -21,13 +23,15 @@ class Address{
     this.zip=zip;
   }
   
-  public Address getAddress(){
+  public StreetAddress getAddress(){
     return this;
   }
   
-  public changeAddress( String addressLine1,
+  public StreetAddress changeStreetAddress( String addressLine1,
                    String addressLine2,
                    String city,
                    String state,
-                   String zip){}
+                   String zip){
+    return null;
+  }
 }
