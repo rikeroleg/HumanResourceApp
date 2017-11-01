@@ -5,7 +5,7 @@ import java.util.Date;
 public class Person {
 
     // name and contact stuff
-    private HrContactInfo contactInfo;
+    private HrContactInfo contactInfo = new HrContactInfo();
 
     //current
     private Compensation compensation;
@@ -22,4 +22,7 @@ public class Person {
     private Date interviewDate;
     private double score;
 
+    public HrContactInfo getContactInfo() {
+        return contactInfo;
+    }
 }
