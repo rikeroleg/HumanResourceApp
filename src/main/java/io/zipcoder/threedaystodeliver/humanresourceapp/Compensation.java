@@ -28,14 +28,6 @@ public class Compensation {
         PtoRemaining = ptoRemaining;
     }
 
-
-
-    private enum compensationType{
-        Monthly,
-        Hourly,
-        Project
-    }
-
     public void setPayrate(double payrate) {
         this.payrate = payrate;
     }

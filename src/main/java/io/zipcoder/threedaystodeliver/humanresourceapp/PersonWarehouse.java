@@ -1,5 +1,6 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PersonWarehouse {
@@ -21,6 +22,10 @@ public class PersonWarehouse {
     }
 
     public Person getPersonById(String id){
+        for(Person person: people) {
+            if(person.getId().equals(id)) return person;
+        }
+
         return null;
     }
 
@@ -29,15 +34,33 @@ public class PersonWarehouse {
     }
 
     public ArrayList<Person> getAllProspects() {
-        return null;
+        ArrayList<Person> listOfProspects = new ArrayList<>(100);
+        for (Person person : people) {
+            if (person.getEmploymentStatus().equals(EmploymentStatus.PROSPECT)) {
+                listOfProspects.add(person);
+            }
+        }
+        return listOfProspects;
     }
 
+
     public ArrayList<Person> getAllEmployees() {
-        return null;
+        ArrayList<Person> listOfAllEmployees = new ArrayList<>(100);
+        for (Person person : people) {
+            if (person.getEmploymentStatus().equals(EmploymentStatus.EMPLOYEE)) {
+                listOfAllEmployees.add(person);
+            }
+        }
+        return listOfAllEmployees;
     }
 
     public ArrayList<Person> getAllFormerEmployees() {
-        return null;
+        ArrayList<Person> listOfFormerEmployees = new ArrayList<>(3);
+        for (Person person : people) {
+            if (person.getEmploymentStatus().equals(EmploymentStatus.TERMINATED)){
+                listOfFormerEmployees.add(person);
+            }
+        }return listOfFormerEmployees;
     }
 
 }
