@@ -108,6 +108,12 @@ public class PersonTest {
 
     }
 
+   @Test
+   public void testToString(){
+       Person emp1 = new Person();
+       System.out.println(emp1.toString());
+   }
+
     @Test
     public void testIdStubGetStaticInit(){
 //Deprecated

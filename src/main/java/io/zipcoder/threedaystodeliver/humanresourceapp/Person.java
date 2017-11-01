@@ -10,18 +10,18 @@ public class Person {
     //current
     private String id="";
     private EmploymentStatus employmentStatus;
-    private Compensation compensation=new Compensation();
-    private Date hiredDate = new Date();
+    private Compensation compensation;
+    private Date hiredDate;
 
 
     //former
-    private Date terminationDate = new Date();
+    private Date terminationDate;
     private String reasonForTermination = "";
     private String exitInterview = "";
 
     //prospect
     private String resume = "";
-    private Date interviewDate = new Date();
+    private Date interviewDate;
     private double score = 0;
 
     @Override
@@ -40,7 +40,7 @@ public class Person {
                 "Reason For Termination:  " + reasonForTermination + "\n" +
                 "Exit Interview Notes:  " + exitInterview + "\n" +
                 "Employee Score:  " + score + "\n\n" +
-                contactInfo.getName()+"'s Compensation:\n" + compensation.toString() + "\n\n");
+                contactInfo.getName()+"'s Compensation:\n" + compensation + "\n\n");
 
     }
 
