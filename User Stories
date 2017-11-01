@@ -79,7 +79,7 @@ Batch updates (all previous methods applied to an arraylist)
                 1) create contact info object
                     1) person handler creates a person with that contact info, type PROSPECT, and returns that person
                         1) print out created prospect
-        2) "Select existing prospect"
+        2) "Make changes to existing prospect"
             1) Select by id
                 1) ask for id number
                     1) person warehouse find by id with that id, returns that person
@@ -127,7 +127,12 @@ Batch updates (all previous methods applied to an arraylist)
                                     if they get medical, if they get prescription, the % retirement matching
                                     1) person handler hire method with the parameters entered from above
     2) "Employees"
-        1) Add new employee
+        1) Hire new employee
+            1) ask for contact info
+                1) create contact info object
+                    1) person handler creates a person with that contact info, type EMPLOYEE, and returns that person
+                        1) print out created employee
+        2) Make changes to existing employee
             1) Select by id
                 1) ask for id number
                     1) person warehouse find by id with that id, returns that person
@@ -183,7 +188,6 @@ Batch updates (all previous methods applied to an arraylist)
                             4) terminate employee
                                 1) ask for termination date, reason for termination, exit interview
                                     2) person handler - terminate employee
-        2) Select existing employee
     3) "Print Reports"
 
 
