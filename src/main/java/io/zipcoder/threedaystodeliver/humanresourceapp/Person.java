@@ -9,6 +9,7 @@ public class Person {
 
     //current
     private String id="";
+    private String title="";
     private EmploymentStatus employmentStatus;
     private Compensation compensation;
     private Date hiredDate;
@@ -30,6 +31,7 @@ public class Person {
 ////        private Compensation compensation=new Compensation();
         String returnMe = contactInfo.toString()+
                 "Employee ID:  " + id + "\n" +
+                "Title:  " + title + "\n" +
                 "Employment Status:  " + employmentStatus + "\n" +
                 "Entrance Interview Date:  " + interviewDate + "\n" +
                 "Resume Abstract:  " + resume + "\n" +
@@ -51,6 +53,14 @@ public class Person {
 
         return (returnMe);
 
+    }
+
+    public void setTitle(String title){
+        this.title=title;
+    }
+
+    public String getTitle(){
+        return title;
     }
 
     public void setContactInfo(HrContactInfo contactInfo) {
