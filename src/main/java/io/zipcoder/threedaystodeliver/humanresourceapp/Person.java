@@ -18,17 +18,30 @@ public class Person {
     private Date terminationDate = new Date();
     private String reasonForTermination = "";
     private String exitInterview = "";
-    private Compensation postEmploymentComp = new Compensation();
 
     //prospect
     private String resume = "";
     private Date interviewDate = new Date();
     private double score = 0;
 
-
     @Override
     public String toString(){
-        return null;
+
+////        private Compensation compensation=new Compensation();
+
+
+        return (contactInfo.toString()+
+                "Employee ID:  " + id + "\n" +
+                "Employment Status:  " + employmentStatus + "\n" +
+                "Entrance Interview Date:  " + interviewDate + "\n" +
+                "Resume Abstract:  " + resume + "\n" +
+                "Hire Date:  " + hiredDate + "\n" +
+                "Termination Date:  " + terminationDate + "\n" +
+                "Reason For Termination:  " + reasonForTermination + "\n" +
+                "Exit Interview Notes:  " + exitInterview + "\n" +
+                "Employee Score:  " + score + "\n\n" +
+                contactInfo.getName()+"'s Compensation:\n" + compensation + "\n\n");
+
     }
 
     public void setContactInfo(HrContactInfo contactInfo) {

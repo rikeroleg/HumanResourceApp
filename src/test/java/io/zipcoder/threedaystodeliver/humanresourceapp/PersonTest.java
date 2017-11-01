@@ -110,27 +110,21 @@ public class PersonTest {
 
     @Test
     public void testIdStubGetStaticInit(){
-        Person emp1 = new Person();
-        Person emp2 = new Person();
-        emp2 = new Person();
-        emp2 = new Person();
-        emp2 = new Person();
-        String expected = "4";
-        String actual = emp2.getId();
+//Deprecated
 
-        Assert.assertEquals(expected, actual);
+//        Person emp1 = new Person();
+//        Person emp2 = new Person();
+//        emp2 = new Person();
+//        emp2 = new Person();
+//        emp2 = new Person();
+//        String expected = "4";
+//        String actual = emp2.getId();
+//
+//        Assert.assertEquals(expected, actual);
 
     }
 
-    //    public HrContactInfo getContactInfo() {
-//        return contactInfo;
-//    }
-//
-//    public String getId() {
-//        return id;
-//    }
-//
-//    public void setId(String id) {
+//      public void setId(String id) {
 //        this.id = id;
 //    }
 //
