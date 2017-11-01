@@ -108,16 +108,21 @@ public class PersonTest {
 
     }
 
-//    public double getScore() {
-//        return score;
-//    }
-//
-//    public void setScore(double score) {
-//        this.score = score;
-//    }
-//
-//
-//    public HrContactInfo getContactInfo() {
+    @Test
+    public void testIdStubGetStaticInit(){
+        Person emp1 = new Person();
+        Person emp2 = new Person();
+        emp2 = new Person();
+        emp2 = new Person();
+        emp2 = new Person();
+        String expected = "4";
+        String actual = emp2.getId();
+
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    //    public HrContactInfo getContactInfo() {
 //        return contactInfo;
 //    }
 //
