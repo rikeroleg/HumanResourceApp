@@ -5,15 +5,68 @@
   <nodes>
     <node x="0.0" y="1731.0">io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress</node>
     <node x="0.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.Compensation</node>
-    <node x="1485.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo</node>
     <node x="781.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.Person</node>
+    <node x="1485.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo</node>
     <node x="1026.0" y="1731.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouse</node>
     <node x="0.0" y="2450.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory</node>
     <node x="1746.3835616438355" y="1693.9715489989462">io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler</node>
   </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic Group" zoom="1.1342629482071713" x="1010.1415525114155" y="1144.2760800842993" />
+  <edges>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory" target="io.zipcoder.threedaystodeliver.humanresourceapp.Person">
+      <point x="157.875" y="-42.0" />
+      <point x="788.0749999999999" y="3001.0" />
+      <point x="983.0" y="3001.0" />
+      <point x="983.0" y="2597.0" />
+      <point x="916.2340909090908" y="2597.0" />
+      <point x="206.79999999999995" y="708.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo" target="io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress">
+      <point x="-142.5" y="-283.5" />
+      <point x="258.54999999999995" y="407.0" />
+      <point x="209.79999999999995" y="407.0" />
+      <point x="-191.25" y="191.0" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouse" target="io.zipcoder.threedaystodeliver.humanresourceapp.Person">
+      <point x="-126.0" y="-172.0" />
+      <point x="136.5" y="2597.0" />
+      <point x="502.63409090909084" y="2597.0" />
+      <point x="-206.8" y="708.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.Person" target="io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo">
+      <point x="0.0" y="-708.5" />
+      <point x="709.4340909090909" y="1140.0" />
+      <point x="614.8" y="1140.0" />
+      <point x="213.75" y="283.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory" target="io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo">
+      <point x="-157.875" y="-42.0" />
+      <point x="472.32499999999993" y="3001.0" />
+      <point x="0.0" y="3001.0" />
+      <point x="0.0" y="1140.0" />
+      <point x="187.29999999999995" y="1140.0" />
+      <point x="-213.75" y="283.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler" target="io.zipcoder.threedaystodeliver.humanresourceapp.Person">
+      <point x="0.0" y="-97.5" />
+      <point x="748.0" y="2607.0" />
+      <point x="709.4340909090909" y="2607.0" />
+      <point x="0.0" y="708.5" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.Person" target="io.zipcoder.threedaystodeliver.humanresourceapp.Compensation">
+      <point x="206.79999999999995" y="-708.5" />
+      <point x="916.2340909090908" y="1140.0" />
+      <point x="1138.8" y="1140.0" />
+      <point x="144.25" y="339.0" />
+    </edge>
+    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory" target="io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouse">
+      <point x="-52.625" y="-42.0" />
+      <point x="577.5749999999999" y="2991.0" />
+      <point x="262.5" y="2991.0" />
+      <point x="0.0" y="172.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.3021776249321202" x="982.0046395238201" y="1508.517915916468" />
   <SelectedNodes>
     <node>io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler</node>
   </SelectedNodes>
