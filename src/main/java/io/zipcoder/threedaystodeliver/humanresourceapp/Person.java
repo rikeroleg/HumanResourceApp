@@ -40,7 +40,7 @@ public class Person {
                 "Employee Score:  " + score + "\n\n" +
                 contactInfo.getName()+"'s Compensation:\n";
 
-        if (compensation==null)
+        if (compensation!=null)
         {
             returnMe+= (compensation.toString() + "\n\n");
         }
@@ -48,7 +48,7 @@ public class Person {
         {
             returnMe+= "\n";
         }
-        
+
         return (returnMe);
 
     }
