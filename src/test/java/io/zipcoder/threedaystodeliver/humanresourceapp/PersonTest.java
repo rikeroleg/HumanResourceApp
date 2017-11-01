@@ -70,22 +70,6 @@ public class PersonTest {
 
         Assert.assertEquals(expected, actual);
     }
-//    public String getExitInterview() {
-//        return exitInterview;
-//    }
-//
-//    public void setExitInterview(String exitInterview) {
-//        this.exitInterview = exitInterview;
-//    }
-//
-////    public Compensation getPostEmploymentComp() {
-////        return postEmploymentComp;
-////    }
-//
-//    public void setPostEmploymentComp(Compensation postEmploymentComp) {
-//        this.postEmploymentComp = postEmploymentComp;
-//    }
-//
 //    public String getResume() {
 //        return resume;
 //    }
