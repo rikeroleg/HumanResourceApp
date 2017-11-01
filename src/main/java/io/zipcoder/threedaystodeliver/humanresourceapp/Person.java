@@ -40,7 +40,7 @@ public class Person {
                 "Reason For Termination:  " + reasonForTermination + "\n" +
                 "Exit Interview Notes:  " + exitInterview + "\n" +
                 "Employee Score:  " + score + "\n\n" +
-                contactInfo.getName()+"'s Compensation:\n" + compensation + "\n\n");
+                contactInfo.getName()+"'s Compensation:\n" + compensation.toString() + "\n\n");
 
     }
 
@@ -86,14 +86,6 @@ public class Person {
 
     public void setExitInterview(String exitInterview) {
         this.exitInterview = exitInterview;
-    }
-
-    public Compensation getPostEmploymentComp() {
-        return postEmploymentComp;
-    }
-
-    public void setPostEmploymentComp(Compensation postEmploymentComp) {
-        this.postEmploymentComp = postEmploymentComp;
     }
 
     public String getResume() {
