@@ -70,6 +70,18 @@ public class PersonTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void testResumeStubSetAndGet(){
+        Person emp1 = new Person();
+        String expected = "Illegibly scribbled on a napkin";
+
+        emp1.setResume(expected);
+
+        String actual = emp1.getResume();
+
+        Assert.assertEquals(expected, actual);
+    }
 //    public String getResume() {
 //        return resume;
 //    }
