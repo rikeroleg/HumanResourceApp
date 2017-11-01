@@ -32,7 +32,7 @@ public class PersonWarehouseTest {
         personWarehouse.addPerson(testPerson1);
         personWarehouse.addPerson(testPerson2);
         testPerson1.setEmploymentStatus(EMPLOYEE);
-        testPerson2.setEmploymentStatus(EMPLOYEE);
+        testPerson2.setEmploymentStatus(PROSPECT);
         testPerson1.getContactInfo().setName("testName");
         testPerson2.getContactInfo().setName("testName");
 
@@ -47,7 +47,7 @@ public class PersonWarehouseTest {
     public void getPersonByIdTest(){
         PersonWarehouse personWarehouse = new PersonWarehouse();
         Person testPerson1 = new Person();
-        testPerson1.setEmploymentStatus(EMPLOYEE);
+        testPerson1.setEmploymentStatus(TERMINATED);
         personWarehouse.addPerson(testPerson1);
         testPerson1.setId("4815162342");
         Assert.assertEquals(testPerson1, personWarehouse.getPersonById("4815162342"));
@@ -58,52 +58,47 @@ public class PersonWarehouseTest {
     @Test
     public void getAllProspects(){
         PersonWarehouse personWarehouse = new PersonWarehouse();
-        ArrayList<Person> testProspects = new ArrayList<>(25);
+        int inititalAllProspectsCount = personWarehouse.getAllProspects().size();
+
         for(int i =0; i < 5; i++){
             Person testPerson = new Person();
             testPerson.setEmploymentStatus(PROSPECT);
-            testProspects.add(testPerson);
             personWarehouse.addPerson(testPerson);
         }
 
-
-        ArrayList<Person> actualProspects = personWarehouse.getAllProspects();
-
-        Assert.assertArrayEquals(testProspects.toArray(), actualProspects.toArray());
+        Assert.assertEquals(inititalAllProspectsCount+5, personWarehouse.getAllProspects().size());
 
     }
 
     @Test
     public void getAllEmployees(){
         PersonWarehouse personWarehouse = new PersonWarehouse();
-        ArrayList<Person> testAllEmployees = new ArrayList<>(1000);
-        for(int i =0; i < 5; i++){
+
+
+        int inititalAllEmployeesCount = personWarehouse.getAllEmployees().size();
+
+        for(int i =0; i < 50; i++){
             Person testPerson = new Person();
             testPerson.setEmploymentStatus(EMPLOYEE);
-            testAllEmployees.add(testPerson);
             personWarehouse.addPerson(testPerson);
         }
 
-        ArrayList<Person> actualAllEmployees = personWarehouse.getAllEmployees();
-
-        Assert.assertArrayEquals(testAllEmployees.toArray(), actualAllEmployees.toArray());
+        Assert.assertEquals(inititalAllEmployeesCount+50, personWarehouse.getAllEmployees().size());
 
     }
 
     @Test
     public void getAllFormerEmployees(){
         PersonWarehouse personWarehouse = new PersonWarehouse();
-        ArrayList<Person> testAllFormerEmployees = new ArrayList<>(25);
+        int inititalAllFormerCount = personWarehouse.getAllFormerEmployees().size();
+
         for(int i =0; i < 255; i++){
             Person testPerson = new Person();
             testPerson.setEmploymentStatus(TERMINATED);
-            testAllFormerEmployees.add(testPerson);
             personWarehouse.addPerson(testPerson);
         }
 
-        ArrayList<Person> actualFormerEmployees = personWarehouse.getAllFormerEmployees();
-
-        Assert.assertArrayEquals(testAllFormerEmployees.toArray(), actualFormerEmployees.toArray());
+        Assert.assertEquals(inititalAllFormerCount+255, personWarehouse.getAllFormerEmployees().size());
 
     }
 
