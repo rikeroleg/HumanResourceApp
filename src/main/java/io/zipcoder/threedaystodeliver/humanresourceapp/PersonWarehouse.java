@@ -48,7 +48,7 @@ public class PersonWarehouse {
     public  static ArrayList<Person> getAllProspects() {
         ArrayList<Person> listOfProspects = new ArrayList<>(100);
         for (Person person : people) {
-            if (person.getEmploymentStatus().equals(EmploymentStatus.PROSPECT)) {
+            if (EmploymentStatus.PROSPECT.equals(person.getEmploymentStatus())) {
                 listOfProspects.add(person);
             }
         }
@@ -59,7 +59,7 @@ public class PersonWarehouse {
     public  static ArrayList<Person> getAllEmployees() {
         ArrayList<Person> listOfAllEmployees = new ArrayList<>(100);
         for (Person person : people) {
-            if (person.getEmploymentStatus().equals(EmploymentStatus.EMPLOYEE)) {
+            if (EmploymentStatus.EMPLOYEE.equals(person.getEmploymentStatus())) {
                 listOfAllEmployees.add(person);
             }
         }
@@ -69,7 +69,7 @@ public class PersonWarehouse {
     public static ArrayList<Person> getAllFormerEmployees() {
         ArrayList<Person> listOfFormerEmployees = new ArrayList<>(3);
         for (Person person : people) {
-            if (person.getEmploymentStatus().equals(EmploymentStatus.TERMINATED)){
+            if (EmploymentStatus.TERMINATED.equals(person.getEmploymentStatus())){
                 listOfFormerEmployees.add(person);
             }
         }return listOfFormerEmployees;
