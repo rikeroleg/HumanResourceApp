@@ -1,6 +1,7 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -13,24 +14,28 @@ import static io.zipcoder.threedaystodeliver.humanresourceapp.EmploymentStatus.T
 
 public class PersonWarehouseTest {
 
+
+    @Before
+    public void setUp(){
+        PersonWarehouse.getInstance();
+    }
+    
     @Test
     public void addPersonTest() {
-        PersonWarehouse personWarehouse = new PersonWarehouse();
         Person testPerson = new Person();
         testPerson.setEmploymentStatus(EmploymentStatus.EMPLOYEE);
-        int initialSize = personWarehouse.getAllPeople().size();
-        personWarehouse.addPerson(testPerson);
-        Assert.assertEquals(initialSize + 1, personWarehouse.getAllPeople().size());
+        int initialSize = PersonWarehouse.getAllPeople().size();
+        PersonWarehouse.addPerson(testPerson);
+        Assert.assertEquals(initialSize + 1, PersonWarehouse.getAllPeople().size());
 
     }
 
     @Test
     public void getPersonByNameTest() {
-        PersonWarehouse personWarehouse = new PersonWarehouse();
         Person testPerson1 = new Person();
         Person testPerson2 = new Person();
-        personWarehouse.addPerson(testPerson1);
-        personWarehouse.addPerson(testPerson2);
+        PersonWarehouse.addPerson(testPerson1);
+        PersonWarehouse.addPerson(testPerson2);
         testPerson1.setEmploymentStatus(EMPLOYEE);
         testPerson2.setEmploymentStatus(PROSPECT);
         testPerson1.getContactInfo().setName("testName");
@@ -40,65 +45,59 @@ public class PersonWarehouseTest {
         testArrayList.add(testPerson1);
         testArrayList.add(testPerson2);
 
-        Assert.assertArrayEquals(testArrayList.toArray(), personWarehouse.getPersonByName("testName").toArray());
+        Assert.assertArrayEquals(testArrayList.toArray(), PersonWarehouse.getPersonByName("testName").toArray());
     }
 
     @Test
     public void getPersonByIdTest(){
-        PersonWarehouse personWarehouse = new PersonWarehouse();
         Person testPerson1 = new Person();
         testPerson1.setEmploymentStatus(TERMINATED);
-        personWarehouse.addPerson(testPerson1);
+        PersonWarehouse.addPerson(testPerson1);
         testPerson1.setId("4815162342");
-        Assert.assertEquals(testPerson1, personWarehouse.getPersonById("4815162342"));
+        Assert.assertEquals(testPerson1, PersonWarehouse.getPersonById("4815162342"));
 
 
     }
 
     @Test
     public void getAllProspects(){
-        PersonWarehouse personWarehouse = new PersonWarehouse();
-        int inititalAllProspectsCount = personWarehouse.getAllProspects().size();
+        int inititalAllProspectsCount = PersonWarehouse.getAllProspects().size();
 
         for(int i =0; i < 5; i++){
             Person testPerson = new Person();
             testPerson.setEmploymentStatus(PROSPECT);
-            personWarehouse.addPerson(testPerson);
+            PersonWarehouse.addPerson(testPerson);
         }
 
-        Assert.assertEquals(inititalAllProspectsCount+5, personWarehouse.getAllProspects().size());
+        Assert.assertEquals(inititalAllProspectsCount+5, PersonWarehouse.getAllProspects().size());
 
     }
 
     @Test
     public void getAllEmployees(){
-        PersonWarehouse personWarehouse = new PersonWarehouse();
-
-
-        int inititalAllEmployeesCount = personWarehouse.getAllEmployees().size();
+        int inititalAllEmployeesCount = PersonWarehouse.getAllEmployees().size();
 
         for(int i =0; i < 50; i++){
             Person testPerson = new Person();
             testPerson.setEmploymentStatus(EMPLOYEE);
-            personWarehouse.addPerson(testPerson);
+            PersonWarehouse.addPerson(testPerson);
         }
 
-        Assert.assertEquals(inititalAllEmployeesCount+50, personWarehouse.getAllEmployees().size());
+        Assert.assertEquals(inititalAllEmployeesCount+50, PersonWarehouse.getAllEmployees().size());
 
     }
 
     @Test
     public void getAllFormerEmployees(){
-        PersonWarehouse personWarehouse = new PersonWarehouse();
-        int inititalAllFormerCount = personWarehouse.getAllFormerEmployees().size();
+        int inititalAllFormerCount = PersonWarehouse.getAllFormerEmployees().size();
 
         for(int i =0; i < 255; i++){
             Person testPerson = new Person();
             testPerson.setEmploymentStatus(TERMINATED);
-            personWarehouse.addPerson(testPerson);
+            PersonWarehouse.addPerson(testPerson);
         }
 
-        Assert.assertEquals(inititalAllFormerCount+255, personWarehouse.getAllFormerEmployees().size());
+        Assert.assertEquals(inititalAllFormerCount+255, PersonWarehouse.getAllFormerEmployees().size());
 
     }
 

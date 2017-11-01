@@ -1,5 +1,6 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class PersonHandlerTest {
@@ -11,11 +12,23 @@ public class PersonHandlerTest {
 //    verify person is in the warehouse
 //    information is populated into person
 
+    String name = "Uncle Bob";
+    StreetAddress address = new StreetAddress();
+    String phone = "123-456-7890";
+    String email = "cleancode@forever.com";
+
+    HrContactInfo info = new HrContactInfo(name, address, phone, email);
+
+
     @Test
-    public void createProspectTest(){
+    public void createProspectTypeShouldBeProspectTest(){
+        Person person = PersonHandler.createProspect(info);
+        Assert.assertEquals( EmploymentStatus.PROSPECT, person.getEmploymentStatus());
+    }
 
-
-
+    @Test
+    public void createProspectAddToWarehouseTest(){
+//        PersonWarehouse.
     }
 
 //    Change prospects status during interview stage ->

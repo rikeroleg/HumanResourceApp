@@ -5,13 +5,25 @@ import java.util.ArrayList;
 
 public class PersonWarehouse {
 
+    private static final PersonWarehouse INSTANCE = null;
+
     private static ArrayList<Person> people = new ArrayList<>();
+
+    private PersonWarehouse(){}
+
+    public static PersonWarehouse getInstance(){
+        if(INSTANCE == null){
+            return new PersonWarehouse();
+        } else {
+            return INSTANCE;
+        }
+    }
 
     public static void addPerson(Person person) {
         people.add(person);
     }
 
-    public ArrayList<Person> getPersonByName(String name){
+    public static ArrayList<Person> getPersonByName(String name){
         ArrayList<Person> listOfMatchedNames = new ArrayList<>(10);
         for(Person person: people) {
             if(person.getContactInfo().getName().equals(name)) {
@@ -21,7 +33,7 @@ public class PersonWarehouse {
         return listOfMatchedNames;
     }
 
-    public Person getPersonById(String id){
+    public static Person getPersonById(String id){
         for(Person person: people) {
             if(person.getId().equals(id)) return person;
         }
@@ -29,11 +41,11 @@ public class PersonWarehouse {
         return null;
     }
 
-    public ArrayList<Person> getAllPeople() {
+    public static ArrayList<Person> getAllPeople() {
         return people;
     }
 
-    public ArrayList<Person> getAllProspects() {
+    public  static ArrayList<Person> getAllProspects() {
         ArrayList<Person> listOfProspects = new ArrayList<>(100);
         for (Person person : people) {
             if (person.getEmploymentStatus().equals(EmploymentStatus.PROSPECT)) {
@@ -44,7 +56,7 @@ public class PersonWarehouse {
     }
 
 
-    public ArrayList<Person> getAllEmployees() {
+    public  static ArrayList<Person> getAllEmployees() {
         ArrayList<Person> listOfAllEmployees = new ArrayList<>(100);
         for (Person person : people) {
             if (person.getEmploymentStatus().equals(EmploymentStatus.EMPLOYEE)) {
@@ -54,7 +66,7 @@ public class PersonWarehouse {
         return listOfAllEmployees;
     }
 
-    public ArrayList<Person> getAllFormerEmployees() {
+    public static ArrayList<Person> getAllFormerEmployees() {
         ArrayList<Person> listOfFormerEmployees = new ArrayList<>(3);
         for (Person person : people) {
             if (person.getEmploymentStatus().equals(EmploymentStatus.TERMINATED)){
