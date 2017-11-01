@@ -32,7 +32,7 @@ public class PersonTest {
 
         Date actual = emp1.getHiredDate();
 
-        Assert.assertEquals(actual.toString(), actual.toString());
+        Assert.assertEquals(expected.toString(), actual.toString());
     }
 
     @Test
@@ -44,25 +44,20 @@ public class PersonTest {
 
         Date actual = emp1.getTerminationDate();
 
-        Assert.assertEquals(actual.toString(), actual.toString());
+        Assert.assertEquals(expected.toString(), actual.toString());
     }
 
-//    public Date getTerminationDate() {
-//        return terminationDate;
-//    }
-//
-//    public void setTerminationDate(Date terminationDate) {
-//        this.terminationDate = terminationDate;
-//    }
-//
-//    public String getReasonForTermination() {
-//        return reasonForTermination;
-//    }
-//
-//    public void setReasonForTermination(String reasonForTermination) {
-//        this.reasonForTermination = reasonForTermination;
-//    }
-//
+    @Test
+    public void testReasonForTerminationSetAndGet(){
+        Person emp1 = new Person();
+        String expected = "Offenses against cats";
+
+        emp1.setReasonForTermination(expected);
+
+        String actual = emp1.getReasonForTermination();
+
+        Assert.assertEquals(expected, actual);
+    }
 //    public String getExitInterview() {
 //        return exitInterview;
 //    }
