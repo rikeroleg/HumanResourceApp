@@ -28,9 +28,7 @@ public class Person {
     public String toString(){
 
 ////        private Compensation compensation=new Compensation();
-
-
-        return (contactInfo.toString()+
+        String returnMe = contactInfo.toString()+
                 "Employee ID:  " + id + "\n" +
                 "Employment Status:  " + employmentStatus + "\n" +
                 "Entrance Interview Date:  " + interviewDate + "\n" +
@@ -40,7 +38,18 @@ public class Person {
                 "Reason For Termination:  " + reasonForTermination + "\n" +
                 "Exit Interview Notes:  " + exitInterview + "\n" +
                 "Employee Score:  " + score + "\n\n" +
-                contactInfo.getName()+"'s Compensation:\n" + compensation + "\n\n");
+                contactInfo.getName()+"'s Compensation:\n";
+
+        if (compensation==null)
+        {
+            returnMe+= (compensation.toString() + "\n\n");
+        }
+        else
+        {
+            returnMe+= "\n";
+        }
+        
+        return (returnMe);
 
     }
 
