@@ -4,6 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
+import static io.zipcoder.threedaystodeliver.humanresourceapp.EmploymentStatus.PROSPECT;
 
 public class PersonWarehouseTest {
 
@@ -29,5 +33,38 @@ public class PersonWarehouseTest {
         testArrayList.add(testPerson1);
         testArrayList.add(testPerson2);
         Assert.assertEquals(testArrayList, personWarehouse.getPersonByName("testName"));
+    }
+
+    @Test
+    public void getPersonByIdTest(){
+        PersonWarehouse personWarehouse = new PersonWarehouse();
+        Person testPerson1 = new Person();
+        personWarehouse.addPerson(testPerson1);
+        testPerson1.setId("4815162342");
+        Assert.assertEquals(testPerson1, personWarehouse.getPersonById("4815162342"));
+
+
+    }
+
+    @Test
+    public void getAllProspects(){
+        PersonWarehouse personWarehouse = new PersonWarehouse();
+        ArrayList<Person> testProspects = new ArrayList<>(25);
+        for(Person person: testProspects) {
+            person.setEmploymentStatus(PROSPECT);
+            personWarehouse.addPerson(person);
+        }
+
+        ArrayList<Person> actualProspects = personWarehouse.getAllProspects();;
+
+        //Assert.assertArrayEquals(testProspects, actualProspects);
+        boolean check = true;
+        for(Person person: testProspects){
+            if(actualProspects.contains(person)) {}
+            else{check = false;}
+        }
+
+        Assert.assertTrue(check);
+
     }
 }

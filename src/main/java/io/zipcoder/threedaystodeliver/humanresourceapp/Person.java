@@ -8,6 +8,8 @@ public class Person {
     private HrContactInfo contactInfo = new HrContactInfo();
 
     //current
+    private String id;
+    private EmploymentStatus employmentStatus;
     private Compensation compensation;
     private Date hiredDate;
 
@@ -24,5 +26,21 @@ public class Person {
 
     public HrContactInfo getContactInfo() {
         return contactInfo;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Enum getEmploymentStatus() {
+        return employmentStatus;
+    }
+
+    public void setEmploymentStatus(EmploymentStatus employmentStatus) {
+        this.employmentStatus = employmentStatus;
     }
 }
