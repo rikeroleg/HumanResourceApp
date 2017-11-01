@@ -16,7 +16,7 @@ public class CompensationTest {
     public void setBonus(){
         Compensation compensation = new Compensation();
         compensation.setBonus(4000);
-        Assert.assertEquals(4000, compensation.getBonus());
+        Assert.assertEquals(4000, compensation.getBonus(), 0.001);
 
     }
 }

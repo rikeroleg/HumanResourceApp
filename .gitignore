@@ -53,3 +53,5 @@ fabric.properties
 
 .idea/inspectionProfiles/
 src/main/resources/
+
+*.uml
