@@ -6,6 +6,10 @@ public class PersonFactory {
     //constructor method
 
     public static Person createPerson(HrContactInfo hrContactInfo){
+        Person person = new Person();
+
+        PersonWarehouse.addPerson(person);
+
         return null;
     }
 
