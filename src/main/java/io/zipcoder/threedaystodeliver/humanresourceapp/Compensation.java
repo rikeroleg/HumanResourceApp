@@ -40,6 +40,10 @@ public class Compensation {
         return usePTO;
     }
 
+    public void setPayrate(double payrate) {
+        this.payrate = payrate;
+    }
+
     public double getPtoRemaining() {
 
         PtoRemaining = PtoMaxPerYear - usePTO;
@@ -52,9 +56,6 @@ public class Compensation {
         return usePTO;
     }
 
-    public void setPayrate(double payrate) {
-        this.payrate = payrate;
-    }
 
     public double getPayrate() {
         return payrate;

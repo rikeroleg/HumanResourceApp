@@ -2,11 +2,11 @@ package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 class StreetAddress{
 
-  String addressLine1;
-  String addressLine2;
-  String city;
-  String state;
-  String zip;//String to account for possible non-numerical postal codes
+  String addressLine1 = "";
+  String addressLine2 = "";
+  String city = "";
+  String state = "";
+  String zip = "";//String to account for possible non-numerical postal codes
   
   public StreetAddress(){
   }
@@ -25,35 +25,42 @@ class StreetAddress{
 
   @Override
   public String toString(){
-    return null;
+    String returnMe = "" + addressLine1 + "\n" +
+                           addressLine2 + "\n" +
+                           city + " " + state +", " + zip + "\n\n";
+    return returnMe;
   }
 
-  public StreetAddress changeStreetAddress( String addressLine1,
+  public void changeStreetAddress( String addressLine1,
                    String addressLine2,
                    String city,
                    String state,
                    String zip){
-    return null;
+      this.addressLine1 = addressLine1;
+      this.addressLine2 = addressLine2;
+      this.city = city;
+      this.state = state;
+      this.zip = zip;
   }
 
   public String getAddressLine1(){
-    return null;
+    return addressLine1;
   }
 
   public String getAddressLine2(){
-    return null;
+    return addressLine2;
   }
 
   public String getCity(){
-    return null;
+    return city;
   }
 
   public String getState(){
-    return null;
+    return state;
   }
 
   public String getZip(){
-    return null;
+    return zip;
   }
 
 }

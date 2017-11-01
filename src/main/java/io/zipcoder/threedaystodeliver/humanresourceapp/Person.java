@@ -8,22 +8,22 @@ public class Person {
     private HrContactInfo contactInfo = new HrContactInfo();
 
     //current
-    private String id;
+    private String id="";
     private EmploymentStatus employmentStatus;
-    private Compensation compensation;
-    private Date hiredDate;
+    private Compensation compensation=new Compensation();
+    private Date hiredDate = new Date();
 
 
     //former
-    private Date terminationDate;
-    private String reasonForTermination;
-    private String exitInterview;
-    private Compensation postEmploymentComp;
+    private Date terminationDate = new Date();
+    private String reasonForTermination = "";
+    private String exitInterview = "";
+    private Compensation postEmploymentComp = new Compensation();
 
     //prospect
-    private String resume;
-    private Date interviewDate;
-    private double score;
+    private String resume = "";
+    private Date interviewDate = new Date();
+    private double score = 0;
 
 
     @Override
@@ -113,7 +113,7 @@ public class Person {
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String id) {
