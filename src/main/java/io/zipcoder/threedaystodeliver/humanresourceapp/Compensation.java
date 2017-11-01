@@ -31,8 +31,31 @@ public class Compensation {
         return PtoMaxPerYear;
     }
 
+    @Override
+    public String toString() {
+
+
+        return String.format(
+                "|UsePTO: $" + usePTO + "           |" +
+                        "   |Payrate: $" + payrate + "      |" +
+                        "   |Bonus: $" + bonus + "             |" + "\n" +
+                        "\n|CompensationType: $" + compensationType + "|" +
+                        "   |PtoMaxPerYear:$" + PtoMaxPerYear + " |" + "  " +
+                        " |Dental: " + dental + "           |" + "\n" +
+                        "\n|PtoRemaining: $" + PtoRemaining + "     |" +
+                        "   |Vision: " + vision + "      |" +
+                        "   |Retirement: " + retirement + "       |" + "\n" +
+
+                        "\n|Medical: " + medical + "         |" +
+                        "   |Prescription: " + prescription + "|" +
+
+                        "   |RetirementMatching: $" + retirementMatching + "|"
+        );
+    }
+
     public void setUsePTO(double amount) {
         this.usePTO = amount;
+
 
     }
 
