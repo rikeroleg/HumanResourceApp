@@ -30,7 +30,7 @@ public class PersonFactory {
             person.setId(nextPersonID());
         } catch (NoMorePersonIDException e) {
         }
-        PersonWarehouse.addPerson(person);
+        PersonWarehouse.getInstance().addPerson(person);
 
         return person;
     }
