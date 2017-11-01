@@ -28,10 +28,6 @@ public class Compensation {
         PtoRemaining = ptoRemaining;
     }
 
-
-
-
-
     public void setPayrate(double payrate) {
         this.payrate = payrate;
     }
