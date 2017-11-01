@@ -3,64 +3,23 @@
   <ID>JAVA</ID>
   <OriginalElement>io.zipcoder.threedaystodeliver.humanresourceapp</OriginalElement>
   <nodes>
-    <node x="656.25" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress</node>
-    <node x="0.0" y="1834.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonTest</node>
-    <node x="141.0" y="433.0">io.zipcoder.threedaystodeliver.humanresourceapp.Compensation</node>
-    <node x="770.03125" y="563.5">io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo</node>
-    <node x="322.0" y="1014.0">io.zipcoder.threedaystodeliver.humanresourceapp.Person</node>
-    <node x="1466.25" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouseTest</node>
-    <node x="285.0" y="1481.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouse</node>
-    <node x="881.78125" y="1593.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory</node>
-    <node x="0.0" y="1593.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler</node>
+    <node x="0.0" y="1731.0">io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress</node>
+    <node x="0.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.Compensation</node>
+    <node x="1485.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo</node>
+    <node x="781.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.Person</node>
+    <node x="1026.0" y="1731.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouse</node>
+    <node x="0.0" y="2450.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory</node>
+    <node x="1746.3835616438355" y="1693.9715489989462">io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler</node>
   </nodes>
   <notes />
-  <edges>
-    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory" target="io.zipcoder.threedaystodeliver.humanresourceapp.Person">
-      <point x="-105.25" y="-42.0" />
-      <point x="987.03125" y="1456.0" />
-      <point x="698.25" y="1456.0" />
-      <point x="161.25" y="208.5" />
-    </edge>
-    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouse" target="io.zipcoder.threedaystodeliver.humanresourceapp.Person">
-      <point x="126.0" y="-154.0" />
-      <point x="663.0" y="1456.0" />
-      <point x="590.75" y="1456.0" />
-      <point x="53.75" y="208.5" />
-    </edge>
-    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo" target="io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress">
-      <point x="142.5" y="-135.0" />
-      <point x="1197.53125" y="408.0" />
-      <point x="1230.0" y="408.0" />
-      <point x="191.25" y="191.5" />
-    </edge>
-    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.Person" target="io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo">
-      <point x="107.5" y="-208.5" />
-      <point x="644.5" y="989.0" />
-      <point x="912.53125" y="989.0" />
-      <point x="-142.5" y="135.0" />
-    </edge>
-    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory" target="io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo">
-      <point x="105.25" y="-42.0" />
-      <point x="142.5" y="135.0" />
-    </edge>
-    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler" target="io.zipcoder.threedaystodeliver.humanresourceapp.Person">
-      <point x="0.0" y="-42.0" />
-      <point x="132.5" y="1456.0" />
-      <point x="375.75" y="1456.0" />
-      <point x="-161.25" y="208.5" />
-    </edge>
-    <edge source="io.zipcoder.threedaystodeliver.humanresourceapp.Person" target="io.zipcoder.threedaystodeliver.humanresourceapp.Compensation">
-      <point x="-107.5" y="-208.5" />
-      <point x="0.0" y="265.5" />
-    </edge>
-  </edges>
-  <settings layout="Hierarchic Group" zoom="0.517642951539337" x="1016.9493617899716" y="606.2859254020731" />
-  <SelectedNodes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.1342629482071713" x="1010.1415525114155" y="1144.2760800842993" />
+  <SelectedNodes>
+    <node>io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
-    <Category>Inner Classes</Category>
     <Category>Constructors</Category>
-    <Category>Properties</Category>
     <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>

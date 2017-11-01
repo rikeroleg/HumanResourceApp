@@ -4,18 +4,28 @@ import java.util.ArrayList;
 
 public class PersonWarehouse {
 
-    ArrayList<Person> person = new ArrayList<>();
+    private static ArrayList<Person> people = new ArrayList<>();
+
+    public static void addPerson(Person person) {
+        people.add(person);
+    }
 
     public ArrayList<Person> getPersonByName(String name){
-        return null;
+        ArrayList<Person> listOfMatchedNames = new ArrayList<>(10);
+        for(Person person: people) {
+            if(person.getContactInfo().getName().equals(name)) {
+                listOfMatchedNames.add(person);
+            }
+        }
+        return listOfMatchedNames;
     }
 
     public Person getPersonById(String id){
         return null;
     }
 
-    public ArrayList<Person> getAllPersons() {
-        return null;
+    public ArrayList<Person> getAllPeople() {
+        return people;
     }
 
     public ArrayList<Person> getAllProspects() {

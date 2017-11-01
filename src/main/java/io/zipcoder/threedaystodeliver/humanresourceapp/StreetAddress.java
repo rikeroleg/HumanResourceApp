@@ -22,11 +22,12 @@ class StreetAddress{
     this.state=state;
     this.zip=zip;
   }
-  
-  public StreetAddress getAddress(){
-    return this;
+
+  @Override
+  public String toString(){
+    return null;
   }
-  
+
   public StreetAddress changeStreetAddress( String addressLine1,
                    String addressLine2,
                    String city,
@@ -34,4 +35,25 @@ class StreetAddress{
                    String zip){
     return null;
   }
+
+  public String getAddressLine1(){
+    return null;
+  }
+
+  public String getAddressLine2(){
+    return null;
+  }
+
+  public String getCity(){
+    return null;
+  }
+
+  public String getState(){
+    return null;
+  }
+
+  public String getZip(){
+    return null;
+  }
+
 }
