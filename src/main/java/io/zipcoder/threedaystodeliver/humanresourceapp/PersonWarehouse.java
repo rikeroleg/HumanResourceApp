@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class PersonWarehouse {
 
-    ArrayList<Person> people = new ArrayList<>();
+    private static ArrayList<Person> people = new ArrayList<>();
 
-    public void addPerson(Person person) {
+    public static void addPerson(Person person) {
         people.add(person);
     }
 

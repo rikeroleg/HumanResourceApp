@@ -3,27 +3,23 @@
   <ID>JAVA</ID>
   <OriginalElement>io.zipcoder.threedaystodeliver.humanresourceapp</OriginalElement>
   <nodes>
-    <node x="0.0" y="647.0">io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress</node>
-    <node x="-15.0" y="-15.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonTest</node>
-    <node x="763.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.Compensation</node>
-    <node x="567.0" y="647.0">io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo</node>
-    <node x="-15.0" y="-15.0">io.zipcoder.threedaystodeliver.humanresourceapp.Person</node>
-    <node x="-15.0" y="-15.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouseTest</node>
-    <node x="-15.0" y="-15.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouse</node>
-    <node x="-15.0" y="-15.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler</node>
-    <node x="-15.0" y="-15.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory</node>
+    <node x="0.0" y="1731.0">io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress</node>
+    <node x="0.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.Compensation</node>
+    <node x="1485.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo</node>
+    <node x="781.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.Person</node>
+    <node x="1026.0" y="1731.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouse</node>
+    <node x="0.0" y="2450.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory</node>
+    <node x="1746.3835616438355" y="1693.9715489989462">io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler</node>
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="0.9178148064657472" x="224.93184911814194" y="-44.89238841922966" />
+  <settings layout="Hierarchic Group" zoom="1.1342629482071713" x="1010.1415525114155" y="1144.2760800842993" />
   <SelectedNodes>
-    <node>io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress</node>
+    <node>io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler</node>
   </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
-    <Category>Inner Classes</Category>
     <Category>Constructors</Category>
-    <Category>Properties</Category>
     <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
