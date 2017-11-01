@@ -3,7 +3,7 @@ package io.zipcoder.threedaystodeliver.humanresourceapp;
 class HrContactInfo {
 
   String name = "";
-  StreetAddress streetAddress;
+  StreetAddress streetAddress = new StreetAddress();
   String phone = "";
   String email = "";
 
