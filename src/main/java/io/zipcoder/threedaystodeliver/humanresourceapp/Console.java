@@ -87,8 +87,37 @@ public class Console {
 
     }
 
+   public Person selectPersonToUpdate(){
+       System.out.println("Update by Id (select 1), update by Name (select 2)");
+       int menuSelect = scan.nextInt();
 
+       PersonWarehouse people = PersonWarehouse.getInstance();
+
+       if(menuSelect == 1){
+
+       }
+   }
+
+}
+
+
+   public void updateContactName(){
+   }
+
+   public void updatePhoneNumber(){
+
+   }
+
+   public void updateBenefitOptions(){
+   }
+
+   public Person promoteEmployee(){
+       return null;
+   }
 
 
 
 }
+
+
+
