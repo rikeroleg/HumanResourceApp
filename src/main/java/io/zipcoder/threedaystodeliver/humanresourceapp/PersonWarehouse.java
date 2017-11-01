@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 public class PersonWarehouse {
 
-    ArrayList<Person> person = new ArrayList<>();
+    ArrayList<Person> people = new ArrayList<>();
+
+    public void addPerson(Person person) {
+        people.add(person);
+    }
 
     public ArrayList<Person> getPersonByName(String name){
         return null;
@@ -14,8 +18,8 @@ public class PersonWarehouse {
         return null;
     }
 
-    public ArrayList<Person> getAllPersons() {
-        return null;
+    public ArrayList<Person> getAllPeople() {
+        return people;
     }
 
     public ArrayList<Person> getAllProspects() {
