@@ -26,6 +26,7 @@ class HrContactInfo {
     return (name+"\n"+phone+"\n"+email+"\n"+streetAddress.toString());
   }
 
+
   public void setName(String name){
       this.name = name;
   }

@@ -2,11 +2,14 @@ package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 public class Compensation {
 
-    public enum compensationType{
+    public enum compensationType {
         Monthly,
         Hourly,
         Project
+
     }
+
+    private double usePTO;
 
     private double payrate;
     private double bonus;
@@ -20,42 +23,49 @@ public class Compensation {
     private boolean retirement;
     private double retirementMatching;
 
-    public double getPtoRemaining() {
-        return PtoRemaining;
-    }
-
-    public void setPtoRemaining(double ptoRemaining) {
-        PtoRemaining = ptoRemaining;
-    }
-
-
-    public void setPayrate(double payrate) {
-        this.payrate = payrate;
-    }
-
-    public void usePTO(double amount){
-        //decrement PTO left by amount
-    }
-
-    public double ptoUsedThisYear(){
-        //pto max - pto remaining
-
-        return 0;
-    }
-
-    public void setCompensationType(Compensation.compensationType compensationType) {
-        this.compensationType = compensationType;
+    public void setPtoMaxPerYear(double ptoMaxPerYear) {
+        PtoMaxPerYear = ptoMaxPerYear;
     }
 
     public double getPtoMaxPerYear() {
         return PtoMaxPerYear;
     }
 
-    public void setPtoMaxPerYear(double ptoMaxPerYear) {
-        PtoMaxPerYear = ptoMaxPerYear;
+    public void setUsePTO(double amount) {
+        this.usePTO = amount;
+
     }
 
-    public boolean isVision() {
+    public double getUsePTO() {
+        return usePTO;
+    }
+
+    public void setPayrate(double payrate) {
+        this.payrate = payrate;
+    }
+
+    public double getPtoRemaining() {
+
+        PtoRemaining = PtoMaxPerYear - usePTO;
+
+        return PtoRemaining;
+    }
+
+    public double getPTOUsedThisYear() {
+
+        return usePTO;
+    }
+
+
+    public double getPayrate() {
+        return payrate;
+    }
+
+    public void setCompensationType(Compensation.compensationType compensationType) {
+        this.compensationType = compensationType;
+    }
+
+    public boolean getIsVision() {
         return vision;
     }
 
@@ -63,58 +73,56 @@ public class Compensation {
         this.vision = vision;
     }
 
-    public boolean isDental() {
-        return dental;
-    }
-
     public void setDental(boolean dental) {
         this.dental = dental;
     }
 
-    public boolean isMedical() {
-        return medical;
+    public boolean isDental() {
+        return dental;
     }
 
     public void setMedical(boolean medical) {
         this.medical = medical;
     }
 
-    public boolean isPrescription() {
-        return prescription;
+    public boolean getIsMedical() {
+        return medical;
     }
 
     public void setPrescription(boolean prescription) {
         this.prescription = prescription;
     }
 
-    public boolean isRetirement() {
-        return retirement;
+    public boolean isPrescription() {
+        return prescription;
     }
 
     public void setRetirement(boolean retirement) {
         this.retirement = retirement;
     }
 
-    public double getRetirementMatching() {
-        return retirementMatching;
+    public boolean isRetirement() {
+        return retirement;
     }
 
     public void setRetirementMatching(double retirementMatching) {
         this.retirementMatching = retirementMatching;
     }
 
+    public double getRetirementMatching() {
+        return retirementMatching;
+    }
 
-
-    public Compensation (){
+    public Compensation() {
 
     }
 
-    public void setTypeAndAmount(compensationType compType, double payRate){
+    public void setTypeAndAmount(compensationType compType, double payRate) {
         this.compensationType = compType;
         this.payrate = payRate;
     }
 
-    public void setBonus(double bonus){
+    public void setBonus(double bonus) {
         this.bonus = bonus;
     }
 
@@ -122,17 +130,9 @@ public class Compensation {
         return bonus;
     }
 
-    public double getPayrate() {
-        return payrate;
-    }
-
-    public compensationType getCompensationType(){
+    public compensationType getCompensationType() {
         return this.compensationType;
     }
-
-
-
-
 
 
 }
