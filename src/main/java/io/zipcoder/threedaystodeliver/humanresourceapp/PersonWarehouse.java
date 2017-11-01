@@ -11,7 +11,13 @@ public class PersonWarehouse {
     }
 
     public ArrayList<Person> getPersonByName(String name){
-        return null;
+        ArrayList<Person> listOfMatchedNames = new ArrayList<>(10);
+        for(Person person: people) {
+            if(person.getContactInfo().getName().equals(name)) {
+                listOfMatchedNames.add(person);
+            }
+        }
+        return listOfMatchedNames;
     }
 
     public Person getPersonById(String id){
