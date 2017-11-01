@@ -30,11 +30,11 @@ public class Compensation {
 
 
 
-    private enum compensationType{
-        Monthly,
-        Hourly,
-        Project
-    }
+//    private enum compensationType{
+//        Monthly,
+//        Hourly,
+//        Project
+//    }
 
     public void setPayrate(double payrate) {
         this.payrate = payrate;

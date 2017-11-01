@@ -2,10 +2,10 @@ package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 class HrContactInfo {
 
-  String name;
+  String name = "";
   StreetAddress streetAddress;
-  String phone;
-  String email;
+  String phone = "";
+  String email = "";
 
   public HrContactInfo() {
 
@@ -25,6 +25,7 @@ class HrContactInfo {
   public String toString(){
       return null;
   }
+
 
   public void setName(String name){
       this.name = name;
