@@ -82,14 +82,18 @@ public class PersonTest {
 
         Assert.assertEquals(expected, actual);
     }
-//    public String getResume() {
-//        return resume;
-//    }
-//
-//    public void setResume(String resume) {
-//        this.resume = resume;
-//    }
-//
+
+    @Test
+    public void testInterviewDateGetAndSet(){
+        Person emp1 = new Person();
+        Date expected = new Date(89345678);
+
+        emp1.setInterviewDate(expected);
+
+        Date actual = emp1.getInterviewDate();
+
+        Assert.assertEquals(expected.toString(), actual.toString());
+    }
 //    public Date getInterviewDate() {
 //        return interviewDate;
 //    }
