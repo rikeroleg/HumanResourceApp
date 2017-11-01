@@ -94,14 +94,20 @@ public class PersonTest {
 
         Assert.assertEquals(expected.toString(), actual.toString());
     }
-//    public Date getInterviewDate() {
-//        return interviewDate;
-//    }
-//
-//    public void setInterviewDate(Date interviewDate) {
-//        this.interviewDate = interviewDate;
-//    }
-//
+
+    @Test
+    public void testScoreGetAndSet(){
+        Person emp1 = new Person();
+        double expected = 28.0;
+
+        emp1.setScore(expected);
+
+        double actual = emp1.getScore();
+
+        Assert.assertEquals(expected, actual, 0.01);
+
+    }
+
 //    public double getScore() {
 //        return score;
 //    }
