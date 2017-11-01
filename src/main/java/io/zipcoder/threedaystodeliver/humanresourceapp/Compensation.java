@@ -3,6 +3,8 @@ package io.zipcoder.threedaystodeliver.humanresourceapp;
 public class Compensation {
 
     //Hi, I'm Tim and I like money.
+    //Newdiff
+    //JK, old Tim doesn't like money.
 
     private enum compensationType{
         Monthly,
