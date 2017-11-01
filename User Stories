@@ -78,6 +78,7 @@ Batch updates (all previous methods applied to an arraylist)
             1) ask for contact info
                 1) create contact info object
                     1) person handler creates a person with that contact info, type PROSPECT, and returns that person
+                        1) print out created prospect
         2) "Select existing prospect"
             1) Select by id
                 1) ask for id number
@@ -106,9 +107,83 @@ Batch updates (all previous methods applied to an arraylist)
                 1) ask for name
                     1) person warehouse find by name, returns an arraylist of people that match
                         1) if multiple matches then select the person you want from the arraylist
-
-
+                            1) Update contact info
+                                1) ask which field to update
+                                    1) Name
+                                        1) ask for name
+                                            1) HrContactInfo set name
+                                    2) Address
+                                        1) ask for address line 1, line 2, city, state, zip
+                                            1) create street address object with above info
+                                                1) HrContactInfo set street address
+                                    3) phone number
+                                        1) ask for phone number
+                                            1) HrContactInfo set phone number
+                                    4) email
+                                        1) ask for email
+                                            1) HrContactInfo set email
+                            2) Hire this person
+                                1) ask for hire date, salary, bonus, yearly PTO, if they get vision, if they get dental,
+                                    if they get medical, if they get prescription, the % retirement matching
+                                    1) person handler hire method with the parameters entered from above
     2) "Employees"
+        1) Add new employee
+            1) Select by id
+                1) ask for id number
+                    1) person warehouse find by id with that id, returns that person
+                        1) Update contact info
+                            1) ask which field to update
+                                1) Name
+                                    1) ask for name
+                                        1) HrContactInfo set name
+                                2) Address
+                                    1) ask for address line 1, line 2, city, state, zip
+                                        1) create street address object with above info
+                                            1) HrContactInfo set street address
+                                3) phone number
+                                    1) ask for phone number
+                                        1) HrContactInfo set phone number
+                                4) email
+                                    1) ask for email
+                                        1) HrContactInfo set email
+                        2) Update medical choices
+                            1) ask for vision, dental, medical, prescription
+                                1) set fields in compensation
+                        3) promote employee
+                            1) ask for new job title, salary, bonus, yearly PTO
+                                1) person handler - promote employee
+                        4) terminate employee
+                            1) ask for termination date, reason for termination, exit interview
+                                2) person handler - terminate employee
+            2) Select by name
+                1) ask for name
+                    1) person warehouse find by name, returns an arraylist of people that match
+                        1) if multiple matches then select the person you want from the arraylist
+                            1) Update contact info
+                                1) ask which field to update
+                                    1) Name
+                                        1) ask for name
+                                            1) HrContactInfo set name
+                                    2) Address
+                                        1) ask for address line 1, line 2, city, state, zip
+                                            1) create street address object with above info
+                                                1) HrContactInfo set street address
+                                    3) phone number
+                                        1) ask for phone number
+                                            1) HrContactInfo set phone number
+                                    4) email
+                                        1) ask for email
+                                            1) HrContactInfo set email
+                            2) Update medical choices
+                                1) ask for vision, dental, medical, prescription
+                                    1) set fields in compensation
+                            3) promote employee
+                                1) ask for new job title, salary, bonus, yearly PTO
+                                    1) person handler - promote employee
+                            4) terminate employee
+                                1) ask for termination date, reason for termination, exit interview
+                                    2) person handler - terminate employee
+        2) Select existing employee
     3) "Print Reports"
 
 
