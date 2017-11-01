@@ -89,7 +89,7 @@ public class PersonWarehouseTest {
 
     @Test
     public void getAllFormerEmployees(){
-        int inititalAllFormerCount = PersonWarehouse.getAllFormerEmployees().size();
+        int initialAllFormerCount = PersonWarehouse.getAllFormerEmployees().size();
 
         for(int i =0; i < 255; i++){
             Person testPerson = new Person();
@@ -97,7 +97,7 @@ public class PersonWarehouseTest {
             PersonWarehouse.addPerson(testPerson);
         }
 
-        Assert.assertEquals(inititalAllFormerCount+255, PersonWarehouse.getAllFormerEmployees().size());
+        Assert.assertEquals(initialAllFormerCount+255, PersonWarehouse.getAllFormerEmployees().size());
 
     }
 
