@@ -20,7 +20,12 @@ class HrContactInfo {
     this.phone=phone;
     this.email=email;
   }
-  
+
+  @Override
+  public String toString(){
+      return null;
+  }
+
   public void setName(String name){
       this.name = name;
   }
