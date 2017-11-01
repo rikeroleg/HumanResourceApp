@@ -23,7 +23,7 @@ class HrContactInfo {
 
   @Override
   public String toString(){
-      return null;
+    return (name+"\n"+phone+"\n"+email+"\n"+streetAddress.toString());
   }
 
   public void setName(String name){
