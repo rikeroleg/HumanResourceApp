@@ -61,7 +61,7 @@ public class PersonWarehouseTest {
 
     @Test
     public void getAllProspects(){
-        int inititalAllProspectsCount = PersonWarehouse.getAllProspects().size();
+        int initialAllProspectsCount = PersonWarehouse.getAllProspects().size();
 
         for(int i =0; i < 5; i++){
             Person testPerson = new Person();
@@ -69,13 +69,13 @@ public class PersonWarehouseTest {
             PersonWarehouse.addPerson(testPerson);
         }
 
-        Assert.assertEquals(inititalAllProspectsCount+5, PersonWarehouse.getAllProspects().size());
+        Assert.assertEquals(initialAllProspectsCount+5, PersonWarehouse.getAllProspects().size());
 
     }
 
     @Test
     public void getAllEmployees(){
-        int inititalAllEmployeesCount = PersonWarehouse.getAllEmployees().size();
+        int initialAllEmployeesCount = PersonWarehouse.getAllEmployees().size();
 
         for(int i =0; i < 50; i++){
             Person testPerson = new Person();
@@ -83,7 +83,7 @@ public class PersonWarehouseTest {
             PersonWarehouse.addPerson(testPerson);
         }
 
-        Assert.assertEquals(inititalAllEmployeesCount+50, PersonWarehouse.getAllEmployees().size());
+        Assert.assertEquals(initialAllEmployeesCount+50, PersonWarehouse.getAllEmployees().size());
 
     }
 
