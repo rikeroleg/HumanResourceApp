@@ -2,11 +2,7 @@ package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 public class Compensation {
 
-    //Hi, I'm Tim and I like money.
-    //Newdiff
-    //JK, old Tim doesn't like money.
-
-    private enum compensationType{
+    public enum compensationType{
         Monthly,
         Hourly,
         Project
@@ -30,11 +26,12 @@ public class Compensation {
     }
 
     public void setTypeAndAmount(compensationType compType, double payRate){
-
+        this.compensationType = compType;
+        this.payrate = payRate;
     }
 
     public void setBonus(double bonus){
-
+        this.bonus = bonus;
     }
 
     public double getBonus() {
