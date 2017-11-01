@@ -5,9 +5,11 @@ import java.util.Date;
 public class Person {
 
     // name and contact stuff
-    private HrContactInfo contactInfo;
+    private HrContactInfo contactInfo = new HrContactInfo();
 
     //current
+    private String id;
+    private EmploymentStatus employmentStatus;
     private Compensation compensation;
     private Date hiredDate;
 
@@ -22,4 +24,23 @@ public class Person {
     private Date interviewDate;
     private double score;
 
+    public HrContactInfo getContactInfo() {
+        return contactInfo;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Enum getEmploymentStatus() {
+        return employmentStatus;
+    }
+
+    public void setEmploymentStatus(EmploymentStatus employmentStatus) {
+        this.employmentStatus = employmentStatus;
+    }
 }
