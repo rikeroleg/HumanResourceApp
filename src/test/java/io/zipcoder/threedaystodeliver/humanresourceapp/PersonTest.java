@@ -58,6 +58,18 @@ public class PersonTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void testExitInterviewSetAndGet(){
+        Person emp1 = new Person();
+        String expected = "Employee refuse to interview";
+
+        emp1.setExitInterview(expected);
+
+        String actual = emp1.getExitInterview();
+
+        Assert.assertEquals(expected, actual);
+    }
 //    public String getExitInterview() {
 //        return exitInterview;
 //    }
