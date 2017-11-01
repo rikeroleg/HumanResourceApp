@@ -34,15 +34,19 @@ public class PersonTest {
 
         Assert.assertEquals(actual.toString(), actual.toString());
     }
-//
-//    public Date getHiredDate() {
-////        return hiredDate;
-//    }
-//
-//    public void setHiredDate(Date hiredDate) {
-//        this.hiredDate = hiredDate;
-//    }
-//
+
+    @Test
+    public void testTerminationDateGetAndSet(){
+        Person emp1 = new Person();
+        Date expected = new Date(123456789);
+
+        emp1.setTerminationDate(expected);
+
+        Date actual = emp1.getTerminationDate();
+
+        Assert.assertEquals(actual.toString(), actual.toString());
+    }
+
 //    public Date getTerminationDate() {
 //        return terminationDate;
 //    }
