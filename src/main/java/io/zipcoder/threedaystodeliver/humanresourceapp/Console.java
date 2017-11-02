@@ -1,6 +1,8 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
+
 import java.time.LocalDate;
+
 import java.util.Scanner;
 
 public class Console {
@@ -235,32 +237,52 @@ public class Console {
 
 
 
-    public void promoteEmployee(){
+    public String getInput(){
 
+        String input = scan.nextLine();
+
+        return input;
     }
 
-    public void terminateEmployee(){
+    public LocalDate getDateInput(){
 
-    }
+        String dateInput = scan.nextLine();
 
-    public void selectPersonFromList(){
+        LocalDate date = LocalDate.parse(dateInput);
 
-    }
+        return date;
 
-    public printAllBySelection(){
 
-    }
-
-    public void selectFieldToUpdate(){
-        return;
-    }
-
-    public void updateContactName(){
-    }
-
-    public void updatePhoneNumber(){
 
 }
 
-
-
+//
+//    public void promoteEmployee(){
+//
+//    }
+//
+//    public void terminateEmployee(){
+//
+//    }
+//
+//    public void selectPersonFromList(){
+//
+//    }
+//
+//    public printAllBySelection(){
+//
+//    }
+//
+//    public void selectFieldToUpdate(){
+//        return;
+//    }
+//
+//    public void updateContactName(){
+//    }
+//
+//    public void updatePhoneNumber(){
+//
+//    }
+//
+//
+//
