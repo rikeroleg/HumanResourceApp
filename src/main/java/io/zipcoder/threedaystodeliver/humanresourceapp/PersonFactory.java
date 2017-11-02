@@ -1,5 +1,7 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
+import io.zipcoder.threedaystodeliver.humanresourceapp.exceptions.NoMorePersonIDException;
+
 public class PersonFactory {
 
     private static int iteratedPersonID = 0;
