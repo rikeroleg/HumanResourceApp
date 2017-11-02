@@ -127,7 +127,7 @@ public class CompensationTest {
     @Test
     public void setBonus() {
         compensation.setBonus(4000);
-        Assert.assertEquals(4000, compensation.getBonus(), 0);
+        Assert.assertEquals(4000, compensation.getBonus(), 0.001);
 
     }
 

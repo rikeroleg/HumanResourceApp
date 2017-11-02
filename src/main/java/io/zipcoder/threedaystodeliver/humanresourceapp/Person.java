@@ -9,26 +9,58 @@ public class Person {
 
     //current
     private String id="";
+    private String title="";
     private EmploymentStatus employmentStatus;
-    private Compensation compensation=new Compensation();
-    private Date hiredDate = new Date();
+    private Compensation compensation;
+    private Date hiredDate;
 
 
     //former
-    private Date terminationDate = new Date();
+    private Date terminationDate;
     private String reasonForTermination = "";
     private String exitInterview = "";
-    private Compensation postEmploymentComp = new Compensation();
 
     //prospect
     private String resume = "";
-    private Date interviewDate = new Date();
+    private Date interviewDate;
     private double score = 0;
-
 
     @Override
     public String toString(){
-        return null;
+
+////        private Compensation compensation=new Compensation();
+        String returnMe = contactInfo.toString()+
+                "Employee ID:  " + id + "\n" +
+                "Title:  " + title + "\n" +
+                "Employment Status:  " + employmentStatus + "\n" +
+                "Entrance Interview Date:  " + interviewDate + "\n" +
+                "Resume Abstract:  " + resume + "\n" +
+                "Hire Date:  " + hiredDate + "\n" +
+                "Termination Date:  " + terminationDate + "\n" +
+                "Reason For Termination:  " + reasonForTermination + "\n" +
+                "Exit Interview Notes:  " + exitInterview + "\n" +
+                "Employee Score:  " + score + "\n\n" +
+                contactInfo.getName()+"'s Compensation:\n";
+
+        if (compensation!=null)
+        {
+            returnMe+= (compensation.toString() + "\n\n");
+        }
+        else
+        {
+            returnMe+= "\n";
+        }
+
+        return (returnMe);
+
+    }
+
+    public void setTitle(String title){
+        this.title=title;
+    }
+
+    public String getTitle(){
+        return title;
     }
 
     public void setContactInfo(HrContactInfo contactInfo) {
@@ -73,14 +105,6 @@ public class Person {
 
     public void setExitInterview(String exitInterview) {
         this.exitInterview = exitInterview;
-    }
-
-    public Compensation getPostEmploymentComp() {
-        return postEmploymentComp;
-    }
-
-    public void setPostEmploymentComp(Compensation postEmploymentComp) {
-        this.postEmploymentComp = postEmploymentComp;
     }
 
     public String getResume() {
