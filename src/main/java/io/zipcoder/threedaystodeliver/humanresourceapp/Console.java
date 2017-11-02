@@ -13,6 +13,7 @@ public class Console {
         System.out.println("Welcome to Human Resources Application Manager\nPlease Select an option: \n1.[Prospects]    2.[Employees]   3.[Print Reports]\n");
         int choice = scanner.nextInt();
         mainMenu(choice);
+        }
     }
 
     private static void mainMenu(int choice){
@@ -29,21 +30,6 @@ public class Console {
                 break;
         }
     }
-
-    /*
-    private static void employeeMenu2() {
-        System.out.println("1.[Hire New Employee]   2.[Make Changes To Existing Employee]");
-        int employeeTier2 = scanner.nextInt();
-        switch (employeeTier2) {
-            case 1:
-                hireEmployee();
-                break;
-            case 2:
-                //Update Employee Info
-                break;
-        }
-    }
-    */
 
     private static void prospectsMainMenu() {
         System.out.println("1.[Add New Prospect]   2.[Select Existing Prospect]   3.[View All Prospects]");
@@ -63,10 +49,7 @@ public class Console {
     public static void employeesMainMenu() {
         String input;
         do {
-            System.out.println("\n\nEmployee Menu\n");
-            System.out.println("1. Add New Employee");
-            System.out.println("2. Update Existing Employee\n");
-            System.out.println(": ");
+            System.out.println("1.[Hire New Employee]   2.[Make Changes To Existing Employee]");
             input = getInput();
 
         }while( !("1".equals(input)) && !("2".equals(input)) );
@@ -78,8 +61,7 @@ public class Console {
         else {
             do {
                 System.out.println("\n\nSelect an employee by ID or by name?\n");
-                System.out.println("1. ID");
-                System.out.println("2. Name\n");
+                System.out.println("1.[ID]   2.[Name]");
                 System.out.println(": ");
                 input = getInput();
             }while( !("1".equals(input)) && !("2".equals(input)) );
@@ -122,11 +104,6 @@ public class Console {
                 hireEmployee();
                 break;
         }
-
-
-
-
-
     }
 
     public static void hireEmployee() {
