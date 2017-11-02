@@ -2,6 +2,7 @@ package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 public class Compensation {
     //come git me
+    //seriously
     public enum compensationType {
         Monthly,
         Hourly,
