@@ -232,23 +232,6 @@ public class Console {
     }
 
 
-/*
-   public static Person selectPersonToUpdate(){
-
-       System.out.println("Update by Id (select 1), update by Name (select 2)");
-       int menuSelect = scanner.nextInt();
-
-       PersonWarehouse people = PersonWarehouse.getInstance();
-       Person selectedPerson = null;
-
-       if(menuSelect == 1)      selectedPerson = people.getPersonById();
-       else if(menuSelect == 2) selectedPerson = people.getPersonByName();
-
-       return selectedPerson;
-   }
-   */
-
-
     public static Person getPersonById() {
         PersonWarehouse personWarehouse = PersonWarehouse.getInstance();
         System.out.println("Enter ID: ");
@@ -271,14 +254,6 @@ public class Console {
         String select = scanner.nextLine();
         int index = Integer.parseInt(select);
         return listOfMatches.get(index-1);
-
-    }
-
-
-
-    // prospect methods
-
-    public void promoteEmployee(){
 
     }
 
@@ -326,39 +301,6 @@ public class Console {
         LocalDate date = LocalDate.parse(dateInput);
 
         return date;
-    }
-
-
-    public void employeeMenu() {
-        String input;
-        do {
-            System.out.println("\n\nEmployee Menu\n");
-            System.out.println("1. Add New Employee");
-            System.out.println("2. Update Existing Employee\n");
-            System.out.println(": ");
-            input = getInput();
-
-        } while (!("1".equals(input)) && !("2".equals(input)));
-
-        if ("1".equals(input)) {
-            currentPerson = PersonFactory.createPerson(inputAllContactInfo());
-            hireEmployee();
-        } else {
-            do {
-                System.out.println("\n\nSelect an employee by ID or by name?\n");
-                System.out.println("1. ID");
-                System.out.println("2. Name\n");
-                System.out.println(": ");
-                input = getInput();
-            } while (!("1".equals(input)) && !("2".equals(input)));
-
-            if ("1".equals(input)) {
-                currentPerson = getPersonById();
-            } else {
-                currentPerson = getPersonByName();
-            }
-            updateExistingEmployee();
-        }
     }
 
     public String printingAllPeople() {
