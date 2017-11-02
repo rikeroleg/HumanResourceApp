@@ -65,6 +65,21 @@ public class Console {
         return in;
     }
 
+   public Person selectPersonToUpdate(){
+
+       System.out.println("Update by Id (select 1), update by Name (select 2)");
+       int menuSelect = scan.nextInt();
+
+       PersonWarehouse people = PersonWarehouse.getInstance();
+       Person selectedPerson = null;
+
+       if(menuSelect == 1)      selectedPerson = people.getPersonById();
+       else if(menuSelect == 2) selectedPerson = people.getPersonByName();
+
+       return selectedPerson;
+   }
+
+
     public static void HrContactInfo(){
         HrContactInfo("Enter Name: ");
         HrContactInfo("Enter Address Line 1: ");
@@ -75,6 +90,7 @@ public class Console {
         HrContactInfo("Enter Phone Number: ");
         HrContactInfo("Enter Email Address: ");
     }
+
 
     public static void hireProspect(){
         HrContactInfo("Enter Hire Date Year: ");
@@ -98,6 +114,7 @@ public class Console {
         //System.out.println(personWarehouse.getPersonById());
     }
 
+
     public static void selectByName(){
         HrContactInfo("Enter Name: ");
         PersonWarehouse personWarehouse = new PersonWarehouse();
@@ -108,7 +125,32 @@ public class Console {
 
 
 
+    public void promoteEmployee(){
 
+    }
+
+    public void terminateEmployee(){
+
+    }
+
+    public void selectPersonFromList(){
+
+    }
+
+    public printAllBySelection(){
+
+    }
+
+    public void selectFieldToUpdate(){
+        return;
+    }
+
+    public void updateContactName(){
+    }
+
+    public void updatePhoneNumber(){
+
+    }
 
 
 
