@@ -1,5 +1,6 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
+import io.zipcoder.threedaystodeliver.humanresourceapp.exceptions.NotAnEmployeeException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -158,40 +159,34 @@ public class PersonHandlerTest {
 //    enter information into console
 //    update job title, compensation
 
-    @Test
-    public void changePositionTitleTest(){
-
-
-
+    @Test(expected = NotAnEmployeeException.class)
+    public void changePositionNotEmployeeTest() throws NotAnEmployeeException {
+        Person prospect = PersonHandler.createProspect(info);
+        PersonHandler.changePosition(prospect, "The Boss", 2.50, 3.00, 1);
     }
 
+    @Test
+    public void changePositionTitleTest() throws NotAnEmployeeException {
+        String title = "Clean Coder";
 
-//    Update employee's remaining PTO ->
-//    subtract entered number of days used from PTO remaining
-//
-//    Display employee's remaining PTO ->
-//    print person's PTO remaining
-//
-//    Update employee's max PTO for year ->
-//    update PTO max
-//    update PTO remaining
-//
-//    Update employee's benefits ->
-//    enter info into console
-//    benefits fields are updated
-//
-//    Print list of all people ->
-//    all people are printed
-//
-//    Print list of all prospects ->
-//    all prospects are printed
-//
-//    Print list of all employees ->
-//    all employees are printed
-//
-//    Print list of all terminated employees ->
-//    all terminated employees are printed
-//
-//    Batch updates (all previous methods applied to an arraylist)
+        Person employee = PersonHandler.hire(info, new Date(), "", new Compensation());
+        PersonHandler.changePosition(employee, title, 5d, 3d, 2d);
+
+        Assert.assertEquals(title, employee.getTitle());
+    }
+
+    @Test
+    public void changePositionCompensationTest() throws NotAnEmployeeException {
+        double newPayRate = 10d;
+        double newBonus = 15d;
+        double newPTO = 30d;
+
+        Person employee = PersonHandler.hire(info, new Date(), "", new Compensation());
+        PersonHandler.changePosition(employee, "Clean Coder", newPayRate, newBonus, newPTO);
+
+        Assert.assertEquals(newPayRate, employee.getCompensation().getPayrate(), 0.001);
+        Assert.assertEquals(newBonus, employee.getCompensation().getBonus(), 0.001);
+        Assert.assertEquals(newPTO, employee.getCompensation().getPtoMaxPerYear(), 0.001);
+    }
 
 }
