@@ -6,28 +6,30 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Console {
+    HrContactInfo hrContactInfo = new HrContactInfo();
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Human Resources Application Manager\nPlease Select an option: \n1.[Prospects]    2.[Employees]   3.[Print Reports]\n");
         int tier1 = scanner.nextInt();
-        switch (tier1){
+        switch (tier1) {
             case 1:
                 System.out.println("1.[Add New Prospect]   2.[Select Existing Prospect]");
                 int prospectTier2 = scanner.nextInt();
-                switch (prospectTier2){
+                switch (prospectTier2) {
                     case 1:
                         HrContactInfo();
                         break;
                     case 2:
                         System.out.println("1.[Select By ID]   2.[Select By Name]");
                         int prospectTier3 = scanner.nextInt();
-                        switch (prospectTier3){
+                        switch (prospectTier3) {
                             case 1:
                                 selectById();
                                 System.out.println("1.[Update Contact Info]   2.[Hire This Prospect]");
                                 int prospectTier4 = scanner.nextInt();
-                                switch (prospectTier4){
+                                switch (prospectTier4) {
                                     case 1:
                                         // display current contact info
                                         //Update prospect contact Info
@@ -36,8 +38,7 @@ public class Console {
                                         //Hire this prospect
                                         break;
                                 }
-                        }
-                                break;
+
                             case 2:
                                 selectByName();
                                 break;
@@ -48,7 +49,7 @@ public class Console {
             case 2:
                 System.out.println("1.[Hire New Employee]   2.[Make Changes To Existing Employee]");
                 int employeeTier2 = scanner.nextInt();
-                switch (employeeTier2){
+                switch (employeeTier2) {
                     case 1:
                         hireProspect();
                         break;
@@ -63,20 +64,14 @@ public class Console {
                 System.out.print(printPeople.getAllPeople());
                 break;
         }
-
-
-
-
-
     }
-
 
     public Person currentPerson;
     Scanner scan = new Scanner(System.in);
 
     public void hireEmployee() {
         inputNewEmployeeInfo();
-    }
+//
 
     public void inputNewEmployeeInfo() {
         System.out.print("Enter hire date (yyyy-mm-dd): ");
@@ -116,31 +111,27 @@ public class Console {
         }
         newCompensation.setBonus(inputBonus);
         newCompensation.setPtoMaxPerYear(inputPTO);
-        if("y".equals(inputMedical)) {
+        if ("y".equals(inputMedical)) {
             newCompensation.setMedical(true);
-        }
-        else {
+        } else {
             newCompensation.setMedical(false);
         }
 
-        if("y".equals(inputDental)) {
+        if ("y".equals(inputDental)) {
             newCompensation.setDental(true);
-        }
-        else {
+        } else {
             newCompensation.setDental(false);
         }
 
-        if("y".equals(inputVision)) {
+        if ("y".equals(inputVision)) {
             newCompensation.setVision(true);
-        }
-        else {
+        } else {
             newCompensation.setVision(false);
         }
 
-        if("y".equals(inputPrescription)) {
+        if ("y".equals(inputPrescription)) {
             newCompensation.setPrescription(true);
-        }
-        else {
+        } else {
             newCompensation.setPrescription(false);
         }
 
@@ -181,58 +172,16 @@ public class Console {
         return newHrContactInfo;
     }
 
-/*
-   public Person selectPersonToUpdate(){
 
-       System.out.println("Update by Id (select 1), update by Name (select 2)");
-       int menuSelect = scan.nextInt();
+    public String getInput() {
 
-       PersonWarehouse people = PersonWarehouse.getInstance();
-       Person selectedPerson = null;
+        PersonWarehouse personCalled = PersonWarehouse.getInstance();
+        String showInfo = personCalled.toString();
 
-       if(menuSelect == 1)      selectedPerson = people.getPersonById();
-       else if(menuSelect == 2) selectedPerson = people.getPersonByName();
-
-       return selectedPerson;
-   }
-
-
-    public static void selectById(){
-        HrContactInfo("Enter ID: ");
-        PersonWarehouse personWarehouse = new PersonWarehouse();
-        //System.out.println(personWarehouse.getPersonById());
+        return showInfo;
     }
 
-
-    public static void selectByName(){
-        HrContactInfo("Enter Name: ");
-        PersonWarehouse personWarehouse = new PersonWarehouse();
-        //System.out.println(personWarehouse.getPersonByName());
-    }
-
-
-    public void printCurrentPerson() {
-        System.out.println(currentPerson);
-    }
-
-
-    // prospect methods
-
-
-
-
-
-
- */
-
-    public String getInput(){
-
-        String input = scan.nextLine();
-
-        return input;
-    }
-
-    public LocalDate getDateInput(){
+    public LocalDate getDateInput() {
 
         String dateInput = scan.nextLine();
 
@@ -241,41 +190,61 @@ public class Console {
         return date;
 
 
-   
+    }
 
+    public String printingAllPeople() {
+
+        String showAllEmployeeInfo = "";
+
+        PersonWarehouse allEmployeeInfo = PersonWarehouse.getInstance();
+
+        for (Person a : allEmployeeInfo.getAllPeople()) {
+
+            showAllEmployeeInfo += a.toString();
+        }
+        return showAllEmployeeInfo;
+    }
+
+    public void reportingMenu() {
+
+        boolean inputOutOfRange = false;
+
+        while (!inputOutOfRange) {
+            
+            System.out.println("Please press 1: for Employee or 2: for former...");
+            try {
+
+                String getInputChoice = getInput();
+
+                if ("1".equals(getInputChoice)) { /// For Showing All Employee Info
+
+                    PersonWarehouse showAllEmployeeInfo = PersonWarehouse.getInstance();
+
+                    for (Person i : showAllEmployeeInfo.getAllEmployees()) {
+                        System.out.println(i);
+                    }
+
+                } else if ("2".equals(getInputChoice)) {  /// For Showing All Former Info
+
+                    PersonWarehouse showAllFormerInfo = PersonWarehouse.getInstance();
+                    for (Person i : showAllFormerInfo.getAllFormerEmployees()) {
+                        System.out.println(i);
+                    }
+
+                } else if ("3".equals(getInputChoice)) {  /// For Showing All Prospect Info
+
+                    PersonWarehouse showAllProspectInfo = PersonWarehouse.getInstance();
+                    for (Person i : showAllProspectInfo.getAllProspects()) {
+                        System.out.println(i);
+                    }
+                } else {
+                    inputOutOfRange = true;
+                }
+
+            } catch (Exception e) {
+                System.out.println("Try again please, select 1  or 2...");
+            }
+        }
+
+    }
 }
-
-
-
-}
-
-//
-//    public void promoteEmployee(){
-//
-//    }
-//
-//    public void terminateEmployee(){
-//
-//    }
-//
-//    public void selectPersonFromList(){
-//
-//    }
-//
-//    public printAllBySelection(){
-//
-//    }
-//
-//    public void selectFieldToUpdate(){
-//        return;
-//    }
-//
-//    public void updateContactName(){
-//    }
-//
-//    public void updatePhoneNumber(){
-//
-//    }
-//
-//
-//
