@@ -1,6 +1,6 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Person {
 
@@ -12,17 +12,17 @@ public class Person {
     private String title="";
     private EmploymentStatus employmentStatus;
     private Compensation compensation;
-    private Date hiredDate;
+    private LocalDate hiredDate;
 
 
     //former
-    private Date terminationDate;
+    private LocalDate terminationDate;
     private String reasonForTermination = "";
     private String exitInterview = "";
 
     //prospect
     private String resume = "";
-    private Date interviewDate;
+    private LocalDate interviewDate;
     private double score = 0;
 
     @Override
@@ -75,19 +75,19 @@ public class Person {
         this.compensation = compensation;
     }
 
-    public Date getHiredDate() {
+    public LocalDate getHiredDate() {
         return hiredDate;
     }
 
-    public void setHiredDate(Date hiredDate) {
+    public void setHiredDate(LocalDate hiredDate) {
         this.hiredDate = hiredDate;
     }
 
-    public Date getTerminationDate() {
+    public LocalDate getTerminationDate() {
         return terminationDate;
     }
 
-    public void setTerminationDate(Date terminationDate) {
+    public void setTerminationDate(LocalDate terminationDate) {
         this.terminationDate = terminationDate;
     }
 
@@ -115,11 +115,11 @@ public class Person {
         this.resume = resume;
     }
 
-    public Date getInterviewDate() {
+    public LocalDate getInterviewDate() {
         return interviewDate;
     }
 
-    public void setInterviewDate(Date interviewDate) {
+    public void setInterviewDate(LocalDate interviewDate) {
         this.interviewDate = interviewDate;
     }
 
