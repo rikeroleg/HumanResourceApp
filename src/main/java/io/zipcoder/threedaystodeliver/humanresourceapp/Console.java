@@ -27,22 +27,26 @@ public class Console {
                                 int prospectTier4 = scanner.nextInt();
                                 switch (prospectTier4) {
                                     case 1:
+                                        // display current contact info
                                         //Update prospect contact Info
                                         break;
                                     case 2:
                                         //Hire this prospect
                                         break;
                                 }
-
+                        }
+                                break;
                             case 2:
                                 selectByName();
                                 break;
                         }
+                        break;
                 }
+                break;
             case 2:
                 System.out.println("1.[Hire New Employee]   2.[Make Changes To Existing Employee]");
                 int employeeTier2 = scanner.nextInt();
-                switch (employeeTier2) {
+                switch (employeeTier2){
                     case 1:
                         hireProspect();
                         break;
@@ -50,22 +54,132 @@ public class Console {
                         //Update Employee Info
                         break;
                 }
+                break;
             case 3:
                 // Print People
                 PersonWarehouse printPeople = new PersonWarehouse();
                 System.out.print(printPeople.getAllPeople());
                 break;
-            }
+        }
+
+
+
+
+
     }
 
 
-    public static String HrContactInfo(String prompt){
-        Scanner scan = new Scanner(System.in);
-        System.out.println(prompt);
-        String in = scan.nextLine();
-        return in;
+    public Person currentPerson;
+    Scanner scan = new Scanner(System.in);
+
+    public void hireEmployee() {
+        inputNewEmployeeInfo();
     }
 
+    public void inputNewEmployeeInfo() {
+        System.out.print("Enter hire date (yyyy-mm-dd): ");
+        String inputHireDate = getInput();
+        System.out.println("Enter job title: ");
+        String inputJobTitle = getInput();
+        System.out.println("Enter paid Monthly/Hourly/Project: ");
+        String inputPayType = getInput().toLowerCase();
+        System.out.print("Enter salary: ");
+        double inputSalary = Double.parseDouble(getInput());
+        System.out.print("Enter bonus: ");
+        double inputBonus = Double.parseDouble(getInput());
+        System.out.print("Enter PTO for the year: ");
+        double inputPTO = Double.parseDouble(getInput());
+        System.out.print("Opt in to medical coverage? y/n: ");
+        String inputMedical = getInput();
+        System.out.print("Opt in to dental coverage? y/n: ");
+        String inputDental = getInput();
+        System.out.print("Opt in to vision coverage? y/n: ");
+        String inputVision = getInput();
+        System.out.print("Opt in to prescription coverage? y/n: ");
+        String inputPrescription = getInput();
+        System.out.print("Enter retirement match %: ");
+        double inputRetirementMatch = Double.parseDouble(getInput());
+
+        LocalDate hireDate = LocalDate.parse(inputHireDate);
+        currentPerson.setHiredDate(hireDate);
+        currentPerson.setTitle(inputJobTitle);
+        Compensation newCompensation = new Compensation();
+        switch (inputPayType) {
+            case "monthly":
+                newCompensation.setTypeAndAmount(Compensation.compensationType.Monthly, inputSalary);
+                break;
+            case "hourly":
+                newCompensation.setTypeAndAmount(Compensation.compensationType.Hourly, inputSalary);
+                break;
+        }
+        newCompensation.setBonus(inputBonus);
+        newCompensation.setPtoMaxPerYear(inputPTO);
+        if("y".equals(inputMedical)) {
+            newCompensation.setMedical(true);
+        }
+        else {
+            newCompensation.setMedical(false);
+        }
+
+        if("y".equals(inputDental)) {
+            newCompensation.setDental(true);
+        }
+        else {
+            newCompensation.setDental(false);
+        }
+
+        if("y".equals(inputVision)) {
+            newCompensation.setVision(true);
+        }
+        else {
+            newCompensation.setVision(false);
+        }
+
+        if("y".equals(inputPrescription)) {
+            newCompensation.setPrescription(true);
+        }
+        else {
+            newCompensation.setPrescription(false);
+        }
+
+        newCompensation.setRetirementMatching(inputRetirementMatch);
+        currentPerson.setEmploymentStatus(EmploymentStatus.EMPLOYEE);
+        currentPerson.setCompensation(newCompensation);
+
+
+    }
+
+    public void addNewProspect() {
+        HrContactInfo requestedInfo = inputAllContactInfo();
+        Person newProspect = PersonHandler.createProspect(requestedInfo);
+        currentPerson = newProspect;
+    }
+
+    public HrContactInfo inputAllContactInfo() {
+        System.out.print("Enter name: ");
+        String inputName = getInput();
+        System.out.print("Enter address line 1: ");
+        String inputAddressLine1 = getInput();
+        System.out.print("Enter address line 2: ");
+        String inputAddressLine2 = getInput();
+        System.out.print("Enter city: ");
+        String inputCity = getInput();
+        System.out.print("Enter state: ");
+        String inputState = getInput();
+        System.out.print("Enter zip code: ");
+        String inputZipCode = getInput();
+        System.out.print("Enter phone number: ");
+        String inputPhoneNumber = getInput();
+        System.out.print("Enter email address: ");
+        String inputEmailAddress = getInput();
+
+        StreetAddress newStreetAddress = new StreetAddress(inputAddressLine1, inputAddressLine2, inputCity, inputState, inputZipCode);
+        HrContactInfo newHrContactInfo = new HrContactInfo(inputName, newStreetAddress, inputPhoneNumber, inputEmailAddress);
+
+        return newHrContactInfo;
+    }
+
+/*
    public Person selectPersonToUpdate(){
 
        System.out.println("Update by Id (select 1), update by Name (select 2)");
@@ -120,11 +234,15 @@ public class Console {
         HrContactInfo("Enter Name: ");
         PersonWarehouse personWarehouse = new PersonWarehouse();
         //System.out.println(personWarehouse.getPersonByName());
-        //
-        }
-}
+    }
 
 
+    public void printCurrentPerson() {
+        System.out.println(currentPerson);
+    }
+
+
+    // prospect methods
 
     public void promoteEmployee(){
 
@@ -158,22 +276,27 @@ public class Console {
 
     public void selectPersonFromList(){
 
+ */
+
+    public String getInput(){
+
+        String input = scan.nextLine();
+
+        return input;
     }
 
-    public printAllBySelection(){
+    public LocalDate getDateInput(){
 
-    }
+        String dateInput = scan.nextLine();
 
-    public void selectFieldToUpdate(){
-        return;
-    }
+        LocalDate date = LocalDate.parse(dateInput);
 
-    public void updateContactName(){
-    }
+        return date;
 
-    public void updatePhoneNumber(){
 
-    }
+
+
+}
 
     public void employeeMenu() {
         Person currentPerson=new Person();
@@ -216,3 +339,35 @@ public class Console {
 
 
 
+}
+
+//
+//    public void promoteEmployee(){
+//
+//    }
+//
+//    public void terminateEmployee(){
+//
+//    }
+//
+//    public void selectPersonFromList(){
+//
+//    }
+//
+//    public printAllBySelection(){
+//
+//    }
+//
+//    public void selectFieldToUpdate(){
+//        return;
+//    }
+//
+//    public void updateContactName(){
+//    }
+//
+//    public void updatePhoneNumber(){
+//
+//    }
+//
+//
+//
