@@ -78,7 +78,7 @@ public class Console {
 
     public void inputNewEmployeeInfo() {
         System.out.print("Enter hire date (yyyy-mm-dd): ");
-        String inputHireDate = getInput();
+        LocalDate inputHireDate = getDateInput();
         System.out.println("Enter job title: ");
         String inputJobTitle = getInput();
         System.out.println("Enter paid Monthly/Hourly/Project: ");
@@ -100,8 +100,7 @@ public class Console {
         System.out.print("Enter retirement match %: ");
         double inputRetirementMatch = Double.parseDouble(getInput());
 
-        LocalDate hireDate = LocalDate.parse(inputHireDate);
-        currentPerson.setHiredDate(hireDate);
+        currentPerson.setHiredDate(inputHireDate);
         currentPerson.setTitle(inputJobTitle);
         Compensation newCompensation = new Compensation();
         switch (inputPayType) {
@@ -178,6 +177,7 @@ public class Console {
 
         return newHrContactInfo;
     }
+
 
 /*
    public Person selectPersonToUpdate(){
@@ -285,13 +285,14 @@ public class Console {
         return input;
     }
 
-    public LocalDate getDateInput(){
+    public LocalDate getDateInput() {
 
         String dateInput = scan.nextLine();
 
         LocalDate date = LocalDate.parse(dateInput);
 
         return date;
+
 
 
 
@@ -339,35 +340,5 @@ public class Console {
 
 
 
-}
 
-//
-//    public void promoteEmployee(){
-//
-//    }
-//
-//    public void terminateEmployee(){
-//
-//    }
-//
-//    public void selectPersonFromList(){
-//
-//    }
-//
-//    public printAllBySelection(){
-//
-//    }
-//
-//    public void selectFieldToUpdate(){
-//        return;
-//    }
-//
-//    public void updateContactName(){
-//    }
-//
-//    public void updatePhoneNumber(){
-//
-//    }
-//
-//
-//
+}
