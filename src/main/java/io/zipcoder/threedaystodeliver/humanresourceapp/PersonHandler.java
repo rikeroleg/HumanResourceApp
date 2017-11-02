@@ -24,12 +24,6 @@ public class PersonHandler {
         return employee;
     }
 
-    public static Person hire(HrContactInfo info, LocalDate date, String title, Compensation compensation){
-        Person employee = PersonFactory.createPerson(info);
-
-        return hire(employee, date, title, compensation);
-    }
-
     public static Person terminate(Person person, LocalDate terminationDate, String reasonForTermination, String exitInterview, Compensation postEmployComp) {
         Person formerEmployee = person;
         formerEmployee.setTerminationDate(terminationDate);

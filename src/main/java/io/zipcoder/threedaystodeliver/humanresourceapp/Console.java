@@ -100,9 +100,7 @@ public class Console {
         String inputPrescription = getInput();
         System.out.print("Enter retirement match %: ");
         double inputRetirementMatch = Double.parseDouble(getInput());
-
-        currentPerson.setHiredDate(inputHireDate);
-        currentPerson.setTitle(inputJobTitle);
+        
         Compensation newCompensation = new Compensation();
         switch (inputPayType) {
             case "monthly":
@@ -143,9 +141,7 @@ public class Console {
         }
 
         newCompensation.setRetirementMatching(inputRetirementMatch);
-        currentPerson.setEmploymentStatus(EmploymentStatus.EMPLOYEE);
-        currentPerson.setCompensation(newCompensation);
-
+        currentPerson = PersonHandler.hire(currentPerson, inputHireDate, inputJobTitle, newCompensation);
 
     }
 
