@@ -80,7 +80,7 @@ public class Console {
 
     public void inputNewEmployeeInfo() {
         System.out.print("Enter hire date (yyyy-mm-dd): ");
-        String inputHireDate = getInput();
+        LocalDate inputHireDate = getDateInput();
         System.out.println("Enter job title: ");
         String inputJobTitle = getInput();
         System.out.println("Enter paid Monthly/Hourly/Project: ");
@@ -102,8 +102,7 @@ public class Console {
         System.out.print("Enter retirement match %: ");
         double inputRetirementMatch = Double.parseDouble(getInput());
 
-        LocalDate hireDate = LocalDate.parse(inputHireDate);
-        currentPerson.setHiredDate(hireDate);
+        currentPerson.setHiredDate(inputHireDate);
         currentPerson.setTitle(inputJobTitle);
         Compensation newCompensation = new Compensation();
         switch (inputPayType) {
@@ -181,50 +180,6 @@ public class Console {
         return newHrContactInfo;
     }
 
-/*
-   public Person selectPersonToUpdate(){
-
-       System.out.println("Update by Id (select 1), update by Name (select 2)");
-       int menuSelect = scan.nextInt();
-
-       PersonWarehouse people = PersonWarehouse.getInstance();
-       Person selectedPerson = null;
-
-       if(menuSelect == 1)      selectedPerson = people.getPersonById();
-       else if(menuSelect == 2) selectedPerson = people.getPersonByName();
-
-       return selectedPerson;
-   }
-
-
-    public static void selectById(){
-        HrContactInfo("Enter ID: ");
-        PersonWarehouse personWarehouse = new PersonWarehouse();
-        //System.out.println(personWarehouse.getPersonById());
-    }
-
-
-    public static void selectByName(){
-        HrContactInfo("Enter Name: ");
-        PersonWarehouse personWarehouse = new PersonWarehouse();
-        //System.out.println(personWarehouse.getPersonByName());
-    }
-
-
-    public void printCurrentPerson() {
-        System.out.println(currentPerson);
-    }
-
-
-    // prospect methods
-
-
-
-
-
-
- */
-
     public String getInput(){
 
         String input = scan.nextLine();
@@ -232,50 +187,12 @@ public class Console {
         return input;
     }
 
-    public LocalDate getDateInput(){
+    public LocalDate getDateInput() {
 
         String dateInput = scan.nextLine();
 
         LocalDate date = LocalDate.parse(dateInput);
 
         return date;
-
-
-   
-
+    }
 }
-
-
-
-}
-
-//
-//    public void promoteEmployee(){
-//
-//    }
-//
-//    public void terminateEmployee(){
-//
-//    }
-//
-//    public void selectPersonFromList(){
-//
-//    }
-//
-//    public printAllBySelection(){
-//
-//    }
-//
-//    public void selectFieldToUpdate(){
-//        return;
-//    }
-//
-//    public void updateContactName(){
-//    }
-//
-//    public void updatePhoneNumber(){
-//
-//    }
-//
-//
-//
