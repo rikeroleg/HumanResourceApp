@@ -61,13 +61,10 @@ public class Console {
        }
    }
 
-
-
    public int selectFieldToUpdate(){
        return 0;
    }
 
-   
    public void updateContactName(){
    }
 
