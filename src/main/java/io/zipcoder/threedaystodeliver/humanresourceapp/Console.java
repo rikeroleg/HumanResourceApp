@@ -14,22 +14,20 @@ public class Console {
     private static void mainMenu(int tier1){
         switch (tier1) {
             case 1:
-                System.out.println("1.[Add New Prospect]   2.[Select Existing Prospect]   3.[View All Prospects]");
-                int prospectTier2 = scanner.nextInt();
-                prospectMenu2(prospectTier2);
+                prospectMenu2();
+                break;
             case 2:
-                System.out.println("1.[Hire New Employee]   2.[Make Changes To Existing Employee]");
-                int employeeTier2 = scanner.nextInt();
-                employeeMenu2(employeeTier2);
+                employeeMenu2();
+                break;
             case 3:
-                // Print People
-                PersonWarehouse printPeople = new PersonWarehouse();
-                System.out.print(printPeople.getAllPeople());
+                System.out.print(PersonWarehouse.getInstance().getAllPeople());
                 break;
         }
     }
 
-    private static void employeeMenu2(int employeeTier2) {
+    private static void employeeMenu2() {
+        System.out.println("1.[Hire New Employee]   2.[Make Changes To Existing Employee]");
+        int employeeTier2 = scanner.nextInt();
         switch (employeeTier2) {
             case 1:
                 hireProspect();
@@ -40,7 +38,9 @@ public class Console {
         }
     }
 
-    private static void prospectMenu2(int prospectTier2) {
+    private static void prospectMenu2() {
+        System.out.println("1.[Add New Prospect]   2.[Select Existing Prospect]   3.[View All Prospects]");
+        int prospectTier2 = scanner.nextInt();
         switch (prospectTier2) {
             case 1:
                 HrContactInfo();
@@ -58,7 +58,7 @@ public class Console {
     private static void prospectMenu3(int prospectTier3) {
         switch (prospectTier3) {
             case 1:
-                selectById(prompt);
+                getPersonById();
                 System.out.println("1.[Update Contact Info]   2.[Hire This Prospect]");
                 int prospectTier4 = scanner.nextInt();
 
@@ -66,7 +66,7 @@ public class Console {
                 prospectMenu4(prospectTier4);
 
             case 2:
-                selectByName();
+                getPersonByName();
                 break;
         }
     }
@@ -117,17 +117,20 @@ public class Console {
         String retirement = HrContactInfo("Enter Retirement Match %s: ");
     }
 
-    public static void selectById() {
-        HrContactInfo("Enter ID: ");
-        PersonWarehouse personWarehouse = PersonWarehouse.getInstance().getPersonById();
-        //System.out.println(personWarehouse.getPersonById());
+    public static void getPersonById() {
+        PersonWarehouse personWarehouse = new PersonWarehouse();
+        System.out.println("Enter ID: ");
+        String in = scanner.nextLine();
+        personWarehouse.getPersonById(in);
     }
 
-    public static void selectByName() {
-        HrContactInfo("Enter Name: ");
+    public static void getPersonByName() {
         PersonWarehouse personWarehouse = new PersonWarehouse();
-        //System.out.println(personWarehouse.getPersonByName());
-        //
+        System.out.println("Enter Name: ");
+        String in = scanner.nextLine();
+        personWarehouse.getPersonByName(in);
+
+
     }
 }
 
