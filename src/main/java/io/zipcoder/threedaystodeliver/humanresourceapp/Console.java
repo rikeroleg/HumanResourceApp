@@ -1,6 +1,7 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Console {
 
@@ -130,6 +131,28 @@ public class Console {
     }
 
     public void terminateEmployee(){
+        String input;
+        LocalDate terminationDate;
+
+        do {
+            System.out.println("Enter termination date in the form YYYY-MM-DD:  ");
+            input = getInput();
+            terminationDate = LocalDate.parse(input);
+        }while (terminationDate==null);
+        Person currentPerson=new Person();
+        currentPerson.setTerminationDate(terminationDate);
+
+        System.out.println("Reason for termination:  ");
+        input=getInput();
+        currentPerson.setReasonForTermination(input);
+
+        System.out.println("Notes from Exit Interview:  ");
+        input=getInput();
+        currentPerson.setExitInterview(input);
+
+        currentPerson.setCompensation(null);
+        currentPerson.setEmploymentStatus(EmploymentStatus.TERMINATED);
+        currentPerson.setTitle("");
 
     }
 
@@ -151,6 +174,45 @@ public class Console {
     public void updatePhoneNumber(){
 
     }
+
+    public void employeeMenu() {
+        Person currentPerson=new Person();
+        String input;
+        do {
+            System.out.println("\n\nEmployee Menu\n");
+            System.out.println("1. Add New Employee");
+            System.out.println("2. Update Existing Employee\n");
+            System.out.println(": ");
+            input = getInput();
+
+        }while( !("1".equals(input)) && !("2".equals(input)) );
+
+        if ("1".equals(input)) {
+            currentPerson=new Person();
+            currentPerson.setContactInfo(inputAllContactInfo());
+            hireEmployee();
+        }
+        else {
+            do {
+                System.out.println("\n\nSelect an employee by ID or by name?\n");
+                System.out.println("1. ID");
+                System.out.println("2. Name\n");
+                System.out.println(": ");
+                input = getInput();
+            }while( !("1".equals(input)) && !("2".equals(input)) );
+
+            if("1".equals(input)) {
+                currentPerson = getPersonById();
+            }
+            else {
+                currentPerson = getPersonByName();
+            }
+            updateExistingEmployee();
+        }
+
+
+    }
+}
 
 
 
