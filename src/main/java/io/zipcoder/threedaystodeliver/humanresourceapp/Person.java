@@ -1,7 +1,6 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Person {
 
