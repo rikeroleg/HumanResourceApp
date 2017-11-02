@@ -73,6 +73,7 @@ public class Console {
 
     public Person currentPerson;
     Scanner scan = new Scanner(System.in);
+    PersonWarehouse singletonInstance = PersonWarehouse.getInstance();
 
     public void hireEmployee() {
         inputNewEmployeeInfo();
