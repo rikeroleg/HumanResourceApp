@@ -19,12 +19,12 @@ public class Console {
                     case 2:
                         System.out.println("1.[Select By ID]   2.[Select By Name]");
                         int prospectTier3 = scanner.nextInt();
-                        switch (prospectTier3){
+                        switch (prospectTier3) {
                             case 1:
                                 selectById();
                                 System.out.println("1.[Update Contact Info]   2.[Hire This Prospect]");
                                 int prospectTier4 = scanner.nextInt();
-                                switch (prospectTier4){
+                                switch (prospectTier4) {
                                     case 1:
                                         //Update prospect contact Info
                                         break;
@@ -32,19 +32,16 @@ public class Console {
                                         //Hire this prospect
                                         break;
                                 }
-                        }
-                                break;
+
                             case 2:
                                 selectByName();
                                 break;
                         }
-                        break;
                 }
-                break;
             case 2:
                 System.out.println("1.[Hire New Employee]   2.[Make Changes To Existing Employee]");
                 int employeeTier2 = scanner.nextInt();
-                switch (employeeTier2){
+                switch (employeeTier2) {
                     case 1:
                         hireProspect();
                         break;
@@ -52,19 +49,14 @@ public class Console {
                         //Update Employee Info
                         break;
                 }
-                break;
             case 3:
                 // Print People
                 PersonWarehouse printPeople = new PersonWarehouse();
                 System.out.print(printPeople.getAllPeople());
                 break;
-        }
-
-
-
-
-
+            }
     }
+
 
     public static String HrContactInfo(String prompt){
         Scanner scan = new Scanner(System.in);
@@ -110,10 +102,13 @@ public class Console {
         HrContactInfo("Enter Name: ");
         PersonWarehouse personWarehouse = new PersonWarehouse();
         //System.out.println(personWarehouse.getPersonByName());
-    }
-
-
+        //
+        }
 }
+
+
+
+
 
 
 
