@@ -6,9 +6,7 @@ public class Console {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Welcome to Human Resources Application Manager\nPlease Select an option: \n1.[Prospects]    2.[Employees]   3.[Print Reports]\n");
-
         int tier1 = scanner.nextInt();
         switch (tier1){
             case 1:
@@ -23,11 +21,22 @@ public class Console {
                         int prospectTier3 = scanner.nextInt();
                         switch (prospectTier3){
                             case 1:
-                                //Search by ID
-                                selectByID();
+                                selectById();
+                                System.out.println("1.[Update Contact Info]   2.[Hire This Prospect]");
+                                int prospectTier4 = scanner.nextInt();
+                                switch (prospectTier4){
+                                    case 1:
+                                        //Update prospect contact Info
+                                        break;
+                                    case 2:
+                                        //Hire this prospect
+                                        break;
+                                }
+                        }
+                                break;
                             case 2:
-                                //Search by Name
                                 selectByName();
+                                break;
                         }
                         break;
                 }
@@ -38,8 +47,10 @@ public class Console {
                 switch (employeeTier2){
                     case 1:
                         hireProspect();
+                        break;
                     case 2:
-                        //Make changes
+                        //Update Employee Info
+                        break;
                 }
                 break;
             case 3:
@@ -89,14 +100,16 @@ public class Console {
         HrContactInfo("Enter Retirement Match %s: ");
     }
 
-    public static void selectByID(){
+    public static void selectById(){
         HrContactInfo("Enter ID: ");
-        //Search by ID method
+        PersonWarehouse personWarehouse = new PersonWarehouse();
+        //System.out.println(personWarehouse.getPersonById());
     }
 
     public static void selectByName(){
         HrContactInfo("Enter Name: ");
-        //Search by Name method
+        PersonWarehouse personWarehouse = new PersonWarehouse();
+        //System.out.println(personWarehouse.getPersonByName());
     }
 
 
