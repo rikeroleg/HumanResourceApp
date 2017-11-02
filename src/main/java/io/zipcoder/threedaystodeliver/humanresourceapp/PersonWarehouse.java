@@ -8,11 +8,12 @@ public class PersonWarehouse {
 
     private static ArrayList<Person> people = new ArrayList<>();
 
-   // private PersonWarehouse(){}
+   private PersonWarehouse(){}
 
     public static PersonWarehouse getInstance(){
         if(INSTANCE == null){
-            return new PersonWarehouse();
+            INSTANCE = new PersonWarehouse();
+            return INSTANCE;
         } else {
             return INSTANCE;
         }

@@ -1,5 +1,6 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
 
@@ -75,7 +76,7 @@ public class Console {
     private static void prospectMenu4(int prospectTier4) {
         switch (prospectTier4) {
             case 1:
-                //Update prospect contact Info
+                selectPersonToUpdate();
                 break;
             case 2:
                 //Hire this prospect
@@ -189,11 +190,11 @@ public class Console {
     }
 
 
-/*
-   public Person selectPersonToUpdate(){
+
+   public static Person selectPersonToUpdate(){
 
        System.out.println("Update by Id (select 1), update by Name (select 2)");
-       int menuSelect = scan.nextInt();
+       int menuSelect = scanner.nextInt();
 
        PersonWarehouse people = PersonWarehouse.getInstance();
        Person selectedPerson = null;
@@ -205,46 +206,28 @@ public class Console {
    }
 
 
-    public static void HrContactInfo() {
-        String name = HrContactInfo("Enter Name: ");
-        String address1 = HrContactInfo("Enter Address Line 1: ");
-        String address2 = HrContactInfo("Enter Address Line 2: ");
-        String city = HrContactInfo("Enter City: ");
-        String state = HrContactInfo("Enter State: ");
-        String zip = HrContactInfo("Enter Zip Code: ");
-        String phone = HrContactInfo("Enter Phone Number: ");
-        String email = HrContactInfo("Enter Email Address: ");
-    }
-
-    public static void hireProspect() {
-        String hireYear = HrContactInfo("Enter Hire Date Year: ");
-        String hireMonth = HrContactInfo("Enter Hire Date Month: ");
-        String hireDay = HrContactInfo("Enter Hire Date Day: ");
-        String title = HrContactInfo("Enter Job Title: ");
-        String pay = HrContactInfo("Enter Paid Monthly/Hourly/Project");
-        String salary = HrContactInfo("Enter Salary: ");
-        String bonus = HrContactInfo("Enter Bonus: ");
-        String pto = HrContactInfo("Enter PTO For The Year: ");
-        String medical = HrContactInfo("Opt In To Medical coverage? Y/N: ");
-        String dental = HrContactInfo("Opt In To Dental Coverage? Y/N: ");
-        String vision = HrContactInfo("Opt In To Vision Coverage? Y/N: ");
-        String prescription = HrContactInfo("Opt In to Prescription Coverage? Y/N: ");
-        String retirement = HrContactInfo("Enter Retirement Match %s: ");
-    }
-
-    public static void getPersonById() {
-        PersonWarehouse personWarehouse = new PersonWarehouse();
+    public static Person getPersonById() {
+        PersonWarehouse personWarehouse = PersonWarehouse.getInstance();
         System.out.println("Enter ID: ");
         String in = scanner.nextLine();
-        personWarehouse.getPersonById(in);
+        Person match = personWarehouse.getPersonById(in);
+        return match;
     }
 
-    public static void getPersonByName() {
-        PersonWarehouse personWarehouse = new PersonWarehouse();
+    public static Person getPersonByName() {
+        PersonWarehouse personWarehouse = PersonWarehouse.getInstance();
         System.out.println("Enter Name: ");
         String in = scanner.nextLine();
-        personWarehouse.getPersonByName(in);
-
+        ArrayList<Person> listOfMatches = personWarehouse.getPersonByName(in);
+        System.out.println("Please select from the list");
+        int i = 1;
+        for(Person person : listOfMatches){
+            System.out.println(i + ": " + person.getContactInfo().getName());
+            i++;
+        }
+        String select = scanner.nextLine();
+        int index = Integer.parseInt(select);
+        return listOfMatches.get(index-1);
 
     }
 }
@@ -284,7 +267,7 @@ public class Console {
 
     public void selectPersonFromList(){
 
- */
+
 
     public String getInput(){
 
@@ -295,7 +278,7 @@ public class Console {
 
     public LocalDate getDateInput() {
 
-        String dateInput = scan.nextLine();
+        String dateInput = scanner.nextLine();
 
         LocalDate date = LocalDate.parse(dateInput);
 
