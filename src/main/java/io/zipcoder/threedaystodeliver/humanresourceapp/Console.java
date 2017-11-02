@@ -122,6 +122,11 @@ public class Console {
                 hireEmployee();
                 break;
         }
+
+
+
+
+
     }
 
     public static void hireEmployee() {
@@ -321,11 +326,96 @@ public class Console {
         LocalDate date = LocalDate.parse(dateInput);
 
         return date;
+    }
 
 
-}
+    public void employeeMenu() {
+        String input;
+        do {
+            System.out.println("\n\nEmployee Menu\n");
+            System.out.println("1. Add New Employee");
+            System.out.println("2. Update Existing Employee\n");
+            System.out.println(": ");
+            input = getInput();
+
+        } while (!("1".equals(input)) && !("2".equals(input)));
+
+        if ("1".equals(input)) {
+            currentPerson = PersonFactory.createPerson(inputAllContactInfo());
+            hireEmployee();
+        } else {
+            do {
+                System.out.println("\n\nSelect an employee by ID or by name?\n");
+                System.out.println("1. ID");
+                System.out.println("2. Name\n");
+                System.out.println(": ");
+                input = getInput();
+            } while (!("1".equals(input)) && !("2".equals(input)));
+
+            if ("1".equals(input)) {
+                currentPerson = getPersonById();
+            } else {
+                currentPerson = getPersonByName();
+            }
+            updateExistingEmployee();
+        }
+    }
+
+    public String printingAllPeople() {
+
+        String showAllEmployeeInfo = "";
+
+        PersonWarehouse allEmployeeInfo = PersonWarehouse.getInstance();
+
+        for (Person a : allEmployeeInfo.getAllPeople()) {
+
+            showAllEmployeeInfo += a.toString();
+        }
+        return showAllEmployeeInfo;
+    }
 
 
+    public void reportingMenu() {
+
+        boolean inputOutOfRange = false;
+
+        while (!inputOutOfRange) {
+
+            System.out.println("Please press 1: for Employee or 2: for former...");
+            try {
+
+                String getInputChoice = getInput();
+
+                if ("1".equals(getInputChoice)) { /// For Showing All Employee Info
+
+                    PersonWarehouse showAllEmployeeInfo = PersonWarehouse.getInstance();
+
+                    for (Person i : showAllEmployeeInfo.getAllEmployees()) {
+                        System.out.println(i);
+                    }
 
 
+                } else if ("2".equals(getInputChoice)) {  /// For Showing All Former Info
+
+                    PersonWarehouse showAllFormerInfo = PersonWarehouse.getInstance();
+                    for (Person i : showAllFormerInfo.getAllFormerEmployees()) {
+                        System.out.println(i);
+                    }
+
+                } else if ("3".equals(getInputChoice)) {  /// For Showing All Prospect Info
+
+                    PersonWarehouse showAllProspectInfo = PersonWarehouse.getInstance();
+                    for (Person i : showAllProspectInfo.getAllProspects()) {
+                        System.out.println(i);
+                    }
+                } else {
+                    inputOutOfRange = true;
+                }
+
+            } catch (Exception e) {
+                System.out.println("Try again please, select 1  or 2...");
+            }
+        }
+
+    }
 }
