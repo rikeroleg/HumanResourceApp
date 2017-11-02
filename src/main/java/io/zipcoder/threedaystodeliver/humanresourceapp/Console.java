@@ -1,77 +1,90 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
 
 public class Console {
+    static Scanner scanner = new Scanner(System.in);
+    public Person currentPerson;
+    PersonWarehouse singletonInstance = PersonWarehouse.getInstance();
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Human Resources Application Manager\nPlease Select an option: \n1.[Prospects]    2.[Employees]   3.[Print Reports]\n");
         int tier1 = scanner.nextInt();
-        switch (tier1){
-            case 1:
-                System.out.println("1.[Add New Prospect]   2.[Select Existing Prospect]");
-                int prospectTier2 = scanner.nextInt();
-                switch (prospectTier2){
-                    case 1:
-                        HrContactInfo();
-                        break;
-                    case 2:
-                        System.out.println("1.[Select By ID]   2.[Select By Name]");
-                        int prospectTier3 = scanner.nextInt();
-                        switch (prospectTier3) {
-                            case 1:
-                                selectById();
-                                System.out.println("1.[Update Contact Info]   2.[Hire This Prospect]");
-                                int prospectTier4 = scanner.nextInt();
-                                switch (prospectTier4) {
-                                    case 1:
-                                        // display current contact info
-                                        //Update prospect contact Info
-                                        break;
-                                    case 2:
-                                        //Hire this prospect
-                                        break;
-                                }
-                        }
-                                break;
-                            case 2:
-                                selectByName();
-                                break;
-                        }
-                        break;
-                }
-                break;
-            case 2:
-                System.out.println("1.[Hire New Employee]   2.[Make Changes To Existing Employee]");
-                int employeeTier2 = scanner.nextInt();
-                switch (employeeTier2){
-                    case 1:
-                        hireProspect();
-                        break;
-                    case 2:
-                        //Update Employee Info
-                        break;
-                }
-                break;
-            case 3:
-                // Print People
-                PersonWarehouse printPeople = new PersonWarehouse();
-                System.out.print(printPeople.getAllPeople());
-                break;
-        }
-
-
-
-
-
+        mainMenu(tier1);
     }
 
+    private static void mainMenu(int tier1){
+        switch (tier1) {
+            case 1:
+                prospectMenu2();
+                break;
+            case 2:
+                employeeMenu2();
+                break;
+            case 3:
+                System.out.print(PersonWarehouse.getInstance().getAllPeople());
+                break;
+        }
+    }
 
-    public Person currentPerson;
-    Scanner scan = new Scanner(System.in);
-    PersonWarehouse singletonInstance = PersonWarehouse.getInstance();
+    private static void employeeMenu2() {
+        System.out.println("1.[Hire New Employee]   2.[Make Changes To Existing Employee]");
+        int employeeTier2 = scanner.nextInt();
+        switch (employeeTier2) {
+            case 1:
+                hireProspect();
+                break;
+            case 2:
+                //Update Employee Info
+                break;
+        }
+    }
+
+    private static void prospectMenu2() {
+        System.out.println("1.[Add New Prospect]   2.[Select Existing Prospect]   3.[View All Prospects]");
+        int prospectTier2 = scanner.nextInt();
+        switch (prospectTier2) {
+            case 1:
+                HrContactInfo();
+                break;
+            case 2:
+                System.out.println("1.[Select By ID]   2.[Select By Name]");
+                int prospectTier3 = scanner.nextInt();
+                prospectMenu3(prospectTier3);
+            case 3:
+                //Print
+
+        }
+    }
+
+    private static void prospectMenu3(int prospectTier3) {
+        switch (prospectTier3) {
+            case 1:
+                getPersonById();
+                System.out.println("1.[Update Contact Info]   2.[Hire This Prospect]");
+                int prospectTier4 = scanner.nextInt();
+
+
+                prospectMenu4(prospectTier4);
+
+            case 2:
+                getPersonByName();
+                break;
+        }
+    }
+
+    private static void prospectMenu4(int prospectTier4) {
+        switch (prospectTier4) {
+            case 1:
+                selectPersonToUpdate();
+                break;
+            case 2:
+                //Hire this prospect
+                break;
+        }
+    }
 
     public void hireEmployee() {
         inputNewEmployeeInfo();
@@ -179,21 +192,100 @@ public class Console {
         return newHrContactInfo;
     }
 
+
+
+   public static Person selectPersonToUpdate(){
+
+       System.out.println("Update by Id (select 1), update by Name (select 2)");
+       int menuSelect = scanner.nextInt();
+
+       PersonWarehouse people = PersonWarehouse.getInstance();
+       Person selectedPerson = null;
+
+       if(menuSelect == 1)      selectedPerson = people.getPersonById();
+       else if(menuSelect == 2) selectedPerson = people.getPersonByName();
+
+       return selectedPerson;
+   }
+
+
+    public static Person getPersonById() {
+        PersonWarehouse personWarehouse = PersonWarehouse.getInstance();
+        System.out.println("Enter ID: ");
+        String in = scanner.nextLine();
+        Person match = personWarehouse.getPersonById(in);
+        return match;
+    }
+
+    public static Person getPersonByName() {
+        PersonWarehouse personWarehouse = PersonWarehouse.getInstance();
+        System.out.println("Enter Name: ");
+        String in = scanner.nextLine();
+        ArrayList<Person> listOfMatches = personWarehouse.getPersonByName(in);
+        System.out.println("Please select from the list");
+        int i = 1;
+        for(Person person : listOfMatches){
+            System.out.println(i + ": " + person.getContactInfo().getName());
+            i++;
+        }
+        String select = scanner.nextLine();
+        int index = Integer.parseInt(select);
+        return listOfMatches.get(index-1);
+
+    }
+
+
+
+    // prospect methods
+
+    public void promoteEmployee(){
+
+    }
+
+    public void terminateEmployee(){
+        String input;
+        LocalDate terminationDate;
+
+        do {
+            System.out.println("Enter termination date in the form YYYY-MM-DD:  ");
+            input = getInput();
+            terminationDate = LocalDate.parse(input);
+        }while (terminationDate==null);
+        Person currentPerson=new Person();
+        currentPerson.setTerminationDate(terminationDate);
+
+        System.out.println("Reason for termination:  ");
+        input=getInput();
+        currentPerson.setReasonForTermination(input);
+
+        System.out.println("Notes from Exit Interview:  ");
+        input=getInput();
+        currentPerson.setExitInterview(input);
+
+        currentPerson.setCompensation(null);
+        currentPerson.setEmploymentStatus(EmploymentStatus.TERMINATED);
+        currentPerson.setTitle("");
+
+    }
+
+
+
+
     public String getInput(){
 
-        String input = scan.nextLine();
+        String input=scanner.nextLine();
 
         return input;
-    }
+        }
+
 
     public LocalDate getDateInput() {
 
-        String dateInput = scan.nextLine();
+        String dateInput = scanner.nextLine();
 
         LocalDate date = LocalDate.parse(dateInput);
 
         return date;
-    }
 
     public void employeeMenu() {
         String input;

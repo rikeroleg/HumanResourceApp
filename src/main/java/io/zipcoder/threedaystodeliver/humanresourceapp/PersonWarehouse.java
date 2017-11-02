@@ -54,7 +54,8 @@ public class PersonWarehouse {
 
     public Person getPersonById(String id){
         for(Person person: people) {
-            if(person.getId().equals(id)) return person;
+            if(person.getId().equals(id))
+                return person;
         }
 
         return null;
