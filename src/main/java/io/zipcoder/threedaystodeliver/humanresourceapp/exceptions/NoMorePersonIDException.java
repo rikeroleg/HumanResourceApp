@@ -1,4 +1,4 @@
-package io.zipcoder.threedaystodeliver.humanresourceapp;
+package io.zipcoder.threedaystodeliver.humanresourceapp.exceptions;
 
 public class NoMorePersonIDException extends Exception {
 

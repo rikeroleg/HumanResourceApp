@@ -1,7 +1,9 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
+
 import java.time.LocalDate;
-import java.util.Date;
+import io.zipcoder.threedaystodeliver.humanresourceapp.exceptions.NotAnEmployeeException;
+
 
 public class PersonHandler {
 
@@ -39,8 +41,16 @@ public class PersonHandler {
         return formerEmployee;
     }
 
-    public static Person change(Person person, String newTitle, double newpayRate){
-        return null;
+    public static void changePosition(Person person, String newTitle, double newpayRate, double newBonus, double newPTO) throws NotAnEmployeeException {
+        if(EmploymentStatus.EMPLOYEE == person.getEmploymentStatus()){
+            person.setTitle(newTitle);
+            person.getCompensation().setPayrate(newpayRate);
+            person.getCompensation().setBonus(newBonus);
+            person.getCompensation().setPtoMaxPerYear(newPTO);
+        } else {
+            throw new NotAnEmployeeException();
+        }
+
     }
 
     public static String getAllPersonInfo(Person person){

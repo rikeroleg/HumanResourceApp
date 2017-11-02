@@ -8,7 +8,7 @@ public class PersonWarehouse {
 
     private static ArrayList<Person> people = new ArrayList<>();
 
-    private PersonWarehouse(){}
+   // private PersonWarehouse(){}
 
     public static PersonWarehouse getInstance(){
         if(INSTANCE == null){
