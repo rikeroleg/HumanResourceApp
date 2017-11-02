@@ -153,7 +153,6 @@ public class Console {
         return null;
     }
 
-    /*
 
    public Person selectPersonToUpdate(){
 
@@ -182,7 +181,8 @@ public class Console {
         PersonWarehouse personWarehouse = new PersonWarehouse();
         //System.out.println(personWarehouse.getPersonByName());
     }
-    */
+
+
 
 
 
@@ -190,7 +190,7 @@ public class Console {
     // will need to create an HrContactInfo object and pass it to the person handler
     // method that creates one:
 
-    /* methods that somehow got deleted
+ methods that somehow got deleted
 
     public HrContactInfo inputContactInfo() {
         System.out.print("Enter name: ");
@@ -228,7 +228,8 @@ public class Console {
         currentPerson = newProspect;
         printCurrentPerson();
     }
-     */
+
+
 
 
 

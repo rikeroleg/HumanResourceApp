@@ -3,6 +3,7 @@ package io.zipcoder.threedaystodeliver.humanresourceapp;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class PersonTest {
@@ -26,11 +27,11 @@ public class PersonTest {
     @Test
     public void testHireDateGetAndSet(){
         Person emp1 = new Person();
-        Date expected = new Date(123456789);
+        LocalDate expected = LocalDate.of(12, 12, 12);
 
         emp1.setHiredDate(expected);
 
-        Date actual = emp1.getHiredDate();
+        LocalDate actual = emp1.getHiredDate();
 
         Assert.assertEquals(expected.toString(), actual.toString());
     }
@@ -38,11 +39,11 @@ public class PersonTest {
     @Test
     public void testTerminationDateGetAndSet(){
         Person emp1 = new Person();
-        Date expected = new Date(123456789);
+        LocalDate expected = LocalDate.of(12, 12, 12);
 
         emp1.setTerminationDate(expected);
 
-        Date actual = emp1.getTerminationDate();
+        LocalDate actual = emp1.getTerminationDate();
 
         Assert.assertEquals(expected.toString(), actual.toString());
     }
@@ -86,11 +87,11 @@ public class PersonTest {
     @Test
     public void testInterviewDateGetAndSet(){
         Person emp1 = new Person();
-        Date expected = new Date(89345678);
+        LocalDate expected = LocalDate.of(12, 12, 12);
 
         emp1.setInterviewDate(expected);
 
-        Date actual = emp1.getInterviewDate();
+        LocalDate actual = emp1.getInterviewDate();
 
         Assert.assertEquals(expected.toString(), actual.toString());
     }
