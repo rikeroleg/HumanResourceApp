@@ -196,7 +196,6 @@ public class Console {
     }
 
     public void employeeMenu() {
-        Person currentPerson=new Person();
         String input;
         do {
             System.out.println("\n\nEmployee Menu\n");
@@ -208,8 +207,7 @@ public class Console {
         }while( !("1".equals(input)) && !("2".equals(input)) );
 
         if ("1".equals(input)) {
-            currentPerson=new Person();
-            currentPerson.setContactInfo(inputAllContactInfo());
+            currentPerson = PersonFactory.createPerson(inputAllContactInfo());
             hireEmployee();
         }
         else {
