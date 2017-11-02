@@ -99,13 +99,6 @@ public class PersonHandlerTest {
 //    information is populated into person
 //
 
-    @Test
-    public void hireFromStreetTest(){
-        Person employee = PersonHandler.hire(info, LocalDate.now(), "Truck Driver", new Compensation());
-
-        Assert.assertEquals(EmploymentStatus.EMPLOYEE, employee.getEmploymentStatus());
-    }
-
 
 
 //    Terminate employee ->
@@ -114,9 +107,10 @@ public class PersonHandlerTest {
 //    remove from current employee lists
 //
 
+
     @Test
     public void terminateEmployeeTypeTest(){
-        Person employee = PersonHandler.hire(info, LocalDate.now(), "", new Compensation());
+        Person employee = PersonHandler.hire(LocalDate.now(), "", new Compensation());
         Person formerEmployee = PersonHandler.terminate(employee, LocalDate.now(), "", "", new Compensation());
 
         Assert.assertEquals(EmploymentStatus.TERMINATED, formerEmployee.getEmploymentStatus());
@@ -124,7 +118,7 @@ public class PersonHandlerTest {
 
     @Test
     public void terminateEmployeePayRateIsNullTest(){
-        Person employee = PersonHandler.hire(info, LocalDate.now(), "", new Compensation());
+        Person employee = PersonHandler.hire(LocalDate.now(), "", new Compensation());
         Person formerEmployee = PersonHandler.terminate(employee, LocalDate.now(), "", "", new Compensation());
 
         Assert.assertNull(formerEmployee.getCompensation());
@@ -133,16 +127,17 @@ public class PersonHandlerTest {
     @Test
     public void terminatedEmployeeHasExitInterviewTest(){
         String exit = "TERMINATED";
-        Person employee = PersonHandler.hire(info, LocalDate.now(), "", new Compensation());
+        Person employee = PersonHandler.hire(LocalDate.now(), "", new Compensation());
         Person formerEmployee = PersonHandler.terminate(employee, LocalDate.now(), "", exit, new Compensation());
 
         Assert.assertTrue(exit.equals(formerEmployee.getExitInterview()));
     }
 
+
     @Test
     public void terminatedEmployeeHasTermDateTest(){
        LocalDate date = LocalDate.now();
-        Person employee = PersonHandler.hire(info, LocalDate.of(1, 1,1 ), "", new Compensation());
+        Person employee = PersonHandler.hire(LocalDate.of(1, 1,1 ), "", new Compensation());
         Person formerEmployee = PersonHandler.terminate(employee, date, "", "", new Compensation());
 
         Assert.assertEquals(date, employee.getTerminationDate());
@@ -152,11 +147,12 @@ public class PersonHandlerTest {
     public void terminatedEmployeeHasReasonForTermination(){
         String reason = "code wasn't clean";
 
-        Person employee = PersonHandler.hire(info, LocalDate.now(), "", new Compensation());
+        Person employee = PersonHandler.hire(LocalDate.now(), "", new Compensation());
         Person formerEmployee = PersonHandler.terminate(employee, LocalDate.now(), reason, "", new Compensation());
 
         Assert.assertEquals(reason, employee.getReasonForTermination());
     }
+
 
 //    change position employee ->
 //    enter information into console
@@ -184,12 +180,13 @@ public class PersonHandlerTest {
         double newBonus = 15d;
         double newPTO = 30d;
         
-        Person employee = PersonHandler.hire(info, LocalDate.now(), "", new Compensation());
+        Person employee = PersonHandler.hire(LocalDate.now(), "", new Compensation());
         PersonHandler.changePosition(employee, "Clean Coder", newPayRate, newBonus, newPTO);
 
         Assert.assertEquals(newPayRate, employee.getCompensation().getPayrate(), 0.001);
         Assert.assertEquals(newBonus, employee.getCompensation().getBonus(), 0.001);
         Assert.assertEquals(newPTO, employee.getCompensation().getPtoMaxPerYear(), 0.001);
     }
+    
 
 }
