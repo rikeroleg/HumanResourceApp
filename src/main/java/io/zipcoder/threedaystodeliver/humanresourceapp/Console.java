@@ -1,9 +1,7 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
-
-import java.time.LocalDate;
-
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Console {
 
@@ -22,12 +20,12 @@ public class Console {
                     case 2:
                         System.out.println("1.[Select By ID]   2.[Select By Name]");
                         int prospectTier3 = scanner.nextInt();
-                        switch (prospectTier3){
+                        switch (prospectTier3) {
                             case 1:
                                 selectById();
                                 System.out.println("1.[Update Contact Info]   2.[Hire This Prospect]");
                                 int prospectTier4 = scanner.nextInt();
-                                switch (prospectTier4){
+                                switch (prospectTier4) {
                                     case 1:
                                         // display current contact info
                                         //Update prospect contact Info
@@ -181,6 +179,106 @@ public class Console {
         return newHrContactInfo;
     }
 
+
+/*
+   public Person selectPersonToUpdate(){
+
+       System.out.println("Update by Id (select 1), update by Name (select 2)");
+       int menuSelect = scan.nextInt();
+
+       PersonWarehouse people = PersonWarehouse.getInstance();
+       Person selectedPerson = null;
+
+       if(menuSelect == 1)      selectedPerson = people.getPersonById();
+       else if(menuSelect == 2) selectedPerson = people.getPersonByName();
+
+       return selectedPerson;
+   }
+
+
+    public static void HrContactInfo(){
+        HrContactInfo("Enter Name: ");
+        HrContactInfo("Enter Address Line 1: ");
+        HrContactInfo("Enter Address Line 2: ");
+        HrContactInfo("Enter City: ");
+        HrContactInfo("Enter State: ");
+        HrContactInfo("Enter Zip Code: ");
+        HrContactInfo("Enter Phone Number: ");
+        HrContactInfo("Enter Email Address: ");
+    }
+
+
+    public static void hireProspect(){
+        HrContactInfo("Enter Hire Date Year: ");
+        HrContactInfo("Enter Hire Date Month: ");
+        HrContactInfo("Enter Hire Date Day: ");
+        HrContactInfo("Enter Job Title: ");
+        HrContactInfo("Enter Paid Monthly/Hourly/Project");
+        HrContactInfo("Enter Salary: ");
+        HrContactInfo("Enter Bonus: ");
+        HrContactInfo("Enter PTO For The Year: ");
+        HrContactInfo("Opt In To Medical coverage? Y/N: ");
+        HrContactInfo("Opt In To Dental Coverage? Y/N: ");
+        HrContactInfo("Opt In To Vision Coverage? Y/N: ");
+        HrContactInfo("Opt In to Prescription Coverage? Y/N: ");
+        HrContactInfo("Enter Retirement Match %s: ");
+    }
+
+    public static void selectById(){
+        HrContactInfo("Enter ID: ");
+        PersonWarehouse personWarehouse = new PersonWarehouse();
+        //System.out.println(personWarehouse.getPersonById());
+    }
+
+
+    public static void selectByName(){
+        HrContactInfo("Enter Name: ");
+        PersonWarehouse personWarehouse = new PersonWarehouse();
+        //System.out.println(personWarehouse.getPersonByName());
+    }
+
+
+    public void printCurrentPerson() {
+        System.out.println(currentPerson);
+    }
+
+
+    // prospect methods
+
+    public void promoteEmployee(){
+
+    }
+
+    public void terminateEmployee(){
+        String input;
+        LocalDate terminationDate;
+
+        do {
+            System.out.println("Enter termination date in the form YYYY-MM-DD:  ");
+            input = getInput();
+            terminationDate = LocalDate.parse(input);
+        }while (terminationDate==null);
+        Person currentPerson=new Person();
+        currentPerson.setTerminationDate(terminationDate);
+
+        System.out.println("Reason for termination:  ");
+        input=getInput();
+        currentPerson.setReasonForTermination(input);
+
+        System.out.println("Notes from Exit Interview:  ");
+        input=getInput();
+        currentPerson.setExitInterview(input);
+
+        currentPerson.setCompensation(null);
+        currentPerson.setEmploymentStatus(EmploymentStatus.TERMINATED);
+        currentPerson.setTitle("");
+
+    }
+
+    public void selectPersonFromList(){
+
+ */
+
     public String getInput(){
 
         String input = scan.nextLine();
@@ -195,5 +293,53 @@ public class Console {
         LocalDate date = LocalDate.parse(dateInput);
 
         return date;
+
+
+
+
+
+}
+
+    public void employeeMenu() {
+        Person currentPerson=new Person();
+        String input;
+        do {
+            System.out.println("\n\nEmployee Menu\n");
+            System.out.println("1. Add New Employee");
+            System.out.println("2. Update Existing Employee\n");
+            System.out.println(": ");
+            input = getInput();
+
+        }while( !("1".equals(input)) && !("2".equals(input)) );
+
+        if ("1".equals(input)) {
+            currentPerson=new Person();
+            currentPerson.setContactInfo(inputAllContactInfo());
+            hireEmployee();
+        }
+        else {
+            do {
+                System.out.println("\n\nSelect an employee by ID or by name?\n");
+                System.out.println("1. ID");
+                System.out.println("2. Name\n");
+                System.out.println(": ");
+                input = getInput();
+            }while( !("1".equals(input)) && !("2".equals(input)) );
+
+            if("1".equals(input)) {
+                currentPerson = getPersonById();
+            }
+            else {
+                currentPerson = getPersonByName();
+            }
+            updateExistingEmployee();
+        }
+
+
     }
+}
+
+
+
+
 }
