@@ -1,8 +1,9 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
+
+import java.time.LocalDate;
 import io.zipcoder.threedaystodeliver.humanresourceapp.exceptions.NotAnEmployeeException;
 
-import java.util.Date;
 
 public class PersonHandler {
 
@@ -13,7 +14,7 @@ public class PersonHandler {
         return prospect;
     }
 
-    public static Person hire(Person person, Date date, String title, Compensation compensation){
+    public static Person hire(Person person, LocalDate date, String title, Compensation compensation){
         Person employee = person;
         employee.setEmploymentStatus(EmploymentStatus.EMPLOYEE);
         employee.setHiredDate(date);
@@ -23,13 +24,13 @@ public class PersonHandler {
         return employee;
     }
 
-    public static Person hire(HrContactInfo info, Date date, String title, Compensation compensation){
+    public static Person hire(HrContactInfo info, LocalDate date, String title, Compensation compensation){
         Person employee = PersonFactory.createPerson(info);
 
         return hire(employee, date, title, compensation);
     }
 
-    public static Person terminate(Person person, Date terminationDate, String reasonForTermination, String exitInterview, Compensation postEmployComp) {
+    public static Person terminate(Person person, LocalDate terminationDate, String reasonForTermination, String exitInterview, Compensation postEmployComp) {
         Person formerEmployee = person;
         formerEmployee.setTerminationDate(terminationDate);
         formerEmployee.setReasonForTermination(reasonForTermination);
