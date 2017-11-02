@@ -179,106 +179,6 @@ public class Console {
         return newHrContactInfo;
     }
 
-
-/*
-   public Person selectPersonToUpdate(){
-
-       System.out.println("Update by Id (select 1), update by Name (select 2)");
-       int menuSelect = scan.nextInt();
-
-       PersonWarehouse people = PersonWarehouse.getInstance();
-       Person selectedPerson = null;
-
-       if(menuSelect == 1)      selectedPerson = people.getPersonById();
-       else if(menuSelect == 2) selectedPerson = people.getPersonByName();
-
-       return selectedPerson;
-   }
-
-
-    public static void HrContactInfo(){
-        HrContactInfo("Enter Name: ");
-        HrContactInfo("Enter Address Line 1: ");
-        HrContactInfo("Enter Address Line 2: ");
-        HrContactInfo("Enter City: ");
-        HrContactInfo("Enter State: ");
-        HrContactInfo("Enter Zip Code: ");
-        HrContactInfo("Enter Phone Number: ");
-        HrContactInfo("Enter Email Address: ");
-    }
-
-
-    public static void hireProspect(){
-        HrContactInfo("Enter Hire Date Year: ");
-        HrContactInfo("Enter Hire Date Month: ");
-        HrContactInfo("Enter Hire Date Day: ");
-        HrContactInfo("Enter Job Title: ");
-        HrContactInfo("Enter Paid Monthly/Hourly/Project");
-        HrContactInfo("Enter Salary: ");
-        HrContactInfo("Enter Bonus: ");
-        HrContactInfo("Enter PTO For The Year: ");
-        HrContactInfo("Opt In To Medical coverage? Y/N: ");
-        HrContactInfo("Opt In To Dental Coverage? Y/N: ");
-        HrContactInfo("Opt In To Vision Coverage? Y/N: ");
-        HrContactInfo("Opt In to Prescription Coverage? Y/N: ");
-        HrContactInfo("Enter Retirement Match %s: ");
-    }
-
-    public static void selectById(){
-        HrContactInfo("Enter ID: ");
-        PersonWarehouse personWarehouse = new PersonWarehouse();
-        //System.out.println(personWarehouse.getPersonById());
-    }
-
-
-    public static void selectByName(){
-        HrContactInfo("Enter Name: ");
-        PersonWarehouse personWarehouse = new PersonWarehouse();
-        //System.out.println(personWarehouse.getPersonByName());
-    }
-
-
-    public void printCurrentPerson() {
-        System.out.println(currentPerson);
-    }
-
-
-    // prospect methods
-
-    public void promoteEmployee(){
-
-    }
-
-    public void terminateEmployee(){
-        String input;
-        LocalDate terminationDate;
-
-        do {
-            System.out.println("Enter termination date in the form YYYY-MM-DD:  ");
-            input = getInput();
-            terminationDate = LocalDate.parse(input);
-        }while (terminationDate==null);
-        Person currentPerson=new Person();
-        currentPerson.setTerminationDate(terminationDate);
-
-        System.out.println("Reason for termination:  ");
-        input=getInput();
-        currentPerson.setReasonForTermination(input);
-
-        System.out.println("Notes from Exit Interview:  ");
-        input=getInput();
-        currentPerson.setExitInterview(input);
-
-        currentPerson.setCompensation(null);
-        currentPerson.setEmploymentStatus(EmploymentStatus.TERMINATED);
-        currentPerson.setTitle("");
-
-    }
-
-    public void selectPersonFromList(){
-
- */
-
     public String getInput(){
 
         String input = scan.nextLine();
@@ -293,12 +193,7 @@ public class Console {
         LocalDate date = LocalDate.parse(dateInput);
 
         return date;
-
-
-
-
-
-}
+    }
 
     public void employeeMenu() {
         Person currentPerson=new Person();
