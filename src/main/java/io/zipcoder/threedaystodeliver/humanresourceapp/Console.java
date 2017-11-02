@@ -88,14 +88,17 @@ public class Console {
     }
 
    public Person selectPersonToUpdate(){
+
        System.out.println("Update by Id (select 1), update by Name (select 2)");
        int menuSelect = scan.nextInt();
 
        PersonWarehouse people = PersonWarehouse.getInstance();
+       Person selectedPerson = null;
 
-       if(menuSelect == 1){
+       if(menuSelect == 1)      selectedPerson = people.getPersonById();
+       else if(menuSelect == 2) selectedPerson = people.getPersonByName();
 
-       }
+       return selectedPerson;
    }
 
    public int selectFieldToUpdate(){
@@ -115,6 +118,36 @@ public class Console {
    public Person promoteEmployee(){
        return null;
    }
+
+   public void inputIdNumber(){
+
+   }
+
+   public void inputName(){
+
+   }
+
+    public void hireProspect(){
+
+    }
+
+    public void promoteEmployinee(){
+
+    }
+
+    public void terminateEmployee(){
+
+    }
+
+    public void selectPersonFromList(){
+
+    }
+
+    public printAllByFieldSelection(){
+
+    }
+
+
 
 
 
