@@ -8,11 +8,12 @@ public class PersonWarehouse {
 
     private static ArrayList<Person> people = new ArrayList<>();
 
-   // private PersonWarehouse(){}
+   private PersonWarehouse(){}
 
     public static PersonWarehouse getInstance(){
         if(INSTANCE == null){
-            return new PersonWarehouse();
+            INSTANCE = new PersonWarehouse();
+            return INSTANCE;
         } else {
             return INSTANCE;
         }
@@ -53,7 +54,8 @@ public class PersonWarehouse {
 
     public Person getPersonById(String id){
         for(Person person: people) {
-            if(person.getId().equals(id)) return person;
+            if(person.getId().equals(id))
+                return person;
         }
 
         return null;
