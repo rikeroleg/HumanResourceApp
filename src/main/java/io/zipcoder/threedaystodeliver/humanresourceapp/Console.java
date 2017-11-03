@@ -76,6 +76,37 @@ public class Console {
         }
 
 
+
+    }
+
+    private static void updateExistingEmployee() {
+        String input;
+        do {
+            System.out.println("What do we need to change?\n");
+            System.out.println("1. [Contact Information]   2. [Job Title & Compensation]  \n" +
+                               "3. [Compensation]   4. [Finished Updating]");
+            System.out.print(": ");
+            input = getInput();
+        }while ( !("1".equals(input)) && !("2".equals(input)) && !("3".equals(input)) && !("4".equals(input)) );
+
+        switch (input) {
+            case "1":   {
+                            break;
+                        }
+            case "2":   {
+                            System.out.print("Enter new job title: ");
+                            currentPerson.setTitle(getInput());
+                        }
+            case "3":   {
+                            currentPerson.setCompensation(changeCompensation());
+                            break;
+                        }
+            case "4":   {
+                            break;
+                        }
+        }
+
+
     }
 
     private static void makeChangesToExistingProspect() {
@@ -115,6 +146,12 @@ public class Console {
         LocalDate inputHireDate = getDateInput();
         System.out.println("Enter job title: ");
         String inputJobTitle = getInput();
+        Compensation newCompensation = changeCompensation();
+        currentPerson = PersonHandler.hire(currentPerson, inputHireDate, inputJobTitle, newCompensation);
+
+    }
+
+    private static Compensation changeCompensation() {
         System.out.println("Enter paid Monthly/Hourly/Project: ");
         String inputPayType = getInput().toLowerCase();
         System.out.print("Enter salary: ");
@@ -133,7 +170,7 @@ public class Console {
         String inputPrescription = getInput();
         System.out.print("Enter retirement match %: ");
         double inputRetirementMatch = Double.parseDouble(getInput());
-        
+
         Compensation newCompensation = new Compensation();
         switch (inputPayType) {
             case "monthly":
@@ -174,8 +211,7 @@ public class Console {
         }
 
         newCompensation.setRetirementMatching(inputRetirementMatch);
-        currentPerson = PersonHandler.hire(currentPerson, inputHireDate, inputJobTitle, newCompensation);
-
+        return newCompensation;
     }
 
     public static void addNewProspect() {
