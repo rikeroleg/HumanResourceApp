@@ -46,14 +46,14 @@ public class IncidentReport {
     }
 
     public void removePersonFromIncidentReport(Person person) {
-
+        personsInvolved.remove(person);
     }
 
     public void updateIncidentReport(IncidentCategory category) {
-
+        incidentCategory = category;
     }
 
     public void updateIncidentReport(String nextDescription) {
-
+        description.add(nextDescription);
     }
 }
