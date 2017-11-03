@@ -14,6 +14,13 @@ public class PersonHandler {
         return prospect;
     }
 
+    public static Person createEmployee(HrContactInfo hrContactInfo){
+        Person prospect = PersonFactory.createPerson(hrContactInfo);
+        prospect.setEmploymentStatus(EmploymentStatus.EMPLOYEE);
+
+        return prospect;
+    }
+
     public static Person hire(Person person, LocalDate date, String title, Compensation compensation){
         Person employee = person;
         employee.setEmploymentStatus(EmploymentStatus.EMPLOYEE);

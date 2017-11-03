@@ -63,34 +63,12 @@ public class ProspectMenu extends Menu{
     }
 
     private void createAndSetActiveNewProspect() {
-        HrContactInfo requestedInfo = inputAllContactInfo();
+        HrContactInfo requestedInfo = this.inputAllContactInfo();
         Person newProspect = PersonHandler.createProspect(requestedInfo);
         currentPerson = newProspect;
     }
 
-    private HrContactInfo inputAllContactInfo() {
-        System.out.print("Enter name: ");
-        String inputName = this.getUserInput();
-        System.out.print("Enter address line 1: ");
-        String inputAddressLine1 = this.getUserInput();
-        System.out.print("Enter address line 2: ");
-        String inputAddressLine2 = this.getUserInput();
-        System.out.print("Enter city: ");
-        String inputCity = this.getUserInput();
-        System.out.print("Enter state: ");
-        String inputState = this.getUserInput();
-        System.out.print("Enter zip code: ");
-        String inputZipCode = this.getUserInput();
-        System.out.print("Enter phone number: ");
-        String inputPhoneNumber = this.getUserInput();
-        System.out.print("Enter email address: ");
-        String inputEmailAddress = this.getUserInput();
 
-        StreetAddress newStreetAddress = new StreetAddress(inputAddressLine1, inputAddressLine2, inputCity, inputState, inputZipCode);
-        HrContactInfo newHrContactInfo = new HrContactInfo(inputName, newStreetAddress, inputPhoneNumber, inputEmailAddress);
-
-        return newHrContactInfo;
-    }
 
 //    private void employeeMenu() {
 //        ProspectMenu employeeMenu = new ProspectMenu();

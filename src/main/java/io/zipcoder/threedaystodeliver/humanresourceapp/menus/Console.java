@@ -133,68 +133,7 @@ public class Console {
 
     }
 
-    private static Compensation changeCompensation() {
-        System.out.println("Enter paid Monthly/Hourly/Project: ");
-        String inputPayType = getInput().toLowerCase();
-        System.out.print("Enter salary: ");
-        double inputSalary = Double.parseDouble(getInput());
-        System.out.print("Enter bonus: ");
-        double inputBonus = Double.parseDouble(getInput());
-        System.out.print("Enter PTO for the year: ");
-        double inputPTO = Double.parseDouble(getInput());
-        System.out.print("Opt in to medical coverage? y/n: ");
-        String inputMedical = getInput();
-        System.out.print("Opt in to dental coverage? y/n: ");
-        String inputDental = getInput();
-        System.out.print("Opt in to vision coverage? y/n: ");
-        String inputVision = getInput();
-        System.out.print("Opt in to prescription coverage? y/n: ");
-        String inputPrescription = getInput();
-        System.out.print("Enter retirement match %: ");
-        double inputRetirementMatch = Double.parseDouble(getInput());
 
-        Compensation newCompensation = new Compensation();
-        switch (inputPayType) {
-            case "monthly":
-                newCompensation.setTypeAndAmount(Compensation.compensationType.Monthly, inputSalary);
-                break;
-            case "hourly":
-                newCompensation.setTypeAndAmount(Compensation.compensationType.Hourly, inputSalary);
-                break;
-        }
-        newCompensation.setBonus(inputBonus);
-        newCompensation.setPtoMaxPerYear(inputPTO);
-        if("y".equals(inputMedical)) {
-            newCompensation.setMedical(true);
-        }
-        else {
-            newCompensation.setMedical(false);
-        }
-
-        if("y".equals(inputDental)) {
-            newCompensation.setDental(true);
-        }
-        else {
-            newCompensation.setDental(false);
-        }
-
-        if("y".equals(inputVision)) {
-            newCompensation.setVision(true);
-        }
-        else {
-            newCompensation.setVision(false);
-        }
-
-        if("y".equals(inputPrescription)) {
-            newCompensation.setPrescription(true);
-        }
-        else {
-            newCompensation.setPrescription(false);
-        }
-
-        newCompensation.setRetirementMatching(inputRetirementMatch);
-        return newCompensation;
-    }
 
 
 
