@@ -1,3 +1,4 @@
+
 package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
 import io.zipcoder.threedaystodeliver.humanresourceapp.*;
@@ -115,7 +116,7 @@ public class Console {
         String inputPrescription = getInput();
         System.out.print("Enter retirement match %: ");
         double inputRetirementMatch = Double.parseDouble(getInput());
-        
+
         Compensation newCompensation = new Compensation();
         switch (inputPayType) {
             case "monthly":
