@@ -1,8 +1,12 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
 import io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 import io.zipcoder.threedaystodeliver.humanresourceapp.Person;
 import io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler;
+import io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouse;
 import io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress;
 
 public class ProspectMenu extends Menu{
@@ -10,6 +14,8 @@ public class ProspectMenu extends Menu{
     enum ProspectSelectionOptions { ADD, UPDATE, HOME, EXIT}
 
     public static final ProspectMenu INSTANCE = new ProspectMenu();
+
+    public PersonWarehouse personWarehouse = PersonWarehouse.getInstance();
 
     private static Person currentPerson = null;
 
@@ -73,10 +79,16 @@ public class ProspectMenu extends Menu{
     }
 
     private void updateProspect(){
-        if (currentPerson == null) {
-            setActiveProspect();
+        if (personWarehouse.getAllProspects().size()==0)
+        {
+            System.out.println("There are no prospects currently in the system.");
         }
-        updateProspectField();
+        else {
+            if (currentPerson == null) {
+                setActiveProspect();
+            }
+            updateProspectField();
+        }
     }
 
     private void setActiveProspect() {
@@ -84,9 +96,63 @@ public class ProspectMenu extends Menu{
         do {
             System.out.println("Find by [ID] or [Name]?");
             input = this.getUserInput();
-        } while (!"cancel".equalsIgnoreCase(input));
+        } while (!"ID".equalsIgnoreCase(input) && !"Name".equalsIgnoreCase(input));
+
+        if ("ID".equalsIgnoreCase(input)){
+            currentPerson=getPersonById();
+        }
+        else{
+            currentPerson=getPersonByName();
+        }
     }
 
+    private Person getPersonByName(){
+        Scanner in = new Scanner(System.in);
+        Person match=null;
+        do {
+            System.out.println("Enter Name: ");
+            String name = in.nextLine();
+            ArrayList<Person> matchList = personWarehouse.getPersonByName(name);
+            if (matchList.size()==0) {
+                System.out.println("Invalid Name. Choices: \n");
+                System.out.println(personWarehouse.getAllPeople());
+            }
+            else if (matchList.size()==1){
+                match=matchList.get(0);
+            }
+                else
+                {
+                    do {
+                        System.out.println("Multiple matches for \"" + name + ". Choose ID from choices below:\n");
+                        for (Person p : matchList) {
+                            System.out.println(p.toString());
+                        }
+                        match = getPersonById();
+                        if (!name.equalsIgnoreCase(match.getContactInfo().getName())) {
+                            System.out.println("That ID doesn't match any person named " + name);
+                        }
+                    }while (!name.equalsIgnoreCase(match.getContactInfo().getName()) );
+                }
+
+        }while (match==null);
+        return match;
+
+    }
+
+    private Person getPersonById(){
+        Scanner in = new Scanner(System.in);
+        Person match=null;
+        do {
+            System.out.println("Enter ID: ");
+            String id = in.nextLine();
+            match = personWarehouse.getPersonById(id);
+            if (match == null) {
+                System.out.println("Invalid ID. Choices: \n");
+                System.out.println(personWarehouse.getAllPeople());
+            }
+        }while (match==null);
+        return match;
+    }
 
     private void updateProspectField() {
 
