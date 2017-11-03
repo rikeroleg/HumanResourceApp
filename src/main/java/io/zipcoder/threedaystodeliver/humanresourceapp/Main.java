@@ -1,5 +1,5 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
-/*
+
 import io.zipcoder.threedaystodeliver.humanresourceapp.menus.Console;
 import io.zipcoder.threedaystodeliver.humanresourceapp.menus.MainMenu;
 
@@ -12,4 +12,3 @@ public class Main {
         }
     }
 }
-*/
