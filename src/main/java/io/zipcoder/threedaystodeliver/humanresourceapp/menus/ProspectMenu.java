@@ -87,6 +87,7 @@ public class ProspectMenu extends Menu{
         } while (!"cancel".equalsIgnoreCase(input));
     }
 
+
     private void updateProspectField() {
 
     }
