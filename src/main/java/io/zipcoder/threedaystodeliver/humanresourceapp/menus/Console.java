@@ -1,4 +1,6 @@
-package io.zipcoder.threedaystodeliver.humanresourceapp;
+package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
+
+import io.zipcoder.threedaystodeliver.humanresourceapp.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,27 +11,7 @@ public class Console {
     public static Person currentPerson;
     PersonWarehouse singletonInstance = PersonWarehouse.getInstance();
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to Human Resources Application Manager\nPlease Select an option: \n1.[Prospects]    2.[Employees]   3.[Print Reports]\n");
-        int choice = scanner.nextInt();
-        mainMenu(choice);
-        }
-    }
 
-    private static void mainMenu(int choice){
-        switch (choice) {
-            case 1:
-                prospectsMainMenu();
-                break;
-            case 2:
-                employeesMainMenu();
-                break;
-            case 3:
-                // call reporting menu instead of line below
-                System.out.print(PersonWarehouse.getInstance().getAllPeople());
-                break;
-        }
-    }
 
     private static void prospectsMainMenu() {
         System.out.println("1.[Add New Prospect]   2.[Select Existing Prospect]   3.[View All Prospects]");
