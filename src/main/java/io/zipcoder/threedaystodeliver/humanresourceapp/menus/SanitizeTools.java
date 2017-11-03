@@ -1,9 +1,33 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class SanitizeTools
 {
+    public static LocalDate getEnforcedLocalDateInput(){
+        Scanner in = new Scanner(System.in);
+        LocalDate localDateInput;
+        String sInput;
+        do {
+            sInput = in.nextLine();
+            if (!isInputLocalDate(sInput)) {
+                System.out.println("Please enter a date in YYYY-MM-DD format.");
+            }
+        }while (!isInputLocalDate(sInput));
+        localDateInput=LocalDate.parse(sInput);
+        return localDateInput;
+    }
+
+    private static boolean isInputLocalDate(String passedString)
+    {
+        try {
+            LocalDate output = LocalDate.parse(passedString);
+        } catch (Exception e) {
+            return false;
+        }
+        return (true);
+    }
 
     public static double getEnforcedDoubleInput(){
         Scanner in = new Scanner(System.in);
