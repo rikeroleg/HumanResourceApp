@@ -26,7 +26,7 @@ public abstract class Menu {
     public void display() {
         String userInput;
         do {
-            userInput = this.getUserInput().toUpperCase();
+            userInput = this.getMenuInput().toUpperCase();
             try {
                 selectOption(userInput);
             } catch (IllegalArgumentException iae) {
@@ -37,11 +37,11 @@ public abstract class Menu {
         } while (!"Home".equalsIgnoreCase(userInput));
     }
 
-    private void handleIllegalArgumentException(String illegalArgument, IllegalArgumentException iae) {
+    protected void handleIllegalArgumentException(String illegalArgument, IllegalArgumentException iae) {
         handleException("[ %s ] is an invalid argument.", illegalArgument);
     }
 
-    private void handleNullPointerException(NullPointerException npe) {
+    protected void handleNullPointerException(NullPointerException npe) {
         handleException("Unable to retrieve data with input value.");
     }
 
@@ -73,13 +73,19 @@ public abstract class Menu {
         return newHrContactInfo;
     }
 
-    public String getUserInput() {
+    public String getMenuInput() {
         Scanner scanner = new Scanner(System.in);
-        System.out.printf("===== %s =====", getClass().getSimpleName());
+        System.out.printf("===== %s =====\n", getClass().getSimpleName());
         System.out.println("Select option:");
         for (Enum e : menuOptions) {
             System.out.printf("[ %s ] ", e.name());
         }
+        System.out.println();
+        return scanner.nextLine();
+    }
+
+    public String getUserInput() {
+        Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
