@@ -96,14 +96,6 @@ public class CompensationTest {
     }
 
     @Test
-    public void setAndGetRetirementTest() {
-        compensation.setRetirement(true);
-        boolean expected = true;
-        boolean actual = compensation.isRetirement();
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
     public void setAndGetRetirementMatching() {
         compensation.setRetirementMatching(0.6);
         double expected = 0.6;

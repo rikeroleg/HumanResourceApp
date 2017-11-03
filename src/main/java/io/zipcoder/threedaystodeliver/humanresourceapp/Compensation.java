@@ -1,67 +1,62 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 public class Compensation {
-    //come git me
-    //seriously
+
     public enum compensationType {
         Monthly,
         Hourly,
         Project
-
     }
 
-    private double usePTO;
-
+    private double ptoUsed;
     private double payrate;
     private double bonus;
     private compensationType compensationType;
-    private double PtoMaxPerYear;
-    private double PtoRemaining;
+    private double ptoMaxPerYear;
+    private double ptoRemaining;
     private boolean vision;
     private boolean dental;
     private boolean medical;
     private boolean prescription;
-    private boolean retirement;
     private double retirementMatching;
 
     public void setPtoMaxPerYear(double ptoMaxPerYear) {
-        PtoMaxPerYear = ptoMaxPerYear;
+        this.ptoMaxPerYear = ptoMaxPerYear;
     }
 
     public double getPtoMaxPerYear() {
-        return PtoMaxPerYear;
+        return ptoMaxPerYear;
     }
 
     @Override
     public String toString() {
 
+        String formattedEmployeeData = "";
 
-        return String.format(
-                "|UsePTO: $" + usePTO + "           |" +
-                        "   |Payrate: $" + payrate + "      |" +
-                        "   |Bonus: $" + bonus + "             |" + "\n" +
-                        "\n|CompensationType: $" + compensationType + "|" +
-                        "   |PtoMaxPerYear:$" + PtoMaxPerYear + " |" + "  " +
-                        " |Dental: " + dental + "           |" + "\n" +
-                        "\n|PtoRemaining: $" + PtoRemaining + "     |" +
-                        "   |Vision: " + vision + "      |" +
-                        "   |Retirement: " + retirement + "       |" + "\n" +
+        formattedEmployeeData += String.format("SALARY: $%.2f per ", payrate);
+        if(compensationType.Monthly.equals(compensationType)) {
+            formattedEmployeeData += "month";
+        }
+        else {
+            formattedEmployeeData += "hour";
+        }
 
-                        "\n|Medical: " + medical + "         |" +
-                        "   |Prescription: " + prescription + "|" +
+        formattedEmployeeData += String.format("\nBONUS: %.2f%", bonus);
+        formattedEmployeeData += String.format("\n401k MATCH: %f%", retirementMatching);
+        formattedEmployeeData += String.format("\nPTO: %f hours remaining out of %f max per year", ptoRemaining, ptoMaxPerYear);
+        formattedEmployeeData += String.format("\nMEDICAL BENEFITS: MEDICAL: %s PRESCRIPTION: %s DENTAL: %s VISION: %s", formatBooleanYOrN(medical), formatBooleanYOrN(prescription), formatBooleanYOrN(dental), formatBooleanYOrN(vision));
 
-                        "   |RetirementMatching: $" + retirementMatching + "|"
-        );
+        return formattedEmployeeData;
     }
 
     public void setUsePTO(double amount) {
-        this.usePTO = amount;
+        this.ptoUsed = amount;
 
 
     }
 
     public double getUsePTO() {
-        return usePTO;
+        return ptoUsed;
     }
 
     public void setPayrate(double payrate) {
@@ -70,14 +65,14 @@ public class Compensation {
 
     public double getPtoRemaining() {
 
-        PtoRemaining = PtoMaxPerYear - usePTO;
+        ptoRemaining = ptoMaxPerYear - ptoUsed;
 
-        return PtoRemaining;
+        return ptoRemaining;
     }
 
     public double getPTOUsedThisYear() {
 
-        return usePTO;
+        return ptoUsed;
     }
 
 
@@ -121,14 +116,6 @@ public class Compensation {
         return prescription;
     }
 
-    public void setRetirement(boolean retirement) {
-        this.retirement = retirement;
-    }
-
-    public boolean isRetirement() {
-        return retirement;
-    }
-
     public void setRetirementMatching(double retirementMatching) {
         this.retirementMatching = retirementMatching;
     }
@@ -156,6 +143,15 @@ public class Compensation {
 
     public compensationType getCompensationType() {
         return this.compensationType;
+    }
+
+    private static String formatBooleanYOrN(boolean input) {
+        if(input) {
+            return "Y";
+        }
+        else {
+            return "N";
+        }
     }
 
 
