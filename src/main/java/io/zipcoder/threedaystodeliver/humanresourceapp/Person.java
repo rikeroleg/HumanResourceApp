@@ -1,6 +1,7 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Person {
 
@@ -13,7 +14,7 @@ public class Person {
     private EmploymentStatus employmentStatus;
     private Compensation compensation;
     private LocalDate hiredDate;
-
+    private ArrayList<IncidentReport> incidentReports;
 
     //former
     private LocalDate terminationDate;
@@ -150,5 +151,9 @@ public class Person {
 
     public void setEmploymentStatus(EmploymentStatus employmentStatus) {
         this.employmentStatus = employmentStatus;
+    }
+
+    public void addIncidentReport(IncidentReport incidentReport) {
+        incidentReports.add(incidentReport);
     }
 }
