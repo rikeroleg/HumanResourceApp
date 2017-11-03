@@ -17,8 +17,6 @@ public class ProspectMenu extends Menu{
 
     public static final ProspectMenu INSTANCE = new ProspectMenu();
 
-    public PersonWarehouse personWarehouse = PersonWarehouse.getInstance();
-
     private static Person currentPerson = null;
 
     private ProspectMenu(){

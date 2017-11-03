@@ -1,9 +1,6 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
-import io.zipcoder.threedaystodeliver.humanresourceapp.Compensation;
-import io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo;
-import io.zipcoder.threedaystodeliver.humanresourceapp.Person;
-import io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress;
+import io.zipcoder.threedaystodeliver.humanresourceapp.*;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -22,6 +19,8 @@ public abstract class Menu {
     public Menu(Enum[] menuOptions) {
         this.menuOptions = menuOptions;
     }
+
+    public PersonWarehouse personWarehouse = PersonWarehouse.getInstance();
 
     abstract public void selectOption(String userInput);
 
