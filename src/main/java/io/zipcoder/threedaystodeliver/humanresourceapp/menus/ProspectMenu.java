@@ -194,7 +194,7 @@ public class ProspectMenu extends Menu{
                     System.out.println("Please enter new phone number");
                     String newPhone = this.getUserInput();
                     currentPerson.getContactInfo().setPhone(newPhone);
-                    System.out.println("The new ID is ["+currentPerson.getContactInfo().getPhone()+"].");
+                    System.out.println("The new phone number is ["+currentPerson.getContactInfo().getPhone()+"].");
                     break;
                 case "hire":
 
