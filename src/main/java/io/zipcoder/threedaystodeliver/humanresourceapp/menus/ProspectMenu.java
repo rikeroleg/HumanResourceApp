@@ -206,7 +206,7 @@ public class ProspectMenu extends Menu{
                     System.out.println("The new ID is ["+currentPerson.getId()+"].");
                     break;
                 case "interview date":
-                    System.out.println("Please enter new interview date.");
+                    System.out.println("Please enter new interview date in YYYY-MM-DD format.");
                     LocalDate newIntDate = SanitizeTools.getEnforcedLocalDateInput();
                     currentPerson.setInterviewDate(newIntDate);
                     System.out.println("The new interview date is ["+currentPerson.getInterviewDate()+"].");
@@ -246,7 +246,9 @@ public class ProspectMenu extends Menu{
                 case "hire":
 
                     break;
+
                 case "back":
+                    currentPerson = null;
                     return;
             }
         } while (!"back".equalsIgnoreCase(input));
