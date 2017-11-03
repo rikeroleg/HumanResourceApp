@@ -59,6 +59,37 @@ public class Console {
         }
 
 
+
+    }
+
+    private static void updateExistingEmployee() {
+        String input;
+        do {
+            System.out.println("What do we need to change?\n");
+            System.out.println("1. [Contact Information]   2. [Job Title & Compensation]  \n" +
+                               "3. [Compensation]   4. [Finished Updating]");
+            System.out.print(": ");
+            input = getInput();
+        }while ( !("1".equals(input)) && !("2".equals(input)) && !("3".equals(input)) && !("4".equals(input)) );
+
+        switch (input) {
+            case "1":   {
+                            break;
+                        }
+            case "2":   {
+                            System.out.print("Enter new job title: ");
+                            currentPerson.setTitle(getInput());
+                        }
+            case "3":   {
+                            currentPerson.setCompensation(changeCompensation());
+                            break;
+                        }
+            case "4":   {
+                            break;
+                        }
+        }
+
+
     }
 
     private static void makeChangesToExistingProspect() {
@@ -98,6 +129,12 @@ public class Console {
         LocalDate inputHireDate = getDateInput();
         System.out.println("Enter job title: ");
         String inputJobTitle = getInput();
+        Compensation newCompensation = changeCompensation();
+        currentPerson = PersonHandler.hire(currentPerson, inputHireDate, inputJobTitle, newCompensation);
+
+    }
+
+    private static Compensation changeCompensation() {
         System.out.println("Enter paid Monthly/Hourly/Project: ");
         String inputPayType = getInput().toLowerCase();
         System.out.print("Enter salary: ");
@@ -157,39 +194,9 @@ public class Console {
         }
 
         newCompensation.setRetirementMatching(inputRetirementMatch);
-        currentPerson = PersonHandler.hire(currentPerson, inputHireDate, inputJobTitle, newCompensation);
-
+        return newCompensation;
     }
 
-    public static void addNewProspect() {
-        HrContactInfo requestedInfo = inputAllContactInfo();
-        Person newProspect = PersonHandler.createProspect(requestedInfo);
-        currentPerson = newProspect;
-    }
-
-    public static HrContactInfo inputAllContactInfo() {
-        System.out.print("Enter name: ");
-        String inputName = getInput();
-        System.out.print("Enter address line 1: ");
-        String inputAddressLine1 = getInput();
-        System.out.print("Enter address line 2: ");
-        String inputAddressLine2 = getInput();
-        System.out.print("Enter city: ");
-        String inputCity = getInput();
-        System.out.print("Enter state: ");
-        String inputState = getInput();
-        System.out.print("Enter zip code: ");
-        String inputZipCode = getInput();
-        System.out.print("Enter phone number: ");
-        String inputPhoneNumber = getInput();
-        System.out.print("Enter email address: ");
-        String inputEmailAddress = getInput();
-
-        StreetAddress newStreetAddress = new StreetAddress(inputAddressLine1, inputAddressLine2, inputCity, inputState, inputZipCode);
-        HrContactInfo newHrContactInfo = new HrContactInfo(inputName, newStreetAddress, inputPhoneNumber, inputEmailAddress);
-
-        return newHrContactInfo;
-    }
 
 
     public static Person getPersonById() {
@@ -245,23 +252,6 @@ public class Console {
 
 
 
-
-    public static String getInput(){
-
-        String input=scanner.nextLine();
-
-        return input;
-        }
-
-
-    public static LocalDate getDateInput() {
-
-        String dateInput = scanner.nextLine();
-
-        LocalDate date = LocalDate.parse(dateInput);
-
-        return date;
-    }
 
     public String printingAllPeople() {
 
