@@ -25,5 +25,6 @@ public class IncidentReportWarehouse {
 
     public static ArrayList<IncidentReport> getAllIncidents() {
         return allIncidents;
+
     }
 }

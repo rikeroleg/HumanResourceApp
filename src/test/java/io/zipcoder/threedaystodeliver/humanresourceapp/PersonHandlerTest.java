@@ -187,7 +187,7 @@ public class PersonHandlerTest {
         Assert.assertEquals(newBonus, employee.getCompensation().getBonus(), 0.001);
         Assert.assertEquals(newPTO, employee.getCompensation().getPtoMaxPerYear(), 0.001);
     }
-    
+
 
 }
 */
