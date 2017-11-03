@@ -1,4 +1,4 @@
-package io.zipcoder.threedaystodeliver.humanresourceapp;
+package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
 import java.util.Scanner;
 

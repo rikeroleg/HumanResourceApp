@@ -2,6 +2,7 @@ package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Scanner;
 
 /**
  * Created by leon on 10/24/17.
@@ -29,7 +30,7 @@ public abstract class Menu {
             } catch (NullPointerException npe) {
                 handleNullPointerException(npe);
             }
-        } while (!"Exit".equalsIgnoreCase(userInput));
+        } while (!"Home".equalsIgnoreCase(userInput));
     }
 
     private void handleIllegalArgumentException(String illegalArgument, IllegalArgumentException iae) {
@@ -45,12 +46,13 @@ public abstract class Menu {
     }
 
     public String getUserInput() {
+        Scanner scanner = new Scanner(System.in);
         System.out.printf("===== %s =====", getClass().getSimpleName());
         System.out.println("Select option:");
         for (Enum e : menuOptions) {
             System.out.printf("[ %s ] ", e.name());
         }
-        return Input.getStringInput();
+        return scanner.nextLine();
     }
 }
 

@@ -160,35 +160,6 @@ public class Console {
 
     }
 
-    public static void addNewProspect() {
-        HrContactInfo requestedInfo = inputAllContactInfo();
-        Person newProspect = PersonHandler.createProspect(requestedInfo);
-        currentPerson = newProspect;
-    }
-
-    public static HrContactInfo inputAllContactInfo() {
-        System.out.print("Enter name: ");
-        String inputName = getInput();
-        System.out.print("Enter address line 1: ");
-        String inputAddressLine1 = getInput();
-        System.out.print("Enter address line 2: ");
-        String inputAddressLine2 = getInput();
-        System.out.print("Enter city: ");
-        String inputCity = getInput();
-        System.out.print("Enter state: ");
-        String inputState = getInput();
-        System.out.print("Enter zip code: ");
-        String inputZipCode = getInput();
-        System.out.print("Enter phone number: ");
-        String inputPhoneNumber = getInput();
-        System.out.print("Enter email address: ");
-        String inputEmailAddress = getInput();
-
-        StreetAddress newStreetAddress = new StreetAddress(inputAddressLine1, inputAddressLine2, inputCity, inputState, inputZipCode);
-        HrContactInfo newHrContactInfo = new HrContactInfo(inputName, newStreetAddress, inputPhoneNumber, inputEmailAddress);
-
-        return newHrContactInfo;
-    }
 
 
     public static Person getPersonById() {
@@ -244,23 +215,6 @@ public class Console {
 
 
 
-
-    public static String getInput(){
-
-        String input=scanner.nextLine();
-
-        return input;
-        }
-
-
-    public static LocalDate getDateInput() {
-
-        String dateInput = scanner.nextLine();
-
-        LocalDate date = LocalDate.parse(dateInput);
-
-        return date;
-    }
 
     public String printingAllPeople() {
 
