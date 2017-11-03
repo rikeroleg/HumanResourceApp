@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 public class ProspectMenu extends Menu{
 
-    enum ProspectSelectionOptions { ADD, UPDATE, HOME, EXIT}
+    enum ProspectSelectionOptions { ADD, UPDATE, CLEAR, HOME, EXIT}
 
     public static final ProspectMenu INSTANCE = new ProspectMenu();
 
@@ -53,6 +53,9 @@ public class ProspectMenu extends Menu{
                 break;
             case UPDATE:
                 updateProspect();
+                break;
+            case CLEAR:
+                currentPerson = null;
                 break;
             case HOME:
                 return;
@@ -248,7 +251,6 @@ public class ProspectMenu extends Menu{
                     break;
 
                 case "back":
-                    currentPerson = null;
                     return;
             }
         } while (!"back".equalsIgnoreCase(input));
