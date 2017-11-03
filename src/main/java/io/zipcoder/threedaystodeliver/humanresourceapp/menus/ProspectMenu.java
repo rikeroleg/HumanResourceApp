@@ -7,7 +7,7 @@ import io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress;
 
 public class ProspectMenu extends Menu{
 
-    enum ProspectSelectionOptions { ADD, UPDATE, VIEW, HOME, EXIT}
+    enum ProspectSelectionOptions { ADD, UPDATE, HOME, EXIT}
 
     public static final ProspectMenu INSTANCE = new ProspectMenu();
 
@@ -19,15 +19,13 @@ public class ProspectMenu extends Menu{
 
     @Override
     public void selectOption(String userInput) {
+        System.out.println("Selected prospect"+currentPerson.getContactInfo().getName());
         switch (ProspectSelectionOptions.valueOf(userInput)){
             case ADD:
                 addNewProspect();
                 break;
             case UPDATE:
-                //
-                break;
-            case VIEW:
-                //view all
+                updateProspect();
                 break;
             case HOME:
                 return;
@@ -39,18 +37,19 @@ public class ProspectMenu extends Menu{
 
     private void addNewProspect(){
         createAndSetActiveNewProspect();
-        System.out.println("New prospect, "+currentPerson.getContactInfo().getName()+", added with ID: "+
+        addResume();
+        addScore();
+    }
+
+    private void createAndSetActiveNewProspect() {
+        HrContactInfo requestedInfo = this.inputAllContactInfo();
+        Person newProspect = PersonHandler.createProspect(requestedInfo);
+        currentPerson = newProspect;
+        System.out.println("New prospect, " + currentPerson.getContactInfo().getName() + ", added with ID: " +
                 currentPerson.getId()+".");
+    }
 
-        System.out.println("Please add resume. Enter [Skip] to add one later.");
-        String resume = this.getUserInput();
-        if (!"skip".equalsIgnoreCase(resume)){
-        currentPerson.setResume(resume);
-        System.out.println("Resume added");
-        } else {
-            System.out.println("Resume addition skipped.");
-        }
-
+    private void addScore() {
         System.out.println("Please update prospect score. Enter [Add] to do so now or [Skip] to do so later.");
         String input = this.getUserInput();
         if(!"skip".equalsIgnoreCase(input)) {
@@ -62,44 +61,34 @@ public class ProspectMenu extends Menu{
         }
     }
 
-    private void createAndSetActiveNewProspect() {
-        HrContactInfo requestedInfo = inputAllContactInfo();
-        Person newProspect = PersonHandler.createProspect(requestedInfo);
-        currentPerson = newProspect;
+    private void addResume() {
+        System.out.println("Please add resume. Enter [Skip] to add one later.");
+        String resume = this.getUserInput();
+        if (!"skip".equalsIgnoreCase(resume)){
+        currentPerson.setResume(resume);
+        System.out.println("Resume added");
+        } else {
+            System.out.println("Resume addition skipped.");
+        }
     }
 
-    private HrContactInfo inputAllContactInfo() {
-        System.out.print("Enter name: ");
-        String inputName = this.getUserInput();
-        System.out.print("Enter address line 1: ");
-        String inputAddressLine1 = this.getUserInput();
-        System.out.print("Enter address line 2: ");
-        String inputAddressLine2 = this.getUserInput();
-        System.out.print("Enter city: ");
-        String inputCity = this.getUserInput();
-        System.out.print("Enter state: ");
-        String inputState = this.getUserInput();
-        System.out.print("Enter zip code: ");
-        String inputZipCode = this.getUserInput();
-        System.out.print("Enter phone number: ");
-        String inputPhoneNumber = this.getUserInput();
-        System.out.print("Enter email address: ");
-        String inputEmailAddress = this.getUserInput();
-
-        StreetAddress newStreetAddress = new StreetAddress(inputAddressLine1, inputAddressLine2, inputCity, inputState, inputZipCode);
-        HrContactInfo newHrContactInfo = new HrContactInfo(inputName, newStreetAddress, inputPhoneNumber, inputEmailAddress);
-
-        return newHrContactInfo;
+    private void updateProspect(){
+        if (currentPerson == null) {
+            setActiveProspect();
+        }
+        updateProspectField();
     }
 
-//    private void employeeMenu() {
-//        ProspectMenu employeeMenu = new ProspectMenu();
-//        employeeMenu.display();
-//    }
-//
-//    private void reportingMenu() {
-//        ReportingMenu reportingMenu = new ReportingMenu();
-//        reportingMenu.display();
-//    }
+    private void setActiveProspect() {
+        String input = "";
+        do {
+            System.out.println("Find by [ID] or [Name]?");
+            input = this.getUserInput();
+        } while (!"cancel".equalsIgnoreCase(input));
+    }
+
+    private void updateProspectField() {
+
+    }
 
 }
