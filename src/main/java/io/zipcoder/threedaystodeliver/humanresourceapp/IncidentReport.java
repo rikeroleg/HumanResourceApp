@@ -15,13 +15,14 @@ public class IncidentReport {
     private ArrayList<String> description = new ArrayList<>(10);
     private int id;
     private static int nextId = 1;
+    private static IncidentReportWarehouse warehouse = IncidentReportWarehouse.getInstance();
 
     public IncidentReport(IncidentCategory category, String initialDescription) {
         incidentCategory = category;
         description.add(initialDescription);
         id = nextId;
         nextId++;
-        IncidentReportWarehouse.addIncident(this);
+        warehouse.addIncident(this);
     }
 
     public ArrayList<Person> getPersonsInvolved() {
@@ -57,4 +58,5 @@ public class IncidentReport {
     public void updateIncidentReport(String nextDescription) {
         description.add(nextDescription);
     }
+
 }
