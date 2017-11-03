@@ -41,9 +41,9 @@ public class Compensation {
             formattedEmployeeData += "hour";
         }
 
-        formattedEmployeeData += String.format("\nBONUS: %.2f%", bonus);
-        formattedEmployeeData += String.format("\n401k MATCH: %f%", retirementMatching);
-        formattedEmployeeData += String.format("\nPTO: %f hours remaining out of %f max per year", ptoRemaining, ptoMaxPerYear);
+        formattedEmployeeData += String.format("\nBONUS: %.1f%%", bonus);
+        formattedEmployeeData += String.format("\n401k MATCH: %.1f%%", retirementMatching);
+        formattedEmployeeData += String.format("\nPTO: %.1f hours remaining out of %.1f max per year", ptoRemaining, ptoMaxPerYear);
         formattedEmployeeData += String.format("\nMEDICAL BENEFITS: MEDICAL: %s PRESCRIPTION: %s DENTAL: %s VISION: %s", formatBooleanYOrN(medical), formatBooleanYOrN(prescription), formatBooleanYOrN(dental), formatBooleanYOrN(vision));
 
         return formattedEmployeeData;

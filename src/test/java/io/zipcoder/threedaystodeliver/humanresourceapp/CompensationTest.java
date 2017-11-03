@@ -123,5 +123,22 @@ public class CompensationTest {
 
     }
 
+    @Test
+    public void toStringTest() {
+        compensation.setPayrate(4000);
+        compensation.setCompensationType(Compensation.compensationType.Monthly);
+        compensation.setBonus(5);
+        compensation.setRetirementMatching(3);
+        compensation.setPtoMaxPerYear(180);
+        compensation.setUsePTO(40);
+        compensation.setMedical(true);
+        compensation.setPrescription(true);
+        compensation.setDental(false);
+        compensation.setVision(false);
+        compensation.getPtoRemaining();
+
+        System.out.println(compensation);
+    }
+
 
 }
