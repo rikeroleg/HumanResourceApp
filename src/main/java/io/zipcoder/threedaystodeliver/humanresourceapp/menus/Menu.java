@@ -107,7 +107,7 @@ public abstract class Menu {
             else
             {
                 do {
-                    System.out.println("Multiple matches for \"" + name + ". Choose ID from choices below:\n");
+                    System.out.println("Multiple matches for " + name + ". Choose ID from choices below:\n");
                     for (Person p : matchList) {
                         System.out.println(p.toString());
                     }
