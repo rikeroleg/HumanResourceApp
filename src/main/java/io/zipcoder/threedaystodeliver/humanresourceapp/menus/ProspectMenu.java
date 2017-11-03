@@ -135,54 +135,6 @@ public class ProspectMenu extends Menu{
         }
     }
 
-    private Person getPersonByName(){
-        Scanner in = new Scanner(System.in);
-        Person match=null;
-        do {
-            System.out.println("Enter Name: ");
-            String name = in.nextLine();
-            ArrayList<Person> matchList = personWarehouse.getPersonByName(name);
-            if (matchList.size()==0) {
-                System.out.println("Invalid Name. Choices: \n");
-                System.out.println(personWarehouse.getAllPeople());
-            }
-            else if (matchList.size()==1){
-                match=matchList.get(0);
-            }
-                else
-                {
-                    do {
-                        System.out.println("Multiple matches for \"" + name + ". Choose ID from choices below:\n");
-                        for (Person p : matchList) {
-                            System.out.println(p.toString());
-                        }
-                        match = getPersonById();
-                        if (!name.equalsIgnoreCase(match.getContactInfo().getName())) {
-                            System.out.println("That ID doesn't match any person named " + name);
-                        }
-                    }while (!name.equalsIgnoreCase(match.getContactInfo().getName()) );
-                }
-
-        }while (match==null);
-        return match;
-
-    }
-
-    private Person getPersonById(){
-        Scanner in = new Scanner(System.in);
-        Person match=null;
-        do {
-            System.out.println("Enter ID: ");
-            String id = in.nextLine();
-            match = personWarehouse.getPersonById(id);
-            if (match == null) {
-                System.out.println("Invalid ID. Choices: \n");
-                System.out.println(personWarehouse.getAllPeople());
-            }
-        }while (match==null);
-        return match;
-    }
-
     private void updateProspectField() {
         String input;
         do {
