@@ -1,6 +1,6 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
-class HrContactInfo {
+public class HrContactInfo {
 
     String name = "";
     StreetAddress streetAddress = new StreetAddress();
