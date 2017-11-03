@@ -1,6 +1,6 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp;
 
-class StreetAddress{
+public class StreetAddress{
 
   String addressLine1 = "";
   String addressLine2 = "";

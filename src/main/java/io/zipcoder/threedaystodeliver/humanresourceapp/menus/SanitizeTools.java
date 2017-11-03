@@ -1,8 +1,9 @@
-package io.zipcoder.threedaystodeliver.humanresourceapp;
+package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
 import java.util.Scanner;
 
-public class SanitizeTools {
+public class SanitizeTools
+{
 
     public static double getEnforcedDoubleInput(){
         Scanner in = new Scanner(System.in);
