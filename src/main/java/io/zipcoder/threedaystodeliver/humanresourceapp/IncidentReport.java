@@ -42,11 +42,12 @@ public class IncidentReport {
 
     public void addPersonToIncidentReport(Person person) {
         personsInvolved.add(person);
-
+        person.addIncidentReport(this);
     }
 
     public void removePersonFromIncidentReport(Person person) {
         personsInvolved.remove(person);
+        person.removeIncidentReport(this);
     }
 
     public void updateIncidentReport(IncidentCategory category) {

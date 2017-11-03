@@ -156,4 +156,8 @@ public class Person {
     public void addIncidentReport(IncidentReport incidentReport) {
         incidentReports.add(incidentReport);
     }
+
+    public void removeIncidentReport(IncidentReport incidentReport) {
+        incidentReports.remove(incidentReport);
+    }
 }
