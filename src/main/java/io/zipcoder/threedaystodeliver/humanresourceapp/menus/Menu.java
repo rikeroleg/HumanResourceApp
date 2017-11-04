@@ -7,6 +7,9 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static io.zipcoder.threedaystodeliver.humanresourceapp.menus.SanitizeTools.getEnforcedCompensationType;
+import static io.zipcoder.threedaystodeliver.humanresourceapp.menus.SanitizeTools.getEnforcedDoubleInput;
+
 /**
  * Created by leon on 10/24/17.
  * Yup, totally stole most of this from Leon, he makes good stuff.
@@ -140,13 +143,13 @@ public abstract class Menu {
 
     protected Compensation changeCompensation() {
         System.out.println("Enter paid Monthly/Hourly/Project: ");
-        String inputPayType = getUserInput().toLowerCase();
+        Compensation.compensationType inputPayType = getEnforcedCompensationType();
         System.out.print("Enter salary: ");
-        double inputSalary = Double.parseDouble(getUserInput());
+        double inputSalary = getEnforcedDoubleInput();
         System.out.print("Enter bonus: ");
-        double inputBonus = Double.parseDouble(getUserInput());
+        double inputBonus = getEnforcedDoubleInput();
         System.out.print("Enter PTO for the year: ");
-        double inputPTO = Double.parseDouble(getUserInput());
+        double inputPTO = getEnforcedDoubleInput();
         System.out.print("Opt in to medical coverage? y/n: ");
         String inputMedical = getUserInput();
         System.out.print("Opt in to dental coverage? y/n: ");
@@ -156,17 +159,10 @@ public abstract class Menu {
         System.out.print("Opt in to prescription coverage? y/n: ");
         String inputPrescription = getUserInput();
         System.out.print("Enter retirement match %: ");
-        double inputRetirementMatch = Double.parseDouble(getUserInput());
+        double inputRetirementMatch = getEnforcedDoubleInput();
 
         Compensation newCompensation = new Compensation();
-        switch (inputPayType) {
-            case "monthly":
-                newCompensation.setTypeAndAmount(Compensation.compensationType.Monthly, inputSalary);
-                break;
-            case "hourly":
-                newCompensation.setTypeAndAmount(Compensation.compensationType.Hourly, inputSalary);
-                break;
-        }
+        newCompensation.setTypeAndAmount(inputPayType, inputSalary);
         newCompensation.setBonus(inputBonus);
         newCompensation.setPtoMaxPerYear(inputPTO);
         if("y".equals(inputMedical)) {

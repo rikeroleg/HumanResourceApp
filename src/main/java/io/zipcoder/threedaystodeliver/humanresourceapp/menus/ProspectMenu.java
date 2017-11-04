@@ -1,15 +1,13 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
-import io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo;
+import io.zipcoder.threedaystodeliver.humanresourceapp.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import io.zipcoder.threedaystodeliver.humanresourceapp.Person;
-import io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler;
-import io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouse;
-import io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress;
 
 import java.time.LocalDate;
+
+import static io.zipcoder.threedaystodeliver.humanresourceapp.menus.SanitizeTools.getEnforcedLocalDateInput;
 
 public class ProspectMenu extends Menu{
 
@@ -161,7 +159,7 @@ public class ProspectMenu extends Menu{
                     break;
                 case "interview date":
                     System.out.println("Please enter new interview date in YYYY-MM-DD format.");
-                    LocalDate newIntDate = SanitizeTools.getEnforcedLocalDateInput();
+                    LocalDate newIntDate = getEnforcedLocalDateInput();
                     currentPerson.setInterviewDate(newIntDate);
                     System.out.println("The new interview date is ["+currentPerson.getInterviewDate()+"].");
                     break;
@@ -198,13 +196,28 @@ public class ProspectMenu extends Menu{
                     System.out.println("The new phone number is ["+currentPerson.getContactInfo().getPhone()+"].");
                     break;
                 case "hire":
-
+                    hireEmployee();
+                    System.out.println("Hired: \n"+currentPerson.toString());
+                    input = "back";
                     break;
 
                 case "back":
                     return;
             }
         } while (!"back".equalsIgnoreCase(input));
+    }
+
+    public void hireEmployee() {
+        inputNewEmployeeInfo();
+    }
+
+    public void inputNewEmployeeInfo() {
+        System.out.print("Enter hire date (yyyy-mm-dd): ");
+        LocalDate inputHireDate = getEnforcedLocalDateInput();
+        System.out.println("Enter job title: ");
+        String inputJobTitle = this.getUserInput();
+        Compensation newCompensation = changeCompensation();
+        currentPerson = PersonHandler.hire(currentPerson, inputHireDate, inputJobTitle, newCompensation);
     }
 
 }
