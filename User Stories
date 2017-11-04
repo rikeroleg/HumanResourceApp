@@ -192,3 +192,159 @@ Batch updates (all previous methods applied to an arraylist)
 
 
 
+Main menu       -> displays:  ===== MainMenu =====
+                              Select option:
+                              [ PROSPECT ] [ EMPLOYEE ] [ REPORTING ] [ EXIT ]
+
+input prospect  -> displays:  No prospect selected
+                              ===== ProspectMenu =====
+                              Select option:
+                              [ ADD ] [ UPDATE ] [ CLEAR ] [ HOME ] [ EXIT ]
+
+input add       -> displays: Enter name: Katherine
+                             Enter address line 1: 999 mecine
+                             Enter address line 2: mcew
+                             Enter city: ecionw
+                             Enter state: os
+                             Enter zip code: 19292
+                             Enter phone number: 04097134
+                             Enter email address: dniwubx
+                             New prospect, Katherine, added with ID: 00000.
+                             Please add resume. Enter [Skip] to add one later.
+
+input resume    -> displays: Resume added
+                             Please update prospect score. Enter [Add] to do so now or [Skip] to do so later.
+
+input add       -> displays: Please enter score:
+
+input 80        -> displays: Selected prospect: Katherine
+                             ===== ProspectMenu =====
+                             Select option:
+                             [ ADD ] [ UPDATE ] [ CLEAR ] [ HOME ] [ EXIT ]
+
+input add       -> displays: Enter name: Phillip
+                             Enter address line 1: wcnoix
+                             Enter address line 2: wimx2
+                             Enter city: mceiwd3
+                             Enter state: meioc3
+                             Enter zip code: ieo192
+                             Enter phone number: 3283141
+                             Enter email address: cenwcuew
+                             New prospect, Phillip, added with ID: 00001.
+                             Please add resume. Enter [Skip] to add one later.
+
+input skip      -> displays: Resume addition skipped.
+                             Please update prospect score. Enter [Add] to do so now or [Skip] to do so later.
+
+input skip      -> displays: Score update skipped.
+                             Selected prospect: Phillip
+                             ===== ProspectMenu =====
+                             Select option:
+                             [ ADD ] [ UPDATE ] [ CLEAR ] [ HOME ] [ EXIT ]
+
+input update    -> displays: Pick [back] to return to the prospect menu.
+                             Selected:
+                             Phillip
+                             3283141
+                             cenwcuew
+                             wcnoix
+                             wimx2
+                             mceiwd3 meioc3, ieo192
+
+                             Employee ID:  00001
+                             Title:
+                             Employment Status:  PROSPECT
+                             Entrance Interview Date:  null
+                             Resume Abstract:
+                             Hire Date:  null
+                             Termination Date:  null
+                             Reason For Termination:
+                             Exit Interview Notes:
+                             Employee Score:  0.0
+
+                             Phillip's Compensation:
+
+
+                              Please pick a field to update:
+
+                -> should display the field options to select from
+                            [ HIRE ] [ SCORE ] [ RESUME ] [ ID ] [ INTERVIEW DATE ] [ NAME ] [ ADDRESS ] [ PHONE ] [ EMAIL ]
+
+                            case "hire" is empty
+
+input interview date    -> displays: Please enter new interview date in YYYY-MM-DD format.
+
+input 2013-09-12        -> displays: The new interview date is [2013-09-12].
+                                     Pick [back] to return to the prospect menu.
+                                     Selected:
+                                     Phillip
+                                     3283141
+                                     cenwcuew
+                                     wcnoix
+                                     wimx2
+                                     mceiwd3 meioc3, ieo192
+
+                                     Employee ID:  00001
+                                     Title:
+                                     Employment Status:  PROSPECT
+                                     Entrance Interview Date:  2013-09-12
+                                     Resume Abstract:
+                                     Hire Date:  null
+                                     Termination Date:  null
+                                     Reason For Termination:
+                                     Exit Interview Notes:
+                                     Employee Score:  0.0
+
+                                     Phillip's Compensation:
+
+
+                                      Please pick a field to update:
+
+input email             -> displays: Please enter new email address.
+
+input hello@hello.com   -> displays: The new email is [hello@hello.com].
+                                     Pick [back] to return to the prospect menu.
+                                     Selected:
+                                     Phillip
+                                     3283141
+                                     hello@hello.com
+                                     wcnoix
+                                     wimx2
+                                     mceiwd3 meioc3, ieo192
+
+                                     Employee ID:  00001
+                                     Title:
+                                     Employment Status:  PROSPECT
+                                     Entrance Interview Date:  2013-09-12
+                                     Resume Abstract:
+                                     Hire Date:  null
+                                     Termination Date:  null
+                                     Reason For Termination:
+                                     Exit Interview Notes:
+                                     Employee Score:  0.0
+
+                                     Phillip's Compensation:
+
+
+                                      Please pick a field to update:
+
+input back              -> displays: Selected prospect: Phillip
+                                     ===== ProspectMenu =====
+                                     Select option:
+                                     [ ADD ] [ UPDATE ] [ CLEAR ] [ HOME ] [ EXIT ]
+
+input home              -> displays: ===== MainMenu =====
+                                     Select option:
+                                     [ PROSPECT ] [ EMPLOYEE ] [ REPORTING ] [ EXIT ]
+
+input reporting         -> displays: ===== ReportingMenu =====
+                                     Select option:
+                                     [ ALL ] [ PROSPECT ] [ EMPLOYEE ] [ HOME ] [ EXIT ]
+                         -> should display [ INCIDENTS ] as well, then under incidents can add a new incident
+
+input all               -> displays: ===== ReportingMenu =====
+                                     Select option:
+                                     [ ALL ] [ PROSPECT ] [ EMPLOYEE ] [ HOME ] [ EXIT ]
+                         -> should display a report of all persons
+
+after terminate employee it should go back

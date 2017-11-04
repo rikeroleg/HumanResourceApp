@@ -136,8 +136,9 @@ public class ProspectMenu extends Menu{
     private void updateProspectField() {
         String input;
         do {
-            System.out.println("Pick [back] to return to the prospect menu.");
+            System.out.println("Pick [ BACK ] to return to the prospect menu.");
             System.out.println("Selected: \n"+currentPerson.toString()+"\n Please pick a field to update: ");
+            System.out.println("[ HIRE ] [ SCORE ] [ RESUME ] [ ID ] [ INTERVIEW DATE ] [ NAME ] [ ADDRESS ] [ PHONE ] [ EMAIL ]");
             input = this.getUserInput().toLowerCase();
             switch(input) {
                 case "score":
