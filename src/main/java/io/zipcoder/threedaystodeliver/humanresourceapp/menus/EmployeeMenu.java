@@ -81,8 +81,8 @@ public class EmployeeMenu extends Menu{
         String input;
         do {
             System.out.println("Pick [back] to return to the employee menu.");
-            System.out.println("Selected: \n"+currentPerson+"\nPlease pick from the list of update options.\n" +
-                    "[ NAME ] [ EMAIL ] [ ADDRESS ] [ PHONE ] [ SCORE ] [ RESUME ] [ ID ] [ INTERVIEW DATE ] [ COMPENSATION ] \n\n" +
+            System.out.println("Selected: \n"+currentPerson+"\nPlease pick from the list of update options.\nEnter [ BACK ] when your updates are complete.\n" +
+                    "[ NAME ] [ EMAIL ] [ ADDRESS ] [ PHONE ] [ SCORE ] [ RESUME ] [ ID ] [ INTERVIEW DATE ] [ COMPENSATION ] \n" +
                     "To terminate employee, enter [ TERMINATE ]: ");
             input = this.getUserInput().toLowerCase();
             switch(input) {
