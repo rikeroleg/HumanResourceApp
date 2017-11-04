@@ -96,14 +96,6 @@ public class CompensationTest {
     }
 
     @Test
-    public void setAndGetRetirementTest() {
-        compensation.setRetirement(true);
-        boolean expected = true;
-        boolean actual = compensation.isRetirement();
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
     public void setAndGetRetirementMatching() {
         compensation.setRetirementMatching(0.6);
         double expected = 0.6;
@@ -129,6 +121,23 @@ public class CompensationTest {
         compensation.setBonus(4000);
         Assert.assertEquals(4000, compensation.getBonus(), 0.001);
 
+    }
+
+    @Test
+    public void toStringTest() {
+        compensation.setPayrate(4000);
+        compensation.setCompensationType(Compensation.compensationType.Monthly);
+        compensation.setBonus(5);
+        compensation.setRetirementMatching(3);
+        compensation.setPtoMaxPerYear(180);
+        compensation.setUsePTO(40);
+        compensation.setMedical(true);
+        compensation.setPrescription(true);
+        compensation.setDental(false);
+        compensation.setVision(false);
+        compensation.getPtoRemaining();
+
+        System.out.println(compensation);
     }
 
 
