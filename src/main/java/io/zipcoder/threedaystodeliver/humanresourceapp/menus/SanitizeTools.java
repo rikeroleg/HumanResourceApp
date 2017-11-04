@@ -1,7 +1,13 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
+import io.zipcoder.threedaystodeliver.humanresourceapp.Compensation;
+
 import java.time.LocalDate;
 import java.util.Scanner;
+
+import static io.zipcoder.threedaystodeliver.humanresourceapp.Compensation.compensationType.Hourly;
+import static io.zipcoder.threedaystodeliver.humanresourceapp.Compensation.compensationType.Monthly;
+import static io.zipcoder.threedaystodeliver.humanresourceapp.Compensation.compensationType.Project;
 
 public class SanitizeTools
 {
@@ -75,6 +81,34 @@ public class SanitizeTools
             return false;
         }
         return (true);
+    }
+
+    public static Compensation.compensationType getEnforcedCompensationType() {
+        Scanner in = new Scanner(System.in);
+        Compensation.compensationType compType;
+        String sInput;
+        do {
+            sInput = in.nextLine();
+            if (!isInputCompensationType(sInput)) {
+                System.out.println("Please enter " + Monthly + ", " + Hourly + ", or " + Project);
+            }
+        }while (!isInputCompensationType(sInput));
+
+        String lowerCase = sInput.toLowerCase();
+        if("monthly".equals(lowerCase)) {
+            return Monthly;
+        }
+        else if("hourly".equals(lowerCase)) {
+            return Hourly;
+        }
+        else {
+            return Project;
+        }
+    }
+
+    private static boolean isInputCompensationType(String passedString) {
+        String lowerCase = passedString.toLowerCase();
+        return ("monthly".equals(lowerCase) || "hourly".equals(lowerCase) || "project".equals(lowerCase));
     }
 
 
