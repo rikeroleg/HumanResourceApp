@@ -77,7 +77,7 @@ public abstract class Menu {
     public String getMenuInput() {
         Scanner scanner = new Scanner(System.in);
         System.out.printf("===== %s =====\n", getClass().getSimpleName());
-        System.out.println("Select option:");
+        System.out.println("Select option by typing your choice below:");
         for (Enum e : menuOptions) {
             System.out.printf("[ %s ] ", e.name());
         }
