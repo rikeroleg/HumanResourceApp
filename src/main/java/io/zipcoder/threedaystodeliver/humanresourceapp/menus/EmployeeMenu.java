@@ -46,8 +46,6 @@ public class EmployeeMenu extends Menu{
         }
     }
 
-    ////////
-
     private void updateEmployee(){
         if (personWarehouse.getAllEmployees().size()==0)
         {
@@ -63,7 +61,7 @@ public class EmployeeMenu extends Menu{
     }
 
     private void setActiveEmployee() {
-        String input = "";
+        String input;
         do {
             System.out.println("Find by [ID] or [Name]?");
             input = this.getUserInput();
@@ -222,7 +220,7 @@ public class EmployeeMenu extends Menu{
         Person newEmployee = PersonHandler.createEmployee(requestedInfo);
         currentPerson = newEmployee;
     }
-//
+
 //    private void prospectMenu() {
 //        ProspectMenu prospectMenu = new ProspectMenu();
 //        prospectMenu.display();

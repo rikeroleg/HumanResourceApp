@@ -128,7 +128,7 @@ public abstract class Menu {
 
     protected Person getPersonById(){
         Scanner in = new Scanner(System.in);
-        Person match=null;
+        Person match;
         do {
             System.out.println("Enter ID: ");
             String id = in.nextLine();
