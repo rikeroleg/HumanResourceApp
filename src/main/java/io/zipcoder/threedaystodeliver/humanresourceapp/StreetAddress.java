@@ -25,9 +25,9 @@ public class StreetAddress{
 
   @Override
   public String toString(){
-    String returnMe = "" + addressLine1 + "\n" +
+    String returnMe = "Address:\n" + addressLine1 + "\n" +
                            addressLine2 + "\n" +
-                           city + " " + state +", " + zip + "\n\n";
+                           city + ", " + state +", " + zip + "\n\n";
     return returnMe;
   }
 
