@@ -200,7 +200,6 @@ public class ProspectMenu extends Menu{
                     System.out.println("Hired: \n"+currentPerson.toString());
                     input = "back";
                     break;
-
                 case "back":
                     return;
             }
