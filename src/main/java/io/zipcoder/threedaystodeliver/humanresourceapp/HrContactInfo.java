@@ -23,7 +23,7 @@ public class HrContactInfo {
 
     @Override
     public String toString() {
-        return (name + "\n" + phone + "\n" + email + "\n" + streetAddress.toString());
+        return ("Name: "+name + "\n" +"Phone: "+ phone + "\n" +"Email: "+ email + "\n" + streetAddress.toString());
     }
 
 

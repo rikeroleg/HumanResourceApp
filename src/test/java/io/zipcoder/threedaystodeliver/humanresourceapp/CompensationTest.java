@@ -137,7 +137,13 @@ public class CompensationTest {
         compensation.setVision(false);
         compensation.getPtoRemaining();
 
-        System.out.println(compensation);
+        String output = "SALARY: $4000.00 per month\n" +
+                "BONUS: 5.0%\n" +
+                "401k MATCH: 3.0%\n" +
+                "PTO: 140.0 hours remaining out of 180.0 max per year\n" +
+                "MEDICAL BENEFITS: MEDICAL: Y PRESCRIPTION: Y DENTAL: N VISION: N";
+
+        Assert.assertEquals(output, compensation.toString());
     }
 
 
