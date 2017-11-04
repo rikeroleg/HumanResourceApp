@@ -9,8 +9,7 @@ import static io.zipcoder.threedaystodeliver.humanresourceapp.Compensation.compe
 import static io.zipcoder.threedaystodeliver.humanresourceapp.Compensation.compensationType.Monthly;
 import static io.zipcoder.threedaystodeliver.humanresourceapp.Compensation.compensationType.Project;
 
-public class SanitizeTools
-{
+public class SanitizeTools {
     public static LocalDate getEnforcedLocalDateInput(){
         Scanner in = new Scanner(System.in);
         LocalDate localDateInput;
