@@ -119,7 +119,7 @@ public class ProspectMenu extends Menu{
     }
 
     private void setActiveProspect() {
-        String input = "";
+        String input;
         do {
             System.out.println("Find by [ID] or [Name]?");
             input = this.getUserInput();
